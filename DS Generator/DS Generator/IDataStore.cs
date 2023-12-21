@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GeoAPI.Geometries;
-using static DataStore.Interface.SpatialFilter;
+﻿using System.Data;
 
 namespace DataStore.Interface
 {
