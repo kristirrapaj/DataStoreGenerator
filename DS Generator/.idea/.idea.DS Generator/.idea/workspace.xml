@@ -20,6 +20,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/74e6bafb63f34571885e75e1005c30842ba918/_33f06/IDbTransaction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/74e6bafb63f34571885e75e1005c30842ba918/_7990a/IDataReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e56d60cca3eeb4f654877b9f677e6deae63b3137e0461fd67722f13cdc87/DataSet.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -83,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1703153865835</updated>
       <workItem from="1703153867466" duration="446000" />
-      <workItem from="1703154332919" duration="3003000" />
+      <workItem from="1703154332919" duration="4141000" />
     </task>
     <servers />
   </component>
