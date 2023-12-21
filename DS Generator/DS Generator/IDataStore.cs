@@ -132,49 +132,6 @@ namespace DataStore.Interface
         /// </summary>
         void RollbackTransaction(bool editVersion = false);
 
-        /// <summary>
-        /// Esegue il comando indicato con parametri. Attenzione, lascia la connessione nello stato in cui è.
-        /// </summary>
-        /// <param name="cmdTxt"></param>
-        /// <param name="parameters"></param>
-        /// <param name="timeout"></param>
-        /// <param name="sqlTrans"></param>
-        int ExecuteCommand(string cmdTxt, STKeyValuePair[] parameters = null, int timeout = 0, IDbTransaction transaction = null);
-
-
-        /// <summary>
-        /// Esegue una store procedure con dei parametri
-        /// </summary>
-        /// <param name="spName"></param>
-        /// <param name="spParams"></param>
-        /// <returns></returns>
-        int ExecuteStoreProcedure(string spName, STKeyValuePair[] spParams = null);
-
-#warning Las3: Non deve essere esposta a classi al di fuori dei DataStore
-        //IDataReader ExecuteReader(string cmdTxt, STKeyValuePair[] parameters = null, int timeout = 0, IDbTransaction transaction = null, CommandBehavior cmdBehabior = CommandBehavior.Default);
-
-
-        /// <summary>
-        /// Riempie una tabella con la query indicata e la restituisce.
-        /// </summary>
-        /// <param name="cmdTxt"></param>
-        /// <param name="parameters"></param>
-        /// <param name="sqlTrans"></param>
-        /// <returns></returns>
-        DataTable GetTable(string cmdTxt, STKeyValuePair[] parameters = null, IDbTransaction transaction = null, int timeout = 0);
-
-        DataTable GetTableWithGeometriesFast(string cmdTxt, string shapeField, string shapePrefix, STKeyValuePair[] parameters = null, IDbTransaction transaction = null, int timeout = 0);
-
-        /// <summary>
-        /// Restituisce il valore della prima colonna della prima riga della query indicata.
-        /// </summary>
-        /// <param name="cmdTxt"></param>
-        /// <param name="parameters"></param>
-        /// <param name="sqlTrans"></param>
-        /// <returns></returns>
-        object ExecuteScalar(string cmdTxt, STKeyValuePair[] parameters = null, IDbTransaction transaction = null, int timeout = 0);
-
-        IDataReader ExecuteReader(string cmdTxt, STKeyValuePair[] parameters = null, int timeout = 0, System.Data.IDbTransaction transaction = null, CommandBehavior cmdBehavior = CommandBehavior.Default);
 
 #warning Las3: dobbiamo deprecarla in favore di Save
         /// <summary>
@@ -247,40 +204,6 @@ namespace DataStore.Interface
         /// <param name="pageSize"></param>
         /// <returns></returns>
         string GetPagedQuery(string query, string sortColumn, int pageIndex, int pageSize);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="spOperator"></param>
-        /// <param name="shapeFieldLeft"></param>
-        /// <param name="shapeFieldRight"></param>
-        /// <returns></returns>
-        string GetSpatialJoin(SpatialOperationEnum spOperator, string shapeFieldLeft, string shapeFieldRight, double? distance = null);
-
-        string GetSpatialFilter(IList<SpatialFilter> spFilters, string shapeFieldAlias = null);
-
-        /// <summary>
-        /// Restituisce la clausola per i filtri spaziali indicati.
-        /// </summary>
-        /// <param name="spFilters"></param>
-        /// <returns></returns>
-        string GetSpatialFilter(IList<SpatialFilter> spFilters, ref string spSortExpr, string shapeFieldAlias = null);
-
-        string GetSpatialOperator(SpatialOperator spOperatore, string field, double? tolerance = null, string field2 = null);
-
-        /// <summary>
-        /// Restituisce la condizione spaziale da verificare indicata.
-        /// </summary>
-        /// <returns></returns>
-        string GetSpatialCondition(SpatialCondition condition, string field);
-
-        /// <summary>
-        /// Restituisce una IGeometry a partire da dbGeometry.
-        /// </summary>
-        /// <param name="dbGeometry"></param>
-        /// <param name="ignoreGeometryErrors">Indica se ignorere eventuali errori durante la costruzione della geometria.</param>
-        /// <returns></returns>
-        IGeometry GetGeometry(object dbGeometry, bool ignoreGeometryErrors = false);
 
         /// <summary>
         /// Restituisce l'eventuale errore che si è verificato durante l'ultima chiamata a GetGeometry
@@ -670,14 +593,6 @@ namespace DataStore.Interface
         /// <param name="component"></param>
         /// <returns></returns>
         string GetEnvelopeComponentScript(EnvelopeComponentEnum component, string shapeField = null, string shapePrefix = null);
-
-        /// <summary>
-        /// Restituisce l'extent di una tabella con campo spaziale
-        /// </summary>
-        /// <param name="tableName"></param>
-        /// <param name="geometryField"></param>
-        /// <returns></returns>
-        Envelope GetTableExtent(string tableName, string geometryField = null, string textFilter = null);
 
         /// <summary>
         /// Restituisce i metadati di una tabella
