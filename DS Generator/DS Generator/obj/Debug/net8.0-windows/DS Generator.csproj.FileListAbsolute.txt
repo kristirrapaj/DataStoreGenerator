@@ -1,0 +1,41 @@
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DS Generator.exe
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DS Generator.deps.json
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DS Generator.runtimeconfig.json
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DS Generator.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DS Generator.pdb
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DataStore.Base.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DataStore.Interface.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DataStore.SQLServer.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\GridConfig.Interface.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\GeoAPI.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\Infrastructure.Utils.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\Infrastructure.STLogging.Factory.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\Infrastructure.STLogging.Interface.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\NetTopologySuite.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\Microsoft.SqlServer.Types.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\InfrastructureData.DTO.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\System.Drawing.Common.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\Infrastructure.STLogging.Log4Net.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\NetTopologySuite.IO.SqlServerBytes.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DataStore.Base.pdb
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\DataStore.SQLServer.pdb
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\GridConfig.Interface.pdb
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\bin\Debug\net8.0-windows\Microsoft.SqlServer.Types.pdb
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.csproj.AssemblyReference.cache
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator_MarkupCompile.cache
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.g.resources
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.AssemblyInfoInputs.cache
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.AssemblyInfo.cs
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.csproj.CoreCompileInputs.cache
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.sourcelink.json
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.csproj.CopyComplete
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\refint\DS Generator.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.pdb
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator.genruntimeconfig.cache
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\ref\DS Generator.dll
+C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\obj\Debug\net8.0-windows\DS Generator_MarkupCompile.lref

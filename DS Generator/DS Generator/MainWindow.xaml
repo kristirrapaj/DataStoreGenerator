@@ -3,7 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dsGenerator="clr-namespace:DS_Generator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid />
+    <Grid>
+        <ComboBox x:Name="TuMa" Height = "20" Width = "100" HorizontalAlignment = "Left" Margin = "116,77,0,212" ItemsSource="{Binding dataBaseNames}" SelectedIndex="0" /> 
+        </ComboBox> 
+        <Button x:Name="Button" Content="Click" Click="TestButton" Width="100" Height="50"></Button>
+    </Grid>
 </Window>

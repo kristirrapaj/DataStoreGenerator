@@ -1,0 +1,211 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "DS Generator/1.0.0": {
+        "dependencies": {
+          "DataStore.Base": "1.0.9.0",
+          "DataStore.Interface": "1.0.8.0",
+          "DataStore.SQLServer": "1.0.6.0",
+          "GridConfig.Interface": "1.0.0.0"
+        },
+        "runtime": {
+          "DS Generator.dll": {}
+        }
+      },
+      "DataStore.Base/1.0.9.0": {
+        "runtime": {
+          "DataStore.Base.dll": {
+            "assemblyVersion": "1.0.9.0",
+            "fileVersion": "1.0.9.0"
+          }
+        }
+      },
+      "DataStore.Interface/1.0.8.0": {
+        "runtime": {
+          "DataStore.Interface.dll": {
+            "assemblyVersion": "1.0.8.0",
+            "fileVersion": "1.0.8.0"
+          }
+        }
+      },
+      "DataStore.SQLServer/1.0.6.0": {
+        "runtime": {
+          "DataStore.SQLServer.dll": {
+            "assemblyVersion": "1.0.6.0",
+            "fileVersion": "1.0.6.0"
+          }
+        }
+      },
+      "GridConfig.Interface/1.0.0.0": {
+        "runtime": {
+          "GridConfig.Interface.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "GeoAPI/1.7.5.0": {
+        "runtime": {
+          "GeoAPI.dll": {
+            "assemblyVersion": "1.7.5.0",
+            "fileVersion": "1.7.5.0"
+          }
+        }
+      },
+      "Infrastructure.Utils/1.0.4.0": {
+        "runtime": {
+          "Infrastructure.Utils.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
+          }
+        }
+      },
+      "Infrastructure.STLogging.Factory/1.0.8.0": {
+        "runtime": {
+          "Infrastructure.STLogging.Factory.dll": {
+            "assemblyVersion": "1.0.8.0",
+            "fileVersion": "1.0.8.0"
+          }
+        }
+      },
+      "Infrastructure.STLogging.Interface/1.0.2.0": {
+        "runtime": {
+          "Infrastructure.STLogging.Interface.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "NetTopologySuite/1.15.3.0": {
+        "runtime": {
+          "NetTopologySuite.dll": {
+            "assemblyVersion": "1.15.3.0",
+            "fileVersion": "1.15.3.0"
+          }
+        }
+      },
+      "Microsoft.SqlServer.Types/1.0.0.0": {
+        "runtime": {
+          "Microsoft.SqlServer.Types.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "InfrastructureData.DTO/1.0.2.0": {
+        "runtime": {
+          "InfrastructureData.DTO.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "System.Drawing.Common/6.0.0.0": {
+        "runtime": {
+          "System.Drawing.Common.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "Infrastructure.STLogging.Log4Net/1.0.2.0": {
+        "runtime": {
+          "Infrastructure.STLogging.Log4Net.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "NetTopologySuite.IO.SqlServerBytes/1.0.0.0": {
+        "runtime": {
+          "NetTopologySuite.IO.SqlServerBytes.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.15.1.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "DS Generator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataStore.Base/1.0.9.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataStore.Interface/1.0.8.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataStore.SQLServer/1.0.6.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GridConfig.Interface/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GeoAPI/1.7.5.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infrastructure.Utils/1.0.4.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infrastructure.STLogging.Factory/1.0.8.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infrastructure.STLogging.Interface/1.0.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NetTopologySuite/1.15.3.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.SqlServer.Types/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "InfrastructureData.DTO/1.0.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Drawing.Common/6.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infrastructure.STLogging.Log4Net/1.0.2.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NetTopologySuite.IO.SqlServerBytes/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

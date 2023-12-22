@@ -16,8 +16,16 @@ namespace DS_Generator;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private static string folderPath = @"C:\Users\K.Rrapaj\Desktop\DataBaseConfig";
+    public List<string> dataBaseNames = new List<string>();
     public MainWindow()
     {
         InitializeComponent();
+        
+    }
+    private void TestButton(object sender, RoutedEventArgs e)
+    {
+        DatabaseManager databaseManager = new DatabaseManager(folderPath);
+        dataBaseNames = databaseManager.DataBaseNames;
     }
 }
