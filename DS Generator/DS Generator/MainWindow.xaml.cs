@@ -1,13 +1,5 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DS_Generator;
 
@@ -17,15 +9,32 @@ namespace DS_Generator;
 public partial class MainWindow : Window
 {
     private static string folderPath = @"C:\Users\K.Rrapaj\Desktop\DataBaseConfig";
-    public List<string> dataBaseNames = new List<string>();
+    public List<string> DataBaseNames { get; set; } = new List<string>();
+    
+    public int SelectedIndex { get; set; }
+
     public MainWindow()
     {
+        InitDatabases();
         InitializeComponent();
+        DataContext = this;
         
     }
-    private void TestButton(object sender, RoutedEventArgs e)
+    private void InitDatabases()
     {
+        DataBaseNames.Add("Seleziona un database");
         DatabaseManager databaseManager = new DatabaseManager(folderPath);
-        dataBaseNames = databaseManager.DataBaseNames;
+
+        foreach (var item in databaseManager.DataBaseNames)
+        {
+            DataBaseNames.Add(item);
+        }
+    }
+    
+    private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        SelectedIndex = ((ComboBox)sender).SelectedIndex;
+        Console.WriteLine(SelectedIndex);
     }
 }
+

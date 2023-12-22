@@ -8,13 +8,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bb91b87-157f-4dfd-99ac-2beef799ccfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DS Generator/dataBaseNames.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/Database/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/DataBaseManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/MainWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.baml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/dataBaseNames.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.g.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator_MarkupCompile.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator_MarkupCompile.lref" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/ref/DS Generator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/ref/DS Generator.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/refint/DS Generator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/refint/DS Generator.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

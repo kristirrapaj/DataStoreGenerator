@@ -7,8 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ComboBox x:Name="TuMa" Height = "20" Width = "100" HorizontalAlignment = "Left" Margin = "116,77,0,212" ItemsSource="{Binding dataBaseNames}" SelectedIndex="0" /> 
+        <ComboBox Height = "20"
+                  Width = "100" HorizontalAlignment = "Left"
+                  Margin = "116,77,0,212" 
+                  ItemsSource="{Binding DataBaseNames}"
+                  SelectedIndex="{Binding SelectedIndex}"
+                  SelectionChanged="Selector_OnSelectionChanged">
+            
         </ComboBox> 
-        <Button x:Name="Button" Content="Click" Click="TestButton" Width="100" Height="50"></Button>
     </Grid>
 </Window>
