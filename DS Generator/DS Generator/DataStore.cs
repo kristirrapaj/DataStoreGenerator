@@ -3,7 +3,7 @@ using DataStore.Interface;
 
 namespace DS_Generator;
 
-public class DataStore: IDataStore
+public class DataStore : IDataStore
 {
     public void Dispose()
     {
@@ -21,6 +21,7 @@ public class DataStore: IDataStore
     public string DefaultVersion { get; }
     public string SDEVersion { get; set; }
     public string VarCharParam { get; set; }
+
     public bool IsUpperFieldInDict(string nameField)
     {
         throw new NotImplementedException();
@@ -28,6 +29,7 @@ public class DataStore: IDataStore
 
     public string UpperCaseFields { get; set; }
     public bool CaseSensitive { get; set; }
+
     public bool HasField(string tableName, string fieldName)
     {
         throw new NotImplementedException();
@@ -36,6 +38,7 @@ public class DataStore: IDataStore
     public string Database { get; }
     public string Schema { get; }
     public int SRID { get; set; }
+
     public void SetCurrentVersion()
     {
         throw new NotImplementedException();
@@ -52,6 +55,7 @@ public class DataStore: IDataStore
     }
 
     public bool TranslateGeometries { get; set; }
+
     public void BeginTransaction(bool editVersion = false, IsolationLevel iLevel = IsolationLevel.ReadCommitted)
     {
         throw new NotImplementedException();
@@ -108,6 +112,7 @@ public class DataStore: IDataStore
     }
 
     public GeometryErrorEnum LastGetGeometryError { get; }
+
     public string GetSelectString(string tableName, string[] fields)
     {
         throw new NotImplementedException();
@@ -205,7 +210,8 @@ public class DataStore: IDataStore
     public string END_MERGE_CHAR { get; }
 
     public string GetUpdateScript(string srcTableName, string destTableName, ICollection<DataColumn> updateColumns,
-        ICollection<DataColumn> primaryKeycolumns, Dictionary<string, string> colMapping = null, string whereClause = null)
+        ICollection<DataColumn> primaryKeycolumns, Dictionary<string, string> colMapping = null,
+        string whereClause = null)
     {
         throw new NotImplementedException();
     }
@@ -264,6 +270,7 @@ public class DataStore: IDataStore
     public int IDFieldLength { get; }
     public int IDFieldPrefixLength { get; }
     public string GeometryField { get; set; }
+
     public DataColumn GetGeometryColumn(DataTable tbl)
     {
         throw new NotImplementedException();
@@ -369,7 +376,8 @@ public class DataStore: IDataStore
         throw new NotImplementedException();
     }
 
-    public string GetEnvelopeComponentScript(EnvelopeComponentEnum component, string shapeField = null, string shapePrefix = null)
+    public string GetEnvelopeComponentScript(EnvelopeComponentEnum component, string shapeField = null,
+        string shapePrefix = null)
     {
         throw new NotImplementedException();
     }

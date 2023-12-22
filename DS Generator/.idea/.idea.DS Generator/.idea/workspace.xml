@@ -9,6 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6bb91b87-157f-4dfd-99ac-2beef799ccfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/ConfigGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/SqlGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/SqlGenerator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +46,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -84,7 +86,8 @@
       <option name="presentableId" value="Default" />
       <updated>1703153865835</updated>
       <workItem from="1703153867466" duration="446000" />
-      <workItem from="1703154332919" duration="4141000" />
+      <workItem from="1703154332919" duration="6423000" />
+      <workItem from="1703231539097" duration="1842000" />
     </task>
     <servers />
   </component>
