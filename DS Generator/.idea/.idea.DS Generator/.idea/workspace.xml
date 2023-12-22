@@ -9,8 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6bb91b87-157f-4dfd-99ac-2beef799ccfe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/ConfigGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/SqlGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/SqlGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator_MarkupCompile.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator_MarkupCompile.lref" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +39,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Back-end",
+    "git-widget-placeholder": "UI",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
