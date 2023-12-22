@@ -25,20 +25,19 @@ internal class ConfigGenerator
         Console.ReadLine();
     }
 
-    private static void GenerateModel(string destPath)
+    /*private static void GenerateModel(string destPath)
     {
         // Parametri per la generazione del modello di DSSOpRete - Acea 2.0
         var connStr = "Data Source=VMORA11IT:1521/ora11r2pbas;User Id=retepa;Password=retepa";
         var schema = "retepa";
-        IDataStore dataStore =
-            new global::DataStore.Oracle.STGeomDataStore.OracleSTGeomDataStore(connStr: connStr, schema: schema);
+        IDataStore dataStore = global::DataStore.Oracle.STGeomDataStore.OracleSTGeomDataStore(connStr: connStr, schema: schema);
 
         SqlXMLModelBuilder builder = new ModelBuilder.SqlXMLModelBuilder(dataStore);
 
         dsERModel ds = builder.GetModel();
 
         ds.WriteXml(destPath);
-    }
+    }*/
 
     private static void GenerateGridConfigs(string destPath, string[] tables)
     {
@@ -46,8 +45,8 @@ internal class ConfigGenerator
         //string connStr = "Data Source=VMORA11IT:1521/ora11r2pbas;User Id=retepa;Password=retepa";
         //string connStr = "Data Source=vmoracle18ent:1521/ora18dev;User Id=sde;Password=sde";
         //string schema = "SDE";
-        //IDataStore dataStore = new DataStore.Oracle.STGeomDataStore.OracleSTGeomDataStore(connStr: connStr, schema: schema);
-        //dataStore.DataProviderType = "ORACLE";
+        // IDataStore dataStore = new DataStore.Oracle.STGeomDataStore.OracleSTGeomDataStore(connStr: connStr, schema: schema);
+        // dataStore.DataProviderType = "ORACLE";
         //string[] tables = new string[] { "ACQ_PERDITA", "ACQ_ZONA_ISPEZ" };
 
         //string connStr = "Data Source=vmsql2008dev;Initial Catalog=SITGAS_SYSTEM;Persist Security Info=True;User ID=sitgas_rete;Password=sitgas_rete";
@@ -67,8 +66,7 @@ internal class ConfigGenerator
         //string connStr = "Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User ID=swms_bm;Password=swms_bm";
         //string schema = "swms_bm";
 
-        IDataStore dataStore =
-            new global::DataStore.SQLServerDataStore.SQLServerGeomDataStore(connStr: connStr, schema: schema);
+        IDataStore dataStore = new global::DataStore.SQLServerDataStore.SQLServerGeomDataStore(connStr: connStr, schema: schema);
         dataStore.DataProviderType = "SQL_SERVER";
 
         var generator = new SqlGenerator(dataStore);

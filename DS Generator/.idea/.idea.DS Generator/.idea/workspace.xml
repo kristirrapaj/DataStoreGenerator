@@ -8,8 +8,242 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bb91b87-157f-4dfd-99ac-2beef799ccfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DS Generator/Database/DataBaseConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/DataBaseConfiguration.cs" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/Data 1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/Generator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ActivationMonitoring.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ActivationMonitoring.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/AjaxServicesCore.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/AjaxServicesCore.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/AltimetryLib.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/AltimetryLib.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ArcGisUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ArcGisUtils.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Authentication.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Authentication.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/AuthenticationExtensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/AuthenticationExtensions.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/BouncyCastle.Crypto.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/BusinessServices.MapPrinting.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/BusinessServices.MapPrinting.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/BusinessServices.Network.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/BusinessServices.Network.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/BusinessServices.NetworkData.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/BusinessServices.NetworkData.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ConfigManagement.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ConfigManagement.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DTMSisterDataProvider.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DTMSisterDataProvider.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DWGExporterModel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DWGExporterModel.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccess.Infrastructure.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccess.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccess.System.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccess.System.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccess.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccessManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccessUtils.Base.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccessUtils.Base.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccessUtils.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataAccessUtils.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataFactory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataFilterDefManagement.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataFilterDefManagement.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataStore.Base.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataStore.Base.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataStore.Factory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataStore.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataStore.SQLServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataStore.SQLServer.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataUtils.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataZipper.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataZipper.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataZipper.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DataZipper.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DomainManager.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DomainManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DynamicCode.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/DynamicCode.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/EPPlus.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ETLManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ETLManager.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Factory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Factory.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/FilterableObject.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/FlagsManager.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/FlagsManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Gdal.Core.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GeoAPI.CoordinateSystems.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GeoAPI.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GeoApiUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GeoApiUtils.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GisUtils.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GisUtils.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GoogleApi.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GridConfig.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GridConfig.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GridDataProvider.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/GridDataProvider.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ICSharpCode.SharpZipLib.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/IDTMDataProvider.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/IDTMDataProvider.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/IdentityModel.AspNetCore.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/IdentityModel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Csv.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Csv.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Dbf.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Dbf.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Excel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Excel.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Factory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Factory.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.KMZ.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.KMZ.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Shape.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ImportExport.Shape.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Infrastructure.DataUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Infrastructure.DataUtils.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Infrastructure.GeoUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Infrastructure.STLogging.Factory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Infrastructure.STLogging.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Infrastructure.STLogging.Log4Net.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Infrastructure.Utils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/InfrastructureData.DTO.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/LockDataManager.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/LockDataManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/LockManager.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/LockManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MDReport.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MDReport.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapConfig.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapConfig.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapDataAnalysisTools.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapDataAnalysisTools.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapExporter.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapExporter.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapPrint.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapPrint.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapPrintBasic.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MapPrintBasic.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/MathNet.Numerics.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.AspNetCore.Authentication.Negotiate.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.AspNetCore.Connections.Abstractions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.AspNetCore.Http.Features.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.CodeAnalysis.CSharp.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.CodeAnalysis.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.Extensions.Primitives.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.IdentityModel.JsonWebTokens.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.IdentityModel.Logging.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.IdentityModel.Protocols.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.IdentityModel.Tokens.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.SqlServer.Types.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.SqlServer.Types.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Microsoft.Win32.SystemEvents.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/NetTopologySuite.CoordinateSystems.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/NetTopologySuite.Features.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/NetTopologySuite.IO.GeoTools.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/NetTopologySuite.IO.ShapeFile.Extended.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/NetTopologySuite.IO.ShapeFile.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/NetTopologySuite.IO.SqlServerBytes.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/NetTopologySuite.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/NetworkSchemas.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/NetworkSchemas.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Newtonsoft.Json.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ObjectFactory.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ObjectsTreeManager.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ObjectsTreeManager.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ObjectsTreeManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ObjectsTreeManager.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/OfflineSyncManager.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/OfflineSyncManager.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/OfflineSyncManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/OfflineSyncManager.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ProjNET.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ReportPrint.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ReportPrint.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ResourceManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/ResourceManager.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/RightsManager.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/STDWGExporter.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/STDWGExporter.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/STGeometry.Decoder.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/STGeometry.Decoder.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SeriesEncoder.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SeriesEncoder.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SeriesExporter.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SeriesExporter.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SeriesExpressions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SeriesExpressions.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SeriesManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SeriesManager.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Session.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Session.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SitGasDataAccessUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SitGasDataAccessUtils.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SitGasSGADataAccessUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SitGasSGADataAccessUtils.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SubTypeManager.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/SubTypeManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.CodeDom.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Configuration.ConfigurationManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Data.OleDb.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Data.SqlClient.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Diagnostics.PerformanceCounter.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.DirectoryServices.Protocols.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Drawing.Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.IO.Pipelines.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.IdentityModel.Tokens.Jwt.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Security.AccessControl.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Security.Cryptography.ProtectedData.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Security.Permissions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Windows.Extensions.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/System.Xml.XPath.XmlDocument.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/TableAliasManager.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/TableAliasManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/TaskManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/TimeSeriesDataModel.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/TimeSeriesDataModel.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/TimestampUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/TimestampUtils.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Tools.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/Tools.Interface.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/VarMetadata.Interface.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/VarMetadataManager.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/WMSAceaDataAccessUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/WMSAceaDataAccessUtils.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/WMSDataAccessUtils.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/WMSDataAccessUtils.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/WSCore.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/WSCore.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/lib/log4net.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/ConfigGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/ConfigGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/DS Generator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/DS Generator.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/DataStore.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/IDataStore.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/SqlGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/SqlGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.dgspec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.g.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.g.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/App.g.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.GlobalUsings.g.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator_MarkupCompile.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator_MarkupCompile.lref" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/project.assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/project.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/project.packagespec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/rider.project.model.nuget.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/rider.project.restore.info" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,45 +254,43 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/74e6bafb63f34571885e75e1005c30842ba918/_33f06/IDbTransaction.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/74e6bafb63f34571885e75e1005c30842ba918/_7990a/IDataReader.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e56d60cca3eeb4f654877b9f677e6deae63b3137e0461fd67722f13cdc87/DataSet.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DS Generator/Generator.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="2Zqe6p41Cg7kMN44WlytTMG440j" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;UI&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Back-emd",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\K.Rrapaj\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\K.Rrapaj\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\K.Rrapaj\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\WOWMA\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\WOWMA\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\WOWMA\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="DS Generator" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -90,6 +322,7 @@
       <workItem from="1703153867466" duration="446000" />
       <workItem from="1703154332919" duration="6423000" />
       <workItem from="1703231539097" duration="1842000" />
+      <workItem from="1703243730048" duration="1255000" />
     </task>
     <servers />
   </component>
