@@ -312,12 +312,7 @@ public class SqlGenerator
 
         colSettingsDS.WriteXml(Path.Combine(path, fileName + "Config.xml"));
     }
-
-    private bool IsRelationColumn(string columnName)
-    {
-        throw new NotImplementedException();
-    }
-
+    
     private bool GetColVisibility(string columnName)
     {
         var vis = columnName == "UID" || columnName == "LID" || columnName == "ID"

@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\K.Rrapaj\\DataStoreGenerator\\DS Generator\\DS Generator\\DS Generator.csproj": {}
+    "C:\\Users\\WOWMA\\Desktop\\Projects\\DataStoreGenerator\\DS Generator\\DS Generator\\DS Generator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\K.Rrapaj\\DataStoreGenerator\\DS Generator\\DS Generator\\DS Generator.csproj": {
+    "C:\\Users\\WOWMA\\Desktop\\Projects\\DataStoreGenerator\\DS Generator\\DS Generator\\DS Generator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\K.Rrapaj\\DataStoreGenerator\\DS Generator\\DS Generator\\DS Generator.csproj",
+        "projectUniqueName": "C:\\Users\\WOWMA\\Desktop\\Projects\\DataStoreGenerator\\DS Generator\\DS Generator\\DS Generator.csproj",
         "projectName": "DS Generator",
-        "projectPath": "C:\\Users\\K.Rrapaj\\DataStoreGenerator\\DS Generator\\DS Generator\\DS Generator.csproj",
-        "packagesPath": "C:\\Users\\K.Rrapaj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\K.Rrapaj\\DataStoreGenerator\\DS Generator\\DS Generator\\obj\\",
+        "projectPath": "C:\\Users\\WOWMA\\Desktop\\Projects\\DataStoreGenerator\\DS Generator\\DS Generator\\DS Generator.csproj",
+        "packagesPath": "C:\\Users\\WOWMA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\WOWMA\\Desktop\\Projects\\DataStoreGenerator\\DS Generator\\DS Generator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\K.Rrapaj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\WOWMA\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,7 +56,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\WOWMA\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

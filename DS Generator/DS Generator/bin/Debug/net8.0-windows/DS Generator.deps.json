@@ -10,6 +10,7 @@
         "dependencies": {
           "DataStore.Base": "1.0.9.0",
           "DataStore.Interface": "1.0.8.0",
+          "DataStore.Oracle": "1.0.7.0",
           "DataStore.SQLServer": "1.0.6.0",
           "GridConfig.Interface": "1.0.0.0"
         },
@@ -30,6 +31,14 @@
           "DataStore.Interface.dll": {
             "assemblyVersion": "1.0.8.0",
             "fileVersion": "1.0.8.0"
+          }
+        }
+      },
+      "DataStore.Oracle/1.0.7.0": {
+        "runtime": {
+          "DataStore.Oracle.dll": {
+            "assemblyVersion": "1.0.7.0",
+            "fileVersion": "1.0.7.0"
           }
         }
       },
@@ -143,6 +152,11 @@
       "sha512": ""
     },
     "DataStore.Interface/1.0.8.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataStore.Oracle/1.0.7.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

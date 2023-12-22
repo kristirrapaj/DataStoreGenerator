@@ -8,8 +8,8 @@ namespace DS_Generator;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private static string folderPath = @"C:\Users\K.Rrapaj\Desktop\DataBaseConfig";
     public List<string> DataBaseNames { get; set; } = new List<string>();
+    DatabaseManager databaseManager = new DatabaseManager();
     
     public int SelectedIndex { get; set; }
 
@@ -22,19 +22,17 @@ public partial class MainWindow : Window
     }
     private void InitDatabases()
     {
-        DataBaseNames.Add("Seleziona un database");
-        DatabaseManager databaseManager = new DatabaseManager(folderPath);
 
         foreach (var item in databaseManager.DataBaseNames)
         {
-            DataBaseNames.Add(item);
+            DataBaseNames.Add(item.Value);
         }
     }
     
     private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         SelectedIndex = ((ComboBox)sender).SelectedIndex;
-        Console.WriteLine(SelectedIndex);
+        databaseManager.tuma(SelectedIndex);
     }
 }
 

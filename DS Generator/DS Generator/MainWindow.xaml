@@ -13,7 +13,6 @@
                   ItemsSource="{Binding DataBaseNames}"
                   SelectedIndex="{Binding SelectedIndex}"
                   SelectionChanged="Selector_OnSelectionChanged">
-            
         </ComboBox> 
     </Grid>
 </Window>
