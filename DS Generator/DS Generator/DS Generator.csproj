@@ -9,4 +9,22 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Reference Include="DataStore.Base">
+        <HintPath>lib\DataStore.Base.dll</HintPath>
+      </Reference>
+      <Reference Include="DataStore.Interface">
+        <HintPath>lib\DataStore.Interface.dll</HintPath>
+      </Reference>
+      <Reference Include="DataStore.Oracle">
+        <HintPath>lib\DataStore.Oracle.dll</HintPath>
+      </Reference>
+      <Reference Include="DataStore.SQLServer">
+        <HintPath>lib\DataStore.SQLServer.dll</HintPath>
+      </Reference>
+      <Reference Include="GridConfig.Interface">
+        <HintPath>lib\GridConfig.Interface.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

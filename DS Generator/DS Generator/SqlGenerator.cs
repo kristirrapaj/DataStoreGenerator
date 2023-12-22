@@ -1,13 +1,19 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Windows.Controls.Primitives;
 using DataStore.Interface;
+using GridConfig.Interface;
 
 namespace DS_Generator;
 
+
 public class SqlGenerator
 {
+    private const string File = "./Data1.csv";
     private IDataStore mDataStore;
 
     private Dictionary<string, Dictionary<string, string>> mDomainInfoDict;
@@ -86,32 +92,28 @@ public class SqlGenerator
         var getModelQuery = "";
 
         if (mDataStore.DataProviderType.ToUpper() == "ORACLE")
-            getModelQuery = @"
-select c.TABLE_NAME, c.COLUMN_NAME, c.DATA_TYPE, c.DATA_LENGTH, c.DATA_PRECISION, c.DATA_SCALE, c.NULLABLE, tr.IMV_VIEW_NAME
-from all_tab_cols c 
-left join SDE.TABLE_REGISTRY tr on c.TABLE_NAME = tr.TABLE_NAME
-WHERE 
-<TABLE_FILTER>                
-AND c.COLUMN_NAME NOT IN('SE_ANNO_CAD_DATA')
-AND c.COLUMN_NAME NOT LIKE('SYS_%')
-AND c.TABLE_NAME NOT LIKE 'SYS_USER_FLAGS%'
-AND c.DATA_TYPE NOT IN
-(
-    'SDO_ELEM_INFO_ARRAY',
-    'SDO_ORDINATE_ARRAY'
-)
-order by c.TABLE_NAME, c.COLUMN_NAME";
+            getModelQuery =
+                @"select c.TABLE_NAME, c.COLUMN_NAME, c.DATA_TYPE, c.DATA_LENGTH, c.DATA_PRECISION, c.DATA_SCALE, c.NULLABLE, tr.IMV_VIEW_NAME
+                                from all_tab_cols c 
+                                left join SDE.TABLE_REGISTRY tr on c.TABLE_NAME = tr.TABLE_NAME
+                                WHERE <TABLE_FILTER>                
+                                AND c.COLUMN_NAME NOT IN('SE_ANNO_CAD_DATA')
+                                AND c.COLUMN_NAME NOT LIKE('SYS_%')
+                                AND c.TABLE_NAME NOT LIKE 'SYS_USER_FLAGS%'
+                                AND c.DATA_TYPE NOT IN
+                                ('SDO_ELEM_INFO_ARRAY', 'SDO_ORDINATE_ARRAY')
+                                order by c.TABLE_NAME, c.COLUMN_NAME";
         else if (mDataStore.DataProviderType.ToUpper() == "SQL_SERVER")
-            getModelQuery = @"
-select c.TABLE_NAME, c.COLUMN_NAME, c.DATA_TYPE, c.CHARACTER_MAXIMUM_LENGTH as DATA_LENGTH, c.NUMERIC_PRECISION as DATA_PRECISION, c.NUMERIC_SCALE as DATA_SCALE, SUBSTRING(c.IS_NULLABLE, 1, 1) as NULLABLE, tr.IMV_VIEW_NAME
-from INFORMATION_SCHEMA.COLUMNS c
-left join SDE.sde_TABLE_REGISTRY tr on c.TABLE_NAME = tr.TABLE_NAME
-WHERE
-<TABLE_FILTER>     
-AND c.COLUMN_NAME NOT IN('SE_ANNO_CAD_DATA')
-AND c.COLUMN_NAME NOT LIKE('SYS_%')
-AND c.TABLE_NAME NOT LIKE 'SYS_USER_FLAGS%'
-order by c.TABLE_NAME, c.COLUMN_NAME";
+            getModelQuery =
+                @"select c.TABLE_NAME, c.COLUMN_NAME, c.DATA_TYPE, c.CHARACTER_MAXIMUM_LENGTH as DATA_LENGTH, c.NUMERIC_PRECISION as DATA_PRECISION, c.NUMERIC_SCALE as DATA_SCALE, SUBSTRING(c.IS_NULLABLE, 1, 1) as NULLABLE, tr.IMV_VIEW_NAME
+                                from INFORMATION_SCHEMA.COLUMNS c
+                                left join SDE.sde_TABLE_REGISTRY tr on c.TABLE_NAME = tr.TABLE_NAME
+                                WHERE
+                                <TABLE_FILTER>     
+                                AND c.COLUMN_NAME NOT IN('SE_ANNO_CAD_DATA')
+                                AND c.COLUMN_NAME NOT LIKE('SYS_%')
+                                AND c.TABLE_NAME NOT LIKE 'SYS_USER_FLAGS%'
+                                order by c.TABLE_NAME, c.COLUMN_NAME";
 
         var tablefilter = "";
 
@@ -125,6 +127,8 @@ order by c.TABLE_NAME, c.COLUMN_NAME";
 
     private void GenerateConfigFile(string path, string tableName, DataTable tbModel, bool buildEditConfig)
     {
+       
+        
         var dbTableName = mDataStore.Schema.ToUpper() + "." + tableName;
 
         if (mDataStore.DataProviderType == "SQL_SERVER") dbTableName = mDataStore.Database + "." + dbTableName;
@@ -163,19 +167,19 @@ order by c.TABLE_NAME, c.COLUMN_NAME";
 
             var keyField = IsKeyField(columnName);
 
-            var generator = Generator();
+            var generator = new Generator(columnName, File);
 
             colSettingsRow.DATA_FIELD_NAME = columnName;
             colSettingsRow.TYPE = GetCSharpType(dataType, dataPrecision, dataScale);
-            colSettingsRow.ORDINAL = idx;
             colSettingsRow.CAPTION = GetAlias(columnName, aliasName);
-            colSettingsRow.POSITION = idx; //change
-            colSettingsRow.VISIBLE = vis; //change
+            colSettingsRow.ORDINAL = idx;
             colSettingsRow.SHOW_IN_INFO = vis;
-            colSettingsRow.EDITABLE = edit; //change
-            colSettingsRow.NULLABLE = nullable == "Y"; //change
-            colSettingsRow.GROUP = generator.GetGroup();
-            colSettingsRow.CATEGORY = generator.GetCategory();
+            colSettingsRow.POSITION = generator.Position;
+            colSettingsRow.VISIBLE = generator.Visible;
+            colSettingsRow.EDITABLE = generator.Editable;
+            colSettingsRow.NULLABLE = generator.Nullable;
+            colSettingsRow.GROUP = generator.Group;
+            colSettingsRow.CATEGORY = generator.Category;
 
 
             if (IsColToDisable(columnName)) colSettingsRow.DISABLED = true;
@@ -372,8 +376,6 @@ order by c.TABLE_NAME, c.COLUMN_NAME";
         return isKeyField;
     }
 
-    /* TOFIX: da rivedere
-
     private void AddFlagsRow(ColumnSettingsDS ds)
     {
         if (ds.COLUMN_SETTING.FindByDATA_FIELD_NAME("FLAGS") == null)
@@ -393,7 +395,7 @@ order by c.TABLE_NAME, c.COLUMN_NAME";
 
             ds.COLUMN_SETTING.AddCOLUMN_SETTINGRow(colSettingsRow);
         }
-    } */
+    } 
 
     private bool IsMultilineString(string columnName, string type)
     {
