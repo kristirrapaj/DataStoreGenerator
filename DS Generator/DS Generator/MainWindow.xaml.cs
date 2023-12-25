@@ -28,7 +28,6 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         DataContext = this;
-        InitDatabases();
     }
 
     private void InitDatabases()
@@ -44,7 +43,7 @@ public partial class MainWindow : Window
         }
     }
 
-    private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         SelectedIndex = ((ComboBox)sender).SelectedIndex;
         _databaseManager.DbSelector(SelectedIndex);
@@ -72,5 +71,10 @@ public partial class MainWindow : Window
             FinalPathTextBox.Text = ConfigPath;
         }
         _selectedCount++;
+    }
+
+    private void OnStartSelected(object sender, RoutedEventArgs e)
+    {
+        InitDatabases();
     }
 }
