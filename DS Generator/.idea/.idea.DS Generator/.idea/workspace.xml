@@ -7,13 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bb91b87-157f-4dfd-99ac-2beef799ccfe" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/DataBaseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/rider.project.model.nuget.info" afterDir="false" />
-    </list>
+    <list default="true" id="6bb91b87-157f-4dfd-99ac-2beef799ccfe" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,7 +93,7 @@
       <workItem from="1703231539097" duration="1842000" />
       <workItem from="1703243730048" duration="1255000" />
       <workItem from="1703259690609" duration="2014000" />
-      <workItem from="1703535710968" duration="3576000" />
+      <workItem from="1703535710968" duration="3808000" />
     </task>
     <servers />
   </component>
