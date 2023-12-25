@@ -7,12 +7,33 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ComboBox Height = "20"
-                  Width = "100" HorizontalAlignment = "Left"
-                  Margin = "116,77,0,212" 
-                  ItemsSource="{Binding DataBaseNames}"
-                  SelectedIndex="{Binding SelectedIndex}"
-                  SelectionChanged="Selector_OnSelectionChanged">
-        </ComboBox> 
+        <StackPanel Margin="0,50,0,0" HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Width" Value="250" />
+                    <Setter Property="Margin" Value="0" />
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="250" />
+                    <Setter Property="Margin" Value="0" />
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="70"/>
+                    <Setter Property="Background" Value="#3498db"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                <Label Content="Insert database configuration files path:" />
+                <TextBox Name="ConfigPathTextBox" />
+                <Button Content="Select" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Insert final files path:" />
+                <TextBox Name="FinalPathTextBox" />
+                <Button Content="Select" />
+            </StackPanel>
+            <Button Content="START" Width="150" HorizontalAlignment="Center" Margin="0, 30, 0 ,0"/>
+        </StackPanel>
     </Grid>
 </Window>

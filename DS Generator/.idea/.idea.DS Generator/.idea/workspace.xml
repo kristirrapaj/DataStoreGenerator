@@ -8,17 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bb91b87-157f-4dfd-99ac-2beef799ccfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DS Generator/DataBaseConfig/Oracle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DS Generator/DataBaseConfig/SQL_SERVER.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/Senza titolo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/DS Generator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/DS Generator.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/DataBaseManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/MainWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/bin/Debug/net8.0-windows/DS Generator.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfo.cs" afterDir="false" />
@@ -26,17 +20,6 @@
       <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.g.resources" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.g.resources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/ref/DS Generator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/ref/DS Generator.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/refint/DS Generator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/refint/DS Generator.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/project.packagespec.json" afterDir="false" />
@@ -69,31 +52,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.DS Generator.executor&quot;: &quot;Run&quot;,
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.40253565&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.DS Generator.executor": "Run",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "XThreadsFramesViewSplitterKey": "0.40253565",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\WOWMA\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\WOWMA\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\WOWMA\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\K.Rrapaj\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\K.Rrapaj\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\K.Rrapaj\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="DS Generator" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -127,6 +110,7 @@
       <workItem from="1703231539097" duration="1842000" />
       <workItem from="1703243730048" duration="1255000" />
       <workItem from="1703259690609" duration="2014000" />
+      <workItem from="1703535710968" duration="1394000" />
     </task>
     <servers />
   </component>

@@ -8,31 +8,35 @@ namespace DS_Generator;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public List<string> DataBaseNames { get; set; } = new List<string>();
-    DatabaseManager databaseManager = new DatabaseManager();
-    
-    public int SelectedIndex { get; set; }
+    public List<string> DataBaseNames
+    {
+        get => _dataBaseNames;
+        set => _dataBaseNames = value;
+    }
+
+    readonly DatabaseManager _databaseManager = new DatabaseManager();
+    private List<string> _dataBaseNames = new List<string>();
+
+    private int SelectedIndex { get; set; }
 
     public MainWindow()
     {
         InitDatabases();
         InitializeComponent();
         DataContext = this;
-        
     }
+
     private void InitDatabases()
     {
-
-        foreach (var item in databaseManager.DataBaseNames)
+        foreach (var item in _databaseManager.DataBaseNames)
         {
             DataBaseNames.Add(item.Value);
         }
     }
-    
-    private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+
+    private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         SelectedIndex = ((ComboBox)sender).SelectedIndex;
-        databaseManager.tuma(SelectedIndex);
+        _databaseManager.DbSelector(SelectedIndex);
     }
 }
-

@@ -1,9 +1,6 @@
 using System.Data;
-using System.Diagnostics;
 using System.IO;
-using System.Windows.Shapes;
 using DataStore.Interface;
-using DS_Generator.Database;
 
 namespace DS_Generator;
 
@@ -53,7 +50,7 @@ public class DatabaseManager
         }
     }
 
-    public void tuma(int selectedIndex)
+    public void DbSelector(int selectedIndex)
     {
         if (selectedIndex != 0)
         {
