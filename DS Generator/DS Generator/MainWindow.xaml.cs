@@ -28,6 +28,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         DataContext = this;
+        DataBasePanel.Visibility = Visibility.Hidden;
     }
 
     private void InitDatabases()
@@ -76,5 +77,6 @@ public partial class MainWindow : Window
     private void OnStartSelected(object sender, RoutedEventArgs e)
     {
         InitDatabases();
+        DataBasePanel.Visibility = Visibility.Visible;
     }
 }
