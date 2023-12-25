@@ -11,9 +11,18 @@ public class DatabaseManager
     private string schema;
     
     //todo: Prendere questo path da UI
-    private static string FolderPath = @"C:\\Users\\WOWMA\\Desktop\\Projects\\DataStoreGenerator\\DS Generator\\DS Generator\\DataBaseConfig";
+    private static string FolderPath;
+    private static string FinalPath;
     public DatabaseManager()
     {
+        
+    }
+    
+    public void SetPaths(string configPath, string finalPath)
+    {
+        FolderPath = configPath;
+        FinalPath = finalPath;
+        
         string[] files = Directory.GetFiles(FolderPath, "*.xml");
         int index = 1;
         DataBaseNames.Add(0, "Seleziona un Database");
@@ -54,8 +63,6 @@ public class DatabaseManager
     {
         if (selectedIndex != 0)
         {
-            //todo: Prendere questi due var da UI
-            var destPath = @"C:\Users\WOWMA\Desktop\Projects\DataStoreGenerator\DS Generator\DS Generator\output";
             string[] tables = new string[] { "EXT_MAP_NOTE_POINT", "EXT_MAP_NOTE_LINE", "EXT_MAP_NOTE_POLY" };
             ////
             IDataStore dataStore;
@@ -68,7 +75,7 @@ public class DatabaseManager
                         schema: schema);
                     dataStore.DataProviderType = "SQL_SERVER";
                     var generator = new SqlGenerator(dataStore);
-                    generator.Generate(destPath, tables);
+                    generator.Generate(FinalPath, tables);
                     break;
             }
         }

@@ -8,22 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bb91b87-157f-4dfd-99ac-2beef799ccfe" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DS Generator/Senza titolo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/DataBaseManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/MainWindow.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/MainWindow.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/DS Generator.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DS Generator/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/rider.project.model.nuget.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +99,7 @@
       <workItem from="1703231539097" duration="1842000" />
       <workItem from="1703243730048" duration="1255000" />
       <workItem from="1703259690609" duration="2014000" />
-      <workItem from="1703535710968" duration="1394000" />
+      <workItem from="1703535710968" duration="3576000" />
     </task>
     <servers />
   </component>
