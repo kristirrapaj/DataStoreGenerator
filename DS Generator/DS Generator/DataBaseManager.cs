@@ -12,7 +12,7 @@ public class DatabaseManager
     private static string FinalPath;
     
     public Dictionary<int, Tuple<string, string, string>> DatabaseList = new Dictionary<int, Tuple<string, string, string>>();
-    public void SetPaths(string configPath, string finalPath)
+    public void SetPaths(string? configPath, string finalPath)
     {
         FolderPath = configPath;
         FinalPath = finalPath;
@@ -57,74 +57,37 @@ public class DatabaseManager
         }
     }
 
-    /*private void GetDataStoreType(string file, int index)
-    {
-        DataSet dataSet = new DataSet();
-        dataSet.ReadXml(file);
-
-        var dataStoreTypeTag = "DATA_STORE_TYPE";
-        var dataStoreType = "";
-
-        try
-        {
-            dataStoreType = dataSet.Tables[0].Rows[0][dataStoreTypeTag].ToString();
-
-            if (string.IsNullOrEmpty(dataStoreType))
-            {
-                throw new Exception("DataStoreType is null or empty");
-            }
-
-            DataBaseNames.Add(index, dataStoreType);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-    }*/
-
     public void DbSelector(int selectedIndex)
     {
-        
         if (selectedIndex == 0) return;
         
         //todo: scegliere all user
         string[] tables = new string[] { "EXT_MAP_NOTE_POINT", "EXT_MAP_NOTE_LINE", "EXT_MAP_NOTE_POLY" };
         
-        switch (DataBaseNames[selectedIndex])
+        var dataBaseType = DatabaseList[selectedIndex].Item1;
+        var connectionString = DatabaseList[selectedIndex].Item2;
+        var schema = DatabaseList[selectedIndex].Item3;
+        
+        switch (dataBaseType)
         {
             case "SQL_SERVER":
-                IDataStore dataStore = new DataStore.SQLServerDataStore.SQLServerGeomDataStore(connStr: SchemaType:)
+                //todo: chiedere perchè chiediamo dataProviderType
+                IDataStore dataStore =
+                    new SQLServerGeomDataStore(connectionString, schema);
+                //??
                 dataStore.DataProviderType = "SQL_SERVER";
+                
                 var generator = new SqlGenerator(dataStore);
                 generator.Generate(FinalPath, tables);
                 break;
+            case "ORACLE":
+                //todo: implementare
+                break;
+            default:
+                throw new Exception("DataStoreType not supported");
         }
     }
     
-
-    /*private IDataStore CreateDataStore(string dataProviderType, string connectionString, string schema)
-    {
-        switch (dataProviderType)
-        {
-            case "SQL_SERVER":
-                return new DataStore.SQLServerDataStore.SQLServerGeomDataStore(connStr: connectionString, schema: schema);
-            default:
-                throw new ArgumentException($"Unsupported data provider type: {dataProviderType}");
-        }
-    }
-
     
-    private IDataStore CreateDataStore(string dataProviderType, string connectionString, string schema)
-    {
-        switch (dataProviderType)
-        {
-            case "SQL_SERVER":
-                return new DataStore.SQLServerDataStore.SQLServerGeomDataStore(connStr: connectionString, schema: schema);
-            // Add more cases for other data provider types as needed
-            default:
-                throw new ArgumentException($"Unsupported data provider type: {dataProviderType}");
-        }
-    }
-    */
+    
 }

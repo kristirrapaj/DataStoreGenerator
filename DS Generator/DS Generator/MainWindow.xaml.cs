@@ -17,7 +17,7 @@ public partial class MainWindow : Window
 
     readonly DatabaseManager _databaseManager = new DatabaseManager();
     private List<string> _dataBaseNames = new List<string>();
-    private static string ConfigPath { get; set; }
+    private static string? ConfigPath { get; set; }
     private static string FinalPath { get; set; }
     
     private static int _selectedCount= 0;
@@ -31,6 +31,7 @@ public partial class MainWindow : Window
         InitializeComponent();
         DataContext = this;
         DataBasePanel.Visibility = Visibility.Hidden;
+        TablePanel.Visibility = Visibility.Hidden;
     }
 
     private void InitDatabases()
@@ -44,6 +45,7 @@ public partial class MainWindow : Window
         {
             DataBaseNames.Add(databaseName);
         }
+        TablePanel.Visibility = Visibility.Visible;
     }
 
     private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
