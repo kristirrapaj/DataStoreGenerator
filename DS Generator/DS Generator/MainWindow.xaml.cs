@@ -22,7 +22,9 @@ public partial class MainWindow : Window
     
     private static int _selectedCount= 0;
 
-    private int SelectedIndex { get; set; }
+    public static string fefe = "Seleziona un database";
+
+    private int SelectedIndex { get; set; } = 1;
 
     public MainWindow()
     {
@@ -38,7 +40,7 @@ public partial class MainWindow : Window
         _databaseManager.SetPaths(ConfigPath, FinalPath);
         _selectedCount = 0;
 
-        foreach (string databaseName in _databaseManager.DataBaseNames.Values)
+        foreach (string databaseName in _databaseManager.DatabaseList.Values.Select(tuple => tuple.Item1))
         {
             DataBaseNames.Add(databaseName);
         }
