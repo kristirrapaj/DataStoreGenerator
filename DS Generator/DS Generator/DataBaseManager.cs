@@ -68,9 +68,6 @@ public class DatabaseManager
     {
         if (selectedIndex == 0) return;
         
-        //todo: scegliere all user
-        string[] tables = new string[] { "EXT_MAP_NOTE_POINT", "EXT_MAP_NOTE_LINE", "EXT_MAP_NOTE_POLY" };
-        
         var dataBaseType = DatabaseList[selectedIndex].Item1;
         var connectionString = DatabaseList[selectedIndex].Item2;
         var schema = DatabaseList[selectedIndex].Item3;
