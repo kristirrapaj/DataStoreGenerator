@@ -8,8 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bb91b87-157f-4dfd-99ac-2beef799ccfe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DS Generator/FactoryTest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DS Generator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/DS Generator.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/DS Generator.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DS Generator/DataBaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/DataBaseManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator_MarkupCompile.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/DS Generator_MarkupCompile.lref" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DS Generator/obj/Debug/net8.0-windows/MainWindow.g.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +27,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8aaa5347b3c247e99d38f3f11454c4e62800/99/2cfba37d/Factory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8ea8011d7fb04ca1ae9e325b8c06e6354200/5d/b8a852fa/DataStoreConfig.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8ea8011d7fb04ca1ae9e325b8c06e6354200/9b/92bcd7b3/IDataStore.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d213a3f23abd4aba8bb40da5b24370a5aa00/c5/e4332984/SQLServerGeomDataStore.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e7030d9542fe46f2b6a69412945fe5c8ce00/62/409c26bf/BaseDataStore.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/74e6bafb63f34571885e75e1005c30842ba918/_33f06/IDbTransaction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/74e6bafb63f34571885e75e1005c30842ba918/_7990a/IDataReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e56d60cca3eeb4f654877b9f677e6deae63b3137e0461fd67722f13cdc87/DataSet.cs" root0="SKIP_HIGHLIGHTING" />
@@ -101,7 +111,7 @@
       <workItem from="1703667744754" duration="10116000" />
       <workItem from="1703692030694" duration="623000" />
       <workItem from="1703692803682" duration="889000" />
-      <workItem from="1703753123779" duration="4485000" />
+      <workItem from="1703753123779" duration="11432000" />
     </task>
     <servers />
   </component>

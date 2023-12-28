@@ -10,6 +10,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Reference Include="DataFactory">
+        <HintPath>lib\DataFactory.dll</HintPath>
+      </Reference>
       <Reference Include="DataStore.Base">
         <HintPath>lib\DataStore.Base.dll</HintPath>
       </Reference>

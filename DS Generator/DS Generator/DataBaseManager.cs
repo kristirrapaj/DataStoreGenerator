@@ -10,10 +10,14 @@ public class DatabaseManager
     private static string FolderPath;
     private static string FinalPath;
     
-    public Dictionary<int, Tuple<string, string, string>> DatabaseList = new Dictionary<int, Tuple<string, string, string>>();
+    //public Dictionary<int, Tuple<string, string, string>> DatabaseList = new Dictionary<int, Tuple<string, string, string>>();
+    
+    public Dictionary<int, Dictionary<string, DataSet>> DatabaseList = new Dictionary<int, Dictionary<string, DataSet>>();
 
     private string[] tables;
-    public void SetPaths(string? configPath, string finalPath)
+
+    private int selectedIndex;
+    public void SetPaths(string configPath, string finalPath)
     {
         FolderPath = configPath;
         FinalPath = finalPath;
@@ -24,14 +28,34 @@ public class DatabaseManager
         
         foreach (string file in files)
         {
-            var dataStoreType = GetDataStoreProperties(file, index,"DATA_STORE_TYPE");
-            var connectionString = GetDataStoreProperties(file, index,"CONN_STR");
-            var schema = GetDataStoreProperties(file, index,"SCHEMA");
+            var dataStoreType = GetDataStoreProperties(file, "DATA_STORE_TYPE");
             
-            var tuple = new Tuple<string, string, string>(dataStoreType, connectionString, schema);
-            DatabaseList.Add(index, tuple);
+            var dictionary = new Dictionary<string, DataSet>();
+            dictionary.Add(dataStoreType, new DataSet());
             
+            DatabaseList.Add(index, dictionary);
+            GetDatabaseProperties(index, dataStoreType, file);
             index++;
+        }
+    }
+    
+    private void GetDatabaseProperties(int index, string dataStoreType, string file)
+    {
+        var dataSet = new DataSet();
+        dataSet.ReadXml(file);
+
+        foreach (var key in DatabaseList.Keys)
+        {
+            if (key == index)
+            {
+                foreach (var value in DatabaseList[key].Keys)
+                {
+                    if (value == dataStoreType)
+                    {
+                        DatabaseList[key][value] = dataSet;
+                    }
+                }
+            }
         }
     }
     
@@ -40,7 +64,7 @@ public class DatabaseManager
         this.tables = tables;
     }
 
-    private string GetDataStoreProperties(string file, int index, string tag)
+    private string GetDataStoreProperties(string file, string tag)
     {
         var dataSet = new DataSet();
         dataSet.ReadXml(file);
@@ -65,34 +89,18 @@ public class DatabaseManager
 
     public void DbSelector(int selectedIndex)
     {
+        this.selectedIndex = selectedIndex;
         if (selectedIndex == 0) return;
         
-        var dataBaseType = DatabaseList[selectedIndex].Item1;
-        var connectionString = DatabaseList[selectedIndex].Item2;
-        var schema = DatabaseList[selectedIndex].Item3;
         
-        switch (dataBaseType)
-        {
-            case "SQL_SERVER":
-                //todo: chiedere perchè chiediamo dataProviderType
-                IDataStore dataStore =
-                    new SQLServerGeomDataStore(connectionString, schema);
-                //??
-                dataStore.DataProviderType = "SQL_SERVER";
-                
-                var generator = new SqlGenerator(dataStore);
-                generator.Generate(FinalPath, tables);
-                break;
-            case "ORACLE":
-                //todo: implementare
-                break;
-            default:
-                throw new Exception("DataStoreType not supported");
-        }
+        
+        IDataStore dataStore = CreateDataStore(connectionString, schema);
+        var generator = new SqlGenerator(dataStore);
+        generator.Generate(FinalPath, tables);
     }
-    
-    //datastore createdatastore {datastoretype} {connectionstring} {schema}
-    
-    
-    
+
+    private static IDataStore CreateDataStore(string connectionString, string schema)
+    {
+        return new SQLServerGeomDataStore(connectionString, schema);
+    }
 }
