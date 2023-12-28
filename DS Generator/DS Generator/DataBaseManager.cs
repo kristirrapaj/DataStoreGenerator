@@ -1,6 +1,5 @@
 using System.Data;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
 using DataStore.Interface;
 using DataStore.SQLServerDataStore;
 
@@ -52,7 +51,7 @@ public class DatabaseManager
 
             if (string.IsNullOrEmpty(value))
             {
-                throw new Exception("DataStoreType is null or empty");
+                throw new Exception("Type is null or empty");
             }
 
             return value;
