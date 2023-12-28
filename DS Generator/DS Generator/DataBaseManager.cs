@@ -12,6 +12,8 @@ public class DatabaseManager
     private static string FinalPath;
     
     public Dictionary<int, Tuple<string, string, string>> DatabaseList = new Dictionary<int, Tuple<string, string, string>>();
+
+    private string[] tables;
     public void SetPaths(string? configPath, string finalPath)
     {
         FolderPath = configPath;
@@ -32,6 +34,11 @@ public class DatabaseManager
             
             index++;
         }
+    }
+    
+    public void SetTables(string[] tables)
+    {
+        this.tables = tables;
     }
 
     private string GetDataStoreProperties(string file, int index, string tag)
@@ -87,6 +94,8 @@ public class DatabaseManager
                 throw new Exception("DataStoreType not supported");
         }
     }
+    
+    //datastore createdatastore {datastoretype} {connectionstring} {schema}
     
     
     

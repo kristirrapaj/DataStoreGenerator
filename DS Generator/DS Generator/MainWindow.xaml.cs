@@ -30,8 +30,14 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         DataContext = this;
-        DataBasePanel.Visibility = Visibility.Hidden;
-        TablePanel.Visibility = Visibility.Hidden;
+        SetVisibilities(Visibility.Hidden);
+    }
+
+    private void SetVisibilities(Visibility visibility)
+    {
+        DataBasePanel.Visibility = visibility;
+        TablePanel.Visibility = visibility;
+        GenerateButton.Visibility = visibility;
     }
 
     private void InitDatabases()
@@ -45,7 +51,6 @@ public partial class MainWindow : Window
         {
             DataBaseNames.Add(databaseName);
         }
-        TablePanel.Visibility = Visibility.Visible;
     }
 
     private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -81,6 +86,17 @@ public partial class MainWindow : Window
     private void OnStartSelected(object sender, RoutedEventArgs e)
     {
         InitDatabases();
-        DataBasePanel.Visibility = Visibility.Visible;
+        SetVisibilities(Visibility.Visible);
+    }
+    
+    private void OnTableSelected(object sender, RoutedEventArgs e)
+    {
+        var tables = new string[3];
+        tables[0] = Table1.Text;
+        tables[1] = Table2.Text;
+        tables[2] = Table3.Text;
+
+        _databaseManager.SetTables(tables);
+        MessageBox.Show("Configurations created in '" + FinalPath + "'");
     }
 }

@@ -52,8 +52,8 @@
                     <TextBox Name="Table2" />
                     <TextBox Name="Table3" />
                 </StackPanel>
-                <Button Content="Select" Click="OnFinalPathSelected"/>
             </StackPanel> 
+            <Button Content="Generate files" x:Name="GenerateButton" Click="OnTableSelected" Margin="0, 20, 0, 0" Width="100"/>
         </StackPanel>
     </Grid>
 </Window>
