@@ -6,25 +6,36 @@
         xmlns:dsGenerator="clr-namespace:DS_Generator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-        <Grid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 30, 0, 0">
-                        <Label Content="Select Database Type:  "></Label>
-                        <ComboBox x:Name="CbDatabaseType" Width="200" Height="20" SelectedIndex="0" 
-                                  ItemsSource="{Binding AvaliableDatabases}" SelectionChanged="OnDatabaseSelectionChanged">
-                        </ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 60, 0, 0">
-                        <Label Content="Select DataProvider Type:  "></Label>
-                        <ComboBox x:Name="CbDataProviderType" Width="200" Height="20" SelectedIndex="0" 
-                                  ItemsSource="{Binding AvaliableDataProviders}" SelectionChanged="OnDataProviderSelectionChanged">
-                        </ComboBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 90, 0, 0">
-                        <Label Content="Select Table:  "></Label>
-                        <ComboBox x:Name="CbDataTableType" Width="150" Height="20" SelectedIndex="0"
-                                  IsEditable="True" IsTextSearchEnabled="False"
-                                  ItemsSource="{Binding AvaliableDataTables}" SelectionChanged="OnDataTableSelectionChanged">
-                        </ComboBox>
-                </StackPanel>
-        </Grid>
+    <Grid Background="#F0F0F0"> <!-- Set a light gray background color -->
+        <!-- Database Type -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+            <Label Content="Select Database Type: " Foreground="#333" />
+            <ComboBox x:Name="CbDatabaseType" Width="200" Height="20"
+                      SelectedIndex="0"
+                      ItemsSource="{Binding AvaliableDatabases}"
+                      SelectionChanged="OnDatabaseSelectionChanged"
+                      HorizontalAlignment="Stretch" />
+        </StackPanel>
+
+        <!-- DataProvider Type -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0">
+            <Label Content="Select DataProvider Type: " Foreground="#333" />
+            <ComboBox x:Name="CbDataProviderType" Width="200" Height="20"
+                      SelectedIndex="0"
+                      ItemsSource="{Binding AvaliableDataProviders}"
+                      SelectionChanged="OnDataProviderSelectionChanged"
+                      HorizontalAlignment="Stretch" />
+        </StackPanel>
+
+        <!-- Select Table -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
+            <Label Content="Select Table: " Foreground="#333" />
+            <ComboBox x:Name="CbDataTableType" Width="150" Height="20"
+                      SelectedIndex="0"
+                      IsEditable="True" IsTextSearchEnabled="False"
+                      ItemsSource="{Binding AvaliableDataTables}"
+                      SelectionChanged="OnDataTableSelectionChanged"
+                      HorizontalAlignment="Stretch" />
+        </StackPanel>
+    </Grid>
 </Window>
