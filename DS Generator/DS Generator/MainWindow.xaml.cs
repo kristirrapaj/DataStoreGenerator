@@ -33,6 +33,7 @@ public partial class MainWindow : Window
     
     private void PopulateDataProviderComboBox()
     {
+        CbDataProviderType.Items.Clear();
         AvaliableDataProviders = _dbManager.AvailableDataProvider.ToList();
         var placeholderItem = "Select an item...";
         AvaliableDataProviders.Insert(0, placeholderItem);
@@ -68,6 +69,6 @@ public partial class MainWindow : Window
 
     private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Autismo");
     }
 }

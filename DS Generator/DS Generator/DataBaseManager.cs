@@ -1,5 +1,6 @@
 using System.Data;
 using System.IO;
+using DataStore.Factory;
 
 namespace DS_Generator;
 
@@ -54,7 +55,6 @@ public class DataBaseManager {
         var factory = DataStoreFactory.GetDataStoreByDataProviderID(_currentDataProvider.Item2);
         _availableTables = factory.GetExistingTables(_currentNameFilter).ToList();
     }
-
 
     private void SetAvailableDataProvider() {
         var file = _currentDatabase.Item2;
