@@ -1,5 +1,7 @@
 using System.Data;
 using System.IO;
+using DataStore.Factory;
+using DataStore.Interface;
 
 namespace DS_Generator;
 
@@ -12,6 +14,7 @@ public class DataBaseManager {
     private List<string> _availableTables;
     private List<string> _availableDatabase;
     private List<string> _availableDataProvider;
+    private IDataStore DSFactory;
 
     public List<string> AvailableDataProvider {
         get => _availableDataProvider;
@@ -50,9 +53,15 @@ public class DataBaseManager {
         SetAvailableTables();
     }
 
+    public void SearchTable(string nameStream) {
+        _currentNameFilter = nameStream;
+        SetAvailableTables();
+    }
+    
+
     private void SetAvailableTables() {
-        var factory = DataStoreFactory.GetDataStoreByDataProviderID(_currentDataProvider.Item2);
-        _availableTables = factory.GetExistingTables(_currentNameFilter).ToList();
+        DSFactory = DataStoreFactory.GetDataStoreByDataProviderID(_currentDataProvider.Item2);
+        _availableTables = DSFactory.GetExistingTables(_currentNameFilter).ToList();
     }
 
 
