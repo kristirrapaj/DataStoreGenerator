@@ -6,14 +6,15 @@ namespace DS_Generator;
 public class DataBaseManager {
     private const string FolderPath = @"../../../DataBaseConfig";
 
+    private string _currentNameFilter;
     private Tuple<int, string> _currentDataProvider;
     private Tuple<int, string> _currentDatabase;
+    private List<string> _availableTables;
     private List<string> _availableDatabase;
     private List<string> _availableDataProvider;
 
     public List<string> AvailableDataProvider {
         get => _availableDataProvider;
-        set => _availableDataProvider = value;
     }
 
     public List<string> AvailableDatabase {
@@ -23,12 +24,17 @@ public class DataBaseManager {
         }
     }
 
+    public List<string> AvailableTables {
+        get => _availableTables;
+    }
+
     public DataBaseManager() {
         _currentDataProvider = new Tuple<int, string>(-1, string.Empty);
         _currentDatabase = new Tuple<int, string>(-1, string.Empty);
         _availableDatabase = new List<string>();
         _availableDataProvider = new List<string>();
-        AvailableDataProvider = [];
+        _availableTables = new List<string>();
+        _currentNameFilter = "";
         SetDatabasesConfig();
     }
 
@@ -40,25 +46,28 @@ public class DataBaseManager {
     }
 
     public void ChooseDataProvider(int dataProviderIndex) {
-        if (dataProviderIndex < 0 || dataProviderIndex >= _availableDataProvider.Count)
-            throw new InvalidDataException("index passed is: " + dataProviderIndex +
-                                           ", which is invalid or out of range");
-        _currentDataProvider = new Tuple<int, string>(dataProviderIndex, _availableDatabase[dataProviderIndex]);
+        _currentDataProvider = new Tuple<int, string>(dataProviderIndex, _availableDataProvider[dataProviderIndex]);
+        SetAvailableTables();
     }
 
+    private void SetAvailableTables() {
+        var factory = DataStoreFactory.GetDataStoreByDataProviderID(_currentDataProvider.Item2);
+        _availableTables = factory.GetExistingTables(_currentNameFilter).ToList();
+    }
+
+
     private void SetAvailableDataProvider() {
-        var dataProviderList = new List<string>();
         var file = _currentDatabase.Item2;
         var dataSet = new DataSet();
         dataSet.ReadXml(file);
-        foreach (DataRow dataProvider in dataSet.Tables[0].Rows) {
-            dataProviderList.Add(TagPickerXml(dataProvider, "ID"));
+        var dataProviderList =
+            (from DataRow dataProvider in dataSet.Tables[0].Rows select TagPickerXml(dataProvider, "ID")).ToList();
+
+        foreach (var id in dataProviderList) {
+            Console.WriteLine(AvailableDatabase[_currentDatabase.Item1] + ", " + id);
         }
 
-        foreach (var sesso in dataProviderList) {
-            Console.WriteLine("3) Dani: " + AvailableDatabase[_currentDatabase.Item1] + ", " + sesso);
-        }
-        AvailableDataProvider = dataProviderList;
+        _availableDataProvider = dataProviderList;
     }
 
     private void SetDatabasesConfig() {
@@ -66,7 +75,7 @@ public class DataBaseManager {
             var files = Directory.GetFiles(FolderPath, "*.xml");
             foreach (var file in files) {
                 _availableDatabase.Add(file);
-                Console.WriteLine("1) Dani: " + file);
+                Console.WriteLine(file);
             }
         }
         catch (Exception e) {
