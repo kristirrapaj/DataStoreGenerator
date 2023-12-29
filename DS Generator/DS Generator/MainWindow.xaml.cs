@@ -10,19 +10,18 @@ namespace DS_Generator;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private DataBaseConfiguration _dbConfig = new DataBaseConfiguration();
+    private DataBaseManager _dbManager = new DataBaseManager();
     public List<string> Elements { get; set; }
     public MainWindow()
     {
         DataContext = this;
         InitializeComponent();
-        _dbConfig.PopulateData();
         PopulateComboBox();
     }
 
     private void PopulateComboBox()
     {
-        Elements = _dbConfig.dataBaseTypes.ToList();
+        Elements = _dbManager.AvailableDatabase.ToList();
         Elements.ForEach(x => CbDatabaseType.Items.Add(x));
     }
 
@@ -30,6 +29,6 @@ public partial class MainWindow : Window
     private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         var selectedIndex = CbDatabaseType.SelectedIndex;
-        var test = _dbConfig.GetDatabaseType(selectedIndex);
+        _dbManager.SetDataProvider(selectedIndex);
     }
 }

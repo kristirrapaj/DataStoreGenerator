@@ -3,13 +3,13 @@ using System.IO;
 
 namespace DS_Generator;
 
-public class DatabaseManager {
+public class DataBaseManager {
     private const string FolderPath = @"../../../DataBaseConfig";
 
     private List<string> _availableDataProvider;
     private List<string> _availableDatabase;
 
-    public DatabaseManager() {
+    public DataBaseManager() {
         _availableDatabase = new List<string>();
         _availableDataProvider = new List<string>();
         Initializer();
@@ -31,6 +31,10 @@ public class DatabaseManager {
         var file = _availableDatabase[databaseTypeIndex];
         var dataSet = new DataSet();
         dataSet.ReadXml(file);
+        foreach (var str in dataSet.Tables[0].Rows)
+        {
+            Console.WriteLine(str);
+        }
         _availableDataProvider = dataProviderList;
     }
 
