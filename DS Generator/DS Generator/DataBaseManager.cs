@@ -2,6 +2,7 @@ using System.Data;
 using System.IO;
 using DataStore.Factory;
 using DataStore.Interface;
+using DS_Generator.Database;
 
 namespace DS_Generator;
 
@@ -60,8 +61,10 @@ public class DataBaseManager {
     
 
     private void SetAvailableTables() {
-        DSFactory = DataStoreFactory.GetDataStoreByDataProviderID(_currentDataProvider.Item2);
-        _availableTables = DSFactory.GetExistingTables(_currentNameFilter).ToList();
+        //DSFactory = DataStoreFactory.GetDataStoreByDataProviderID(_currentDataProvider.Item2);
+        //_availableTables = DSFactory.GetExistingTables(_currentNameFilter).ToList();
+        DataBaseConfiguration dataBaseConfiguration = new DataBaseConfiguration();
+        _availableTables = dataBaseConfiguration.dataTables.ToList();
     }
 
 

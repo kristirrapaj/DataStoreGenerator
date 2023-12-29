@@ -7,7 +7,7 @@ public class DataBaseConfiguration
 {
     public List<string> dataBaseTypes = new List<string>();
     public List<string> dataProviderIds = new List<string>();
-    public string[] dataTables;
+    public List<string> dataTables = new List<string>();
     
     private Dictionary<int, Tuple<string, string, string>> _databaseList =
         new Dictionary<int, Tuple<string, string, string>>();
@@ -20,7 +20,8 @@ public class DataBaseConfiguration
         dataProviderIds.Add("DEFAULT_SYSTEM");
         dataProviderIds.Add("METADATA_TLC");
         
-        dataTables = new string[] { "ACQ_PERDITA", "ACQ_ZONA_ISPEZ" };
+        dataTables.Add("TUMA_GRANDESIGNORA");
+        dataTables.Add("TUPA_GRANDESIGNORE");
     }
     
     public string GetDatabaseType(int index)

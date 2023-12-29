@@ -16,11 +16,15 @@ public partial class MainWindow : Window
     
     private List<string> AvaliableDataTables { get; set; }
     
+    DataBaseConfiguration dataBaseConfiguration = new DataBaseConfiguration();
+    
     public MainWindow()
     {
         DataContext = this;
         InitializeComponent();
+        dataBaseConfiguration.PopulateData();
         PopulateDatabaseComboBox();
+        PopulateDataTableComboBox();
     }
 
     private void PopulateDatabaseComboBox()
@@ -42,11 +46,17 @@ public partial class MainWindow : Window
     
     private void PopulateDataTableComboBox()
     {
-        DataBaseConfiguration dataBaseConfiguration = new DataBaseConfiguration();
-        AvaliableDataTables = dataBaseConfiguration.dataTables.ToList();
+        AvaliableDataTables = dataBaseConfiguration.dataTables;;
         var placeholderItem = "Select an item...";
         AvaliableDataTables.Insert(0, placeholderItem);
         AvaliableDataTables.ForEach(x => CbDataTableType.Items.Add(x));
+        
+        CbDataTableType.TextInput += (sender, args) =>
+        {
+            _dbManager.SearchTable(args.Text);
+            CbDataTableType.Items.Clear();
+            AvaliableDataTables = _dbManager.AvailableTables.ToList();
+        };
     }
 
     private void OnDatabaseSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -64,7 +74,7 @@ public partial class MainWindow : Window
         if (selectedIndex < 0) return;
         _dbManager.ChooseDataProvider(selectedIndex);
         
-        PopulateDataTableComboBox();
+        
     }
 
     private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)
