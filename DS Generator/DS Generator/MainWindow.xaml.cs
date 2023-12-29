@@ -52,7 +52,7 @@ public partial class MainWindow : Window
     {
         var selectedIndex = CbDatabaseType.SelectedIndex - 1;
         if (selectedIndex < 0) return;
-        _dbManager.SetDataProvider(selectedIndex);
+        _dbManager.ChooseDatabase(selectedIndex);
         
         PopulateDataProviderComboBox();
     }
@@ -61,7 +61,7 @@ public partial class MainWindow : Window
     {
         var selectedIndex = CbDataProviderType.SelectedIndex - 1;
         if (selectedIndex < 0) return;
-        Console.WriteLine(selectedIndex);
+        _dbManager.ChooseDataProvider(selectedIndex);
         
         PopulateDataTableComboBox();
     }
