@@ -11,27 +11,63 @@ namespace DS_Generator;
 public partial class MainWindow : Window
 {
     private DataBaseManager _dbManager = new DataBaseManager();
-    public List<string> Elements { get; set; }
+    private List<string> AvaliableDatabases { get; set; }
+    private List<string> AvaliableDataProviders { get; set; }
+    
+    private List<string> AvaliableDataTables { get; set; }
+    
     public MainWindow()
     {
         DataContext = this;
         InitializeComponent();
-        PopulateComboBox();
+        PopulateDatabaseComboBox();
     }
 
-    private void PopulateComboBox()
+    private void PopulateDatabaseComboBox()
     {
-        Elements = _dbManager.AvailableDatabase.ToList();
-        var placeholderItem = "Select an item";
-        Elements.Insert(0, placeholderItem);
-        Elements.ForEach(x => CbDatabaseType.Items.Add(x));
+        AvaliableDatabases = _dbManager.AvailableDatabase.ToList();
+        var placeholderItem = "Select an item...";
+        AvaliableDatabases.Insert(0, placeholderItem);
+        AvaliableDatabases.ForEach(x => CbDatabaseType.Items.Add(x));
+    }
+    
+    private void PopulateDataProviderComboBox()
+    {
+        AvaliableDataProviders = _dbManager.AvailableDataProvider.ToList();
+        var placeholderItem = "Select an item...";
+        AvaliableDataProviders.Insert(0, placeholderItem);
+        AvaliableDataProviders.ForEach(x => CbDataProviderType.Items.Add(x));
+    }
+    
+    private void PopulateDataTableComboBox()
+    {
+        DataBaseConfiguration dataBaseConfiguration = new DataBaseConfiguration();
+        AvaliableDataTables = dataBaseConfiguration.dataTables.ToList();
+        var placeholderItem = "Select an item...";
+        AvaliableDataTables.Insert(0, placeholderItem);
+        AvaliableDataTables.ForEach(x => CbDataTableType.Items.Add(x));
     }
 
-
-    private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void OnDatabaseSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         var selectedIndex = CbDatabaseType.SelectedIndex - 1;
         if (selectedIndex < 0) return;
-        _dbManager.SetDataProvider(selectedIndex);
+        _dbManager.ChooseDatabase(selectedIndex);
+        
+        PopulateDataProviderComboBox();
+    }
+
+    private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedIndex = CbDataProviderType.SelectedIndex - 1;
+        if (selectedIndex < 0) return;
+        _dbManager.ChooseDataProvider(selectedIndex);
+        
+        PopulateDataTableComboBox();
+    }
+
+    private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }
