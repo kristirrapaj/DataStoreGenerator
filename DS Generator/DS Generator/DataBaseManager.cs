@@ -2,43 +2,27 @@ using System.Data;
 using System.IO;
 using DataStore.Interface;
 using DataStore.SQLServerDataStore;
+using DataFactory;
+using DataStore.Base;
+using DataStore.Factory;
+using DataStore.Interface;
 
 namespace DS_Generator;
 
 public class DatabaseManager
 {
-    private static string FolderPath;
-    private static string FinalPath;
-    
+    private static string _folderPath;
+    private static string _finalPath;
+
     //public Dictionary<int, Tuple<string, string, string>> DatabaseList = new Dictionary<int, Tuple<string, string, string>>();
-    
-    public Dictionary<int, Dictionary<string, DataSet>> DatabaseList = new Dictionary<int, Dictionary<string, DataSet>>();
 
-    private string[] tables;
+    public Dictionary<int, Dictionary<string, DataSet>> DatabaseList =
+        new Dictionary<int, Dictionary<string, DataSet>>();
 
-    private int selectedIndex;
-    public void SetPaths(string configPath, string finalPath)
-    {
-        FolderPath = configPath;
-        FinalPath = finalPath;
-        
-        string[] files = Directory.GetFiles(FolderPath, "*.xml");
-        int index = 1;
-        
-        
-        foreach (string file in files)
-        {
-            var dataStoreType = GetDataStoreProperties(file, "DATA_STORE_TYPE");
-            
-            var dictionary = new Dictionary<string, DataSet>();
-            dictionary.Add(dataStoreType, new DataSet());
-            
-            DatabaseList.Add(index, dictionary);
-            GetDatabaseProperties(index, dataStoreType, file);
-            index++;
-        }
-    }
-    
+    private string[] _tables;
+
+    private int _selectedIndex;
+
     private void GetDatabaseProperties(int index, string dataStoreType, string file)
     {
         var dataSet = new DataSet();
@@ -46,25 +30,58 @@ public class DatabaseManager
 
         foreach (var key in DatabaseList.Keys)
         {
-            if (key == index)
+            if (key != index) continue;
+            foreach (var value in DatabaseList[key].Keys.Where(value => value == dataStoreType))
             {
-                foreach (var value in DatabaseList[key].Keys)
-                {
-                    if (value == dataStoreType)
-                    {
-                        DatabaseList[key][value] = dataSet;
-                    }
-                }
+                DatabaseList[key][value] = dataSet;
             }
         }
     }
-    
-    public void SetTables(string[] tables)
+
+    public void Initializer(string configPath, string finalPath)
     {
-        this.tables = tables;
+        _folderPath = configPath;
+        _finalPath = finalPath;
+
+        var files = Directory.GetFiles(_folderPath, "*.xml");
+        var index = 1;
+        
+        foreach (var file in files)
+        {
+            var dataStoreType = PickXmlProperty(file, "DATA_STORE_TYPE");
+
+            var dictionary = new Dictionary<string, DataSet>();
+            dictionary.Add(dataStoreType, new DataSet());
+
+            DatabaseList.Add(index, dictionary);
+            GetDatabaseProperties(index, dataStoreType, file);
+            index++;
+        }
     }
 
-    private string GetDataStoreProperties(string file, string tag)
+
+    public void IndexDbSelector(int selectedIndex)
+    {
+        if (selectedIndex == 0) return;
+        _selectedIndex = selectedIndex;
+        //todo: REFACTOR and IMPLEMENT
+        var factory = DataStoreFactory.GetDataStoreByDataProviderID()
+    }
+
+
+    public void SetTables(string[] tables)
+    {
+        _tables = tables;
+    }
+
+
+    //todo: IMPLEMENT
+    private static IDataStore CreateDataStore(string connectionString, string schema)
+    {
+        return new SQLServerGeomDataStore(connectionString, schema);
+    }
+
+    private static string PickXmlProperty(string file, string tag)
     {
         var dataSet = new DataSet();
         dataSet.ReadXml(file);
@@ -85,22 +102,5 @@ public class DatabaseManager
             Console.WriteLine(e);
             throw;
         }
-    }
-
-    public void DbSelector(int selectedIndex)
-    {
-        this.selectedIndex = selectedIndex;
-        if (selectedIndex == 0) return;
-        
-        
-        
-        IDataStore dataStore = CreateDataStore(connectionString, schema);
-        var generator = new SqlGenerator(dataStore);
-        generator.Generate(FinalPath, tables);
-    }
-
-    private static IDataStore CreateDataStore(string connectionString, string schema)
-    {
-        return new SQLServerGeomDataStore(connectionString, schema);
     }
 }

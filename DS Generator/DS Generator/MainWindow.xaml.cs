@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Data;
+using System.Windows;
 using System.Windows.Controls;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -44,10 +45,10 @@ public partial class MainWindow : Window
     {
         if (_selectedCount != 2) return;
         
-        _databaseManager.SetPaths(ConfigPath, FinalPath);
+        _databaseManager.Initializer(ConfigPath, FinalPath);
         _selectedCount = 0;
 
-        foreach (string databaseName in _databaseManager.DatabaseList.Values.Select(tuple => tuple.Item1))
+        foreach (string databaseName in _databaseManager.DatabaseList.Values)
         {
             DataBaseNames.Add(databaseName);
         }
@@ -56,7 +57,7 @@ public partial class MainWindow : Window
     private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         SelectedIndex = ((ComboBox)sender).SelectedIndex;
-        _databaseManager.DbSelector(SelectedIndex);
+        _databaseManager.IndexDbSelector(SelectedIndex);
     }
 
     private void OnConfigurationPathSelected(object sender, RoutedEventArgs e)
