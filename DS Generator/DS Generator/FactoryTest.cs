@@ -5,11 +5,7 @@ using DataStore.Interface;
 
 namespace DS_Generator;
 
-public class FactoryTest: 
+public class FactoryTest
 {
-    public void Test()
-    {
-        var factory = new DataStoreConfig();
-        factory.
-    }
+    private string factory;
 }

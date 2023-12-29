@@ -1,6 +1,6 @@
-﻿using System.Data;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using DS_Generator.Database;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace DS_Generator;
@@ -10,94 +10,26 @@ namespace DS_Generator;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public List<string> DataBaseNames
-    {
-        get => _dataBaseNames;
-        set => _dataBaseNames = value;
-    }
-
-    readonly DatabaseManager _databaseManager = new DatabaseManager();
-    private List<string> _dataBaseNames = new List<string>();
-    private static string? ConfigPath { get; set; }
-    private static string FinalPath { get; set; }
-    
-    private static int _selectedCount= 0;
-
-    public static string fefe = "Seleziona un database";
-
-    private int SelectedIndex { get; set; } = 1;
-
+    private DataBaseConfiguration _dbConfig = new DataBaseConfiguration();
+    public List<string> Elements { get; set; }
     public MainWindow()
     {
-        InitializeComponent();
         DataContext = this;
-        SetVisibilities(Visibility.Hidden);
+        InitializeComponent();
+        _dbConfig.PopulateData();
+        PopulateComboBox();
     }
 
-    private void SetVisibilities(Visibility visibility)
+    private void PopulateComboBox()
     {
-        DataBasePanel.Visibility = visibility;
-        TablePanel.Visibility = visibility;
-        GenerateButton.Visibility = visibility;
+        Elements = _dbConfig.dataBaseTypes.ToList();
+        Elements.ForEach(x => CbDatabaseType.Items.Add(x));
     }
 
-    private void InitDatabases()
-    {
-        if (_selectedCount != 2) return;
-        
-        _databaseManager.Initializer(ConfigPath, FinalPath);
-        _selectedCount = 0;
-
-        foreach (string databaseName in _databaseManager.DatabaseList.Values)
-        {
-            DataBaseNames.Add(databaseName);
-        }
-    }
 
     private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        SelectedIndex = ((ComboBox)sender).SelectedIndex;
-        _databaseManager.IndexDbSelector(SelectedIndex);
-    }
-
-    private void OnConfigurationPathSelected(object sender, RoutedEventArgs e)
-    {
-        using var dialog = new CommonOpenFileDialog();
-        dialog.IsFolderPicker = true;
-        if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-        {
-            ConfigPath = dialog.FileName;
-            ConfigPathTextBox.Text = ConfigPath;
-        }
-        _selectedCount++;
-    }
-
-    private void OnFinalPathSelected(object sender, RoutedEventArgs e)
-    {
-        using var dialog = new CommonOpenFileDialog();
-        dialog.IsFolderPicker = true;
-        if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-        {
-            FinalPath = dialog.FileName;
-            FinalPathTextBox.Text = ConfigPath;
-        }
-        _selectedCount++;
-    }
-
-    private void OnStartSelected(object sender, RoutedEventArgs e)
-    {
-        InitDatabases();
-        SetVisibilities(Visibility.Visible);
-    }
-    
-    private void OnTableSelected(object sender, RoutedEventArgs e)
-    {
-        var tables = new string[3];
-        tables[0] = Table1.Text;
-        tables[1] = Table2.Text;
-        tables[2] = Table3.Text;
-
-        _databaseManager.SetTables(tables);
-        MessageBox.Show("Configurations created in '" + FinalPath + "'");
+        var selectedIndex = CbDatabaseType.SelectedIndex;
+        var test = _dbConfig.GetDatabaseType(selectedIndex);
     }
 }

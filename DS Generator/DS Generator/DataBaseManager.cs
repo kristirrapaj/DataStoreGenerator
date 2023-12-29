@@ -2,10 +2,6 @@ using System.Data;
 using System.IO;
 using DataStore.Interface;
 using DataStore.SQLServerDataStore;
-using DataFactory;
-using DataStore.Base;
-using DataStore.Factory;
-using DataStore.Interface;
 
 namespace DS_Generator;
 
@@ -65,7 +61,7 @@ public class DatabaseManager
         if (selectedIndex == 0) return;
         _selectedIndex = selectedIndex;
         //todo: REFACTOR and IMPLEMENT
-        var factory = DataStoreFactory.GetDataStoreByDataProviderID()
+        //var factory = DataStoreFactory.GetDataStoreByDataProviderID()
     }
 
 
