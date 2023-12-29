@@ -22,13 +22,16 @@ public partial class MainWindow : Window
     private void PopulateComboBox()
     {
         Elements = _dbManager.AvailableDatabase.ToList();
+        var placeholderItem = "Select an item";
+        Elements.Insert(0, placeholderItem);
         Elements.ForEach(x => CbDatabaseType.Items.Add(x));
     }
 
 
     private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var selectedIndex = CbDatabaseType.SelectedIndex;
+        var selectedIndex = CbDatabaseType.SelectedIndex - 1;
+        if (selectedIndex < 0) return;
         _dbManager.SetDataProvider(selectedIndex);
     }
 }
