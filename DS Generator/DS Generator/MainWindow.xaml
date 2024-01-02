@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dsGenerator="clr-namespace:DS_Generator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -31,11 +33,12 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
             <Label Content="Select Table: " Foreground="#333" />
             <ComboBox x:Name="CbDataTableType" Width="150" Height="20"
-                      SelectedIndex="0"
-                      IsEditable="True" IsTextSearchEnabled="False"
+                      StaysOpenOnEdit="True"
+                      IsEditable="True" IsTextSearchEnabled="True"
                       ItemsSource="{Binding AvaliableDataTables}"
                       SelectionChanged="OnDataTableSelectionChanged"
-                      HorizontalAlignment="Stretch" />
+                      HorizontalAlignment="Stretch"
+                      />
         </StackPanel>
     </Grid>
 </Window>
