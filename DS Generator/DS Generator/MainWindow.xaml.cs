@@ -27,6 +27,7 @@ public partial class MainWindow : Window
 
     private void PopulateDatabaseComboBox()
     {
+        CbDatabaseType.Items.Clear();
         AvailableDatabases = _dbManager.AvailableDatabases.ToList();
         var placeholderItem = "Select an item...";
         AvailableDatabases.Insert(0, placeholderItem);
@@ -44,13 +45,15 @@ public partial class MainWindow : Window
 
     private void PopulateDataTableComboBox()
     {
+        CbDataTableType.Items.Clear();
+        CbDataTableType.Items.Add("Select an item...");
+        CbDataTableType.SelectedIndex = 0;
         AvailableDataTables = _dbManager.AvailableTables.ToList();
         AvailableDataTables.ForEach(x => CbDataTableType.Items.Add(x));
         foreach (var avaliableDatabase in AvailableDataTables)
         {
             Console.WriteLine(avaliableDatabase);
         }
-        
     }
 
     private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -73,7 +76,11 @@ public partial class MainWindow : Window
 
     private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Console.WriteLine("Autismo");
+        Console.WriteLine("Selected table changed");
+        if (CbDataTableType.SelectedIndex <= 0) return;
+        var selectedItem = AvailableDataTables[CbDatabaseType.SelectedIndex];
+        Console.WriteLine(selectedItem);
+        //_dbManager.ChooseTable(selectedItem);
     }
 }
     
