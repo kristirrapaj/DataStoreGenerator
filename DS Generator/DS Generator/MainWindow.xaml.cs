@@ -50,7 +50,6 @@ public partial class MainWindow : Window
         CbDataTableType.SelectedIndex = 0;
         AvailableDataTables = _dbManager.AvailableTables.ToList();
         AvailableDataTables.ForEach(x => CbDataTableType.Items.Add(x));
-        foreach (var avaliableDatabase in AvailableDataTables) Console.WriteLine(avaliableDatabase);
     }
 
     private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -77,6 +76,6 @@ public partial class MainWindow : Window
         if (CbDataTableType.SelectedIndex <= 0) return;
         var selectedItem = AvailableDataTables[CbDataTableType.SelectedIndex -1];
         Console.WriteLine(selectedItem);
-        //_dbManager.ChooseTable(selectedItem);
+        _dbManager.ChooseTable(selectedItem);
     }
 }

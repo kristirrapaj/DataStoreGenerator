@@ -12,7 +12,7 @@ namespace DS_Generator;
 
 public class SqlGenerator
 {
-    private const string File = "./Data1.csv";
+    private const string File = "../../../Data 1.csv";
     private IDataStore mDataStore;
 
     private Dictionary<string, Dictionary<string, string>> mDomainInfoDict;
@@ -123,7 +123,7 @@ public class SqlGenerator
 
         return getModelQuery;
     }
-
+    
     private void GenerateConfigFile(string path, string tableName, DataTable tbModel, bool buildEditConfig)
     {
         var dbTableName = mDataStore.Schema.ToUpper() + "." + tableName;

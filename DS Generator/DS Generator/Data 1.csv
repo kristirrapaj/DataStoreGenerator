@@ -508,103 +508,103 @@ SERIAL_NUMBER,Altro,Altro,False,False,True
 
 SRC_FIELD,Altro,Altro,False,False,True
 
-COD,Codice,Altro,,False,False,True
+COD,Codice,Altro,False,False,True
 
-COD_MISURA,Codice,Altro,,False,False,True
+COD_MISURA,Codice,Altro,False,False,True
 
-COD_STRADA,Codice,Altro,,False,False,True
+COD_STRADA,Codice,Altro,False,False,True
 
-COD_STRADA,Codice,Altro,,False,False,True
+COD_STRADA,Codice,Altro,False,False,True
 
-COD_TREE,Codice,Altro,,False,False,True
+COD_TREE,Codice,Altro,False,False,True
 
-CPDA_SUB,Codice,Altro,,False,False,True
+CPDA_SUB,Codice,Altro,False,False,True
 
-POD,Codice,Altro,,False,False,True
+POD,Codice,Altro,False,False,True
 
-NUMAZIE,Codice,Altro,,False,False,True
+NUMAZIE,Codice,Altro,False,False,True
 
-SOGESID,Codice,Altro,,False,False,True
+SOGESID,Codice,Altro,False,False,True
 
-SUBCOD,Codice,Altro,,False,False,True
+SUBCOD,Codice,Altro,False,False,True
 
-URCOD,Codice,Altro,,False,False,True
+URCOD,Codice,Altro,False,False,True
 
-URGRP,Codice,Altro,,False,False,True
+URGRP,Codice,Altro,False,False,True
 
-CODICE,Codice,Altro,,False,False,True
+CODICE,Codice,Altro,False,False,True
 
-CODICE_,Codice,Altro,,False,False,True
+CODICE_,Codice,Altro,False,False,True
 
-COD_,Codice,Altro,,False,False,True
+COD_,Codice,Altro,False,False,True
 
-D_FUNZIONE,Funzione,Altro,,False,False,True
+D_FUNZIONE,Funzione,Altro,False,False,True
 
-SUB_FUNZIONE,Funzione,Altro,,False,False,True
+SUB_FUNZIONE,Funzione,Altro,False,False,True
 
-AGGR_FUNZ,Funzione,Altro,,False,False,True
+AGGR_FUNZ,Funzione,Altro,False,False,True
 
-D_FUNZ_ORG_CON,Funzione,Altro,,False,False,True
+D_FUNZ_ORG_CON,Funzione,Altro,False,False,True
 
-AGGR_FUNC,Funzione,Altro,,False,False,True
+AGGR_FUNC,Funzione,Altro,False,False,True
 
-BUSINESS_ID,ID,Altro,,False,False,True
+BUSINESS_ID,ID,Altro,False,False,True
 
-EQFNR,ID,Altro,,False,False,True
+EQFNR,ID,Altro,False,False,True
 
-GEWRK,ID,Altro,,False,False,True
+GEWRK,ID,Altro,False,False,True
 
-OLD_ID,ID,Altro,,False,False,True
+OLD_ID,ID,Altro,False,False,True
 
-OLD_IDGIS,ID,Altro,,False,False,True
+OLD_IDGIS,ID,Altro,False,False,True
 
-UID,ID,Altro,,False,False,True
+UID,ID,Altro,False,False,True
 
-UUID,ID,Altro,,False,False,True
+UUID,ID,Altro,False,False,True
 
-UUID,ID,Altro,,False,False,True
+UUID,ID,Altro,False,False,True
 
-PORTING_,ID,Altro,,False,False,True
+PORTING_,ID,Altro,False,False,True
 
-ID_,ID,Altro,,False,False,True
+ID_,ID,Altro,False,False,True
 
-IDGIS,ID,Altro,,False,False,True
+IDGIS,ID,Altro,False,False,True
 
-GLOBALID,ID,Altro,,False,False,True
+GLOBALID,ID,Altro,False,False,True
 
-OBJECTID,ID,Altro,,False,False,True
+OBJECTID,ID,Altro,False,False,True
 
-ZIDCHIAMATA,ID,Altro,,False,False,True
+ZIDCHIAMATA,ID,Altro,False,False,True
 
-COD,Recapiti,Altro,,False,False,True
+COD,Recapiti,Altro,False,False,True
 
-COD_MISURA,Recapiti,Altro,,False,False,True
+COD_MISURA,Recapiti,Altro,False,False,True
 
-COD_STRADA,Recapiti,Altro,,False,False,True
+COD_STRADA,Recapiti,Altro,False,False,True
 
-COD_STRADA,Recapiti,Altro,,False,False,True
+COD_STRADA,Recapiti,Altro,False,False,True
 
-COD_TREE,Recapiti,Altro,,False,False,True
+COD_TREE,Recapiti,Altro,False,False,True
 
-CPDA_SUB,Recapiti,Altro,,False,False,True
+CPDA_SUB,Recapiti,Altro,False,False,True
 
-POD,Recapiti,Altro,,False,False,True
+POD,Recapiti,Altro,False,False,True
 
-NUMAZIE,Recapiti,Altro,,False,False,True
+NUMAZIE,Recapiti,Altro,False,False,True
 
-SOGESID,Recapiti,Altro,,False,False,True
+SOGESID,Recapiti,Altro,False,False,True
 
-SUBCOD,Recapiti,Altro,,False,False,True
+SUBCOD,Recapiti,Altro,False,False,True
 
-URCOD,Recapiti,Altro,,False,False,True
+URCOD,Recapiti,Altro,False,False,True
 
-URGRP,Recapiti,Altro,,False,False,True
+URGRP,Recapiti,Altro,False,False,True
 
-CODICE,Recapiti,Altro,,False,False,True
+CODICE,Recapiti,Altro,False,False,True
 
-CODICE_,Recapiti,Altro,,False,False,True
+CODICE_,Recapiti,Altro,False,False,True
 
-COD_,Recapiti,Altro,,False,False,True
+COD_,Recapiti,Altro,False,False,True
 
 ALTEZZA,Altezza,Caratteristiche Fisiche,True,True,True
 
