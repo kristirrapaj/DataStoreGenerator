@@ -8,23 +8,20 @@ namespace DS_Generator;
 public class DataBaseManager {
     private const string FolderPath = @"../../../DataBaseConfig";
 
-    private string _currentNameFilter;
-    private Tuple<int, string> _currentDataProvider;
-    private Tuple<int, string> _currentDatabase;
+    private string _currentDataStoreType;
+    private string _currentId;
     private List<string> _availableTables;
-    private List<string> _availableDatabase;
+    private List<string> _availableDatabases;
     private List<string> _availableDataProvider;
-    private IDataStore DSFactory;
+    private DataSet _configDataSet;
+    private IDataStore _dsFactory;
 
     public List<string> AvailableDataProvider {
         get => _availableDataProvider;
     }
 
-    public List<string> AvailableDatabase {
-        get {
-            return _availableDatabase.Select(db => db.Split("\\")[1].Split(".")[0])
-                .ToList(); // Trims the filepath returning only the file name (es: oracle instead of ../../../DataBaseConfig/oracle.xml)
-        }
+    public List<string> AvailableDatabases {
+        get { return _availableDatabases; }
     }
 
     public List<string> AvailableTables {
@@ -32,60 +29,51 @@ public class DataBaseManager {
     }
 
     public DataBaseManager() {
-        _currentDataProvider = new Tuple<int, string>(-1, string.Empty);
-        _currentDatabase = new Tuple<int, string>(-1, string.Empty);
-        _availableDatabase = new List<string>();
-        _availableDataProvider = new List<string>();
-        _availableTables = new List<string>();
-        _currentNameFilter = "";
-        SetDatabasesConfig();
+        SetDatasetConfig();
+        SetAvailableDataType();
     }
 
-    public void ChooseDatabase(int databaseIndex) {
-        if (databaseIndex < 0 || databaseIndex >= _availableDatabase.Count)
-            throw new InvalidDataException("index passed is: " + databaseIndex + ", which is invalid or out of range");
-        _currentDatabase = new Tuple<int, string>(databaseIndex, _availableDatabase[databaseIndex]);
-        SetAvailableDataProvider();
-    }
-
-    public void ChooseDataProvider(int dataProviderIndex) {
-        _currentDataProvider = new Tuple<int, string>(dataProviderIndex, _availableDataProvider[dataProviderIndex]);
+    public void ChooseDatabase(string id) {
+        _currentId = id;
         SetAvailableTables();
     }
 
-    public void SearchTable(string nameStream) {
-        _currentNameFilter = nameStream;
-        SetAvailableTables();
+    public void ChooseDataStoreType(string dataStoreType) {
+        _currentDataStoreType = dataStoreType;
+        SetAvailableDatabase();
     }
-    
 
     private void SetAvailableTables() {
-        DSFactory = DataStoreFactory.GetDataStoreByDataProviderID(_currentDataProvider.Item2);
-        _availableTables = DSFactory.GetExistingTables(_currentNameFilter).ToList();
+        var cnnStr = (
+            from DataRow dataProvider in _configDataSet.Tables[0].Rows
+            where TagPickerXml(dataProvider, "ID") == _currentId
+            select TagPickerXml(dataProvider, "CONN_STR")
+        ).ToList();
+        
+        _dsFactory = DataStoreFactory.GetDataStore(dataStoreType:_currentDataStoreType, connStr: cnnStr[0]);
+        _availableTables = _dsFactory.GetExistingTables().ToList();
     }
 
-
-    private void SetAvailableDataProvider() {
-        var file = _currentDatabase.Item2;
-        var dataSet = new DataSet();
-        dataSet.ReadXml(file);
-        var dataProviderList =
-            (from DataRow dataProvider in dataSet.Tables[0].Rows select TagPickerXml(dataProvider, "ID")).ToList();
-
-        foreach (var id in dataProviderList) {
-            Console.WriteLine(AvailableDatabase[_currentDatabase.Item1] + ", " + id);
-        }
-
-        _availableDataProvider = dataProviderList;
+    private void SetAvailableDataType() {
+        _availableDataProvider = (
+            from DataRow dataProvider in _configDataSet.Tables[0].Rows
+            select TagPickerXml(dataProvider, "DATA_PROVIDER")
+        ).ToList();
     }
 
-    private void SetDatabasesConfig() {
+    private void SetAvailableDatabase() {
+        _availableDatabases = (
+            from DataRow dataProvider in _configDataSet.Tables[0].Rows
+            where TagPickerXml(dataProvider, "DATA_STORE_TYPE") == _currentDataStoreType
+            select TagPickerXml(dataProvider, "ID")
+        ).ToList();
+    }
+
+    private void SetDatasetConfig() {
         try {
-            var files = Directory.GetFiles(FolderPath, "*.xml");
-            foreach (var file in files) {
-                _availableDatabase.Add(file);
-                Console.WriteLine(file);
-            }
+            var dataset = new DataSet();
+            dataset.ReadXml(FolderPath + "dataProviderConfig.xml");
+            _configDataSet = dataset;
         }
         catch (Exception e) {
             Console.WriteLine(e);
