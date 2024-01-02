@@ -12,7 +12,7 @@ namespace DS_Generator;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private DataBaseManager _dbManager = new DataBaseManager();
+    private DataBaseManager _dbManager = new();
     private List<string> AvailableDatabases { get; set; }
     private List<string> AvailableDataProviders { get; set; }
 
@@ -50,10 +50,7 @@ public partial class MainWindow : Window
         CbDataTableType.SelectedIndex = 0;
         AvailableDataTables = _dbManager.AvailableTables.ToList();
         AvailableDataTables.ForEach(x => CbDataTableType.Items.Add(x));
-        foreach (var avaliableDatabase in AvailableDataTables)
-        {
-            Console.WriteLine(avaliableDatabase);
-        }
+        foreach (var avaliableDatabase in AvailableDataTables) Console.WriteLine(avaliableDatabase);
     }
 
     private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -78,9 +75,8 @@ public partial class MainWindow : Window
     {
         Console.WriteLine("Selected table changed");
         if (CbDataTableType.SelectedIndex <= 0) return;
-        var selectedItem = AvailableDataTables[CbDatabaseType.SelectedIndex];
+        var selectedItem = AvailableDataTables[CbDataTableType.SelectedIndex -1];
         Console.WriteLine(selectedItem);
         //_dbManager.ChooseTable(selectedItem);
     }
 }
-    

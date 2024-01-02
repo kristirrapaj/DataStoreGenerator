@@ -10,7 +10,6 @@ using GridConfig.Interface;
 
 namespace DS_Generator;
 
-
 public class SqlGenerator
 {
     private const string File = "./Data1.csv";
@@ -61,7 +60,7 @@ public class SqlGenerator
         var getModelQuery = GetModelQuery(tables);
 
 
-        DataTable tbModel = mDataStore.GetTable(getModelQuery);
+        var tbModel = mDataStore.GetTable(getModelQuery);
 
         mDomainInfoDict = GetDomainInfoFromDB();
         mSubTypeFieldInfoDict = GetSubtypeFieldInfoFromDB();
@@ -127,15 +126,13 @@ public class SqlGenerator
 
     private void GenerateConfigFile(string path, string tableName, DataTable tbModel, bool buildEditConfig)
     {
-       
-        
         var dbTableName = mDataStore.Schema.ToUpper() + "." + tableName;
 
         if (mDataStore.DataProviderType == "SQL_SERVER") dbTableName = mDataStore.Database + "." + dbTableName;
 
         var modelRows = tbModel.Select("TABLE_NAME = '" + tableName + "'");
 
-        ColumnSettingsDS colSettingsDS = new ColumnSettingsDS();
+        var colSettingsDS = new ColumnSettingsDS();
 
         AddFlagsRow(colSettingsDS);
 
@@ -156,7 +153,7 @@ public class SqlGenerator
             var nullable = modelRow["NULLABLE"].ToString();
             var isVersioned = !modelRow.IsNull("IMV_VIEW_NAME");
 
-            ColumnSettingsDS.COLUMN_SETTINGRow colSettingsRow = colSettingsDS.COLUMN_SETTING.NewCOLUMN_SETTINGRow();
+            var colSettingsRow = colSettingsDS.COLUMN_SETTING.NewCOLUMN_SETTINGRow();
 
 
             idx++;
@@ -312,7 +309,7 @@ public class SqlGenerator
 
         colSettingsDS.WriteXml(Path.Combine(path, fileName + "Config.xml"));
     }
-    
+
     private bool GetColVisibility(string columnName)
     {
         var vis = columnName == "UID" || columnName == "LID" || columnName == "ID"
@@ -375,7 +372,7 @@ public class SqlGenerator
     {
         if (ds.COLUMN_SETTING.FindByDATA_FIELD_NAME("FLAGS") == null)
         {
-            ColumnSettingsDS.COLUMN_SETTINGRow colSettingsRow = ds.COLUMN_SETTING.NewCOLUMN_SETTINGRow();
+            var colSettingsRow = ds.COLUMN_SETTING.NewCOLUMN_SETTINGRow();
 
             colSettingsRow.DATA_FIELD_NAME = "FLAGS";
             colSettingsRow.TYPE = "Int32";
@@ -390,7 +387,7 @@ public class SqlGenerator
 
             ds.COLUMN_SETTING.AddCOLUMN_SETTINGRow(colSettingsRow);
         }
-    } 
+    }
 
     private bool IsMultilineString(string columnName, string type)
     {
@@ -463,11 +460,11 @@ public class SqlGenerator
 
     private Dictionary<string, Dictionary<string, string>> GetDomainInfoFromDB()
     {
-        DataTable tbDomain = mDataStore.GetTable("SELECT * FROM SDE.VIEW_AG_DOMAIN");
+        var tbDomain = mDataStore.GetTable("SELECT * FROM SDE.VIEW_AG_DOMAIN");
 
         var cmdTxt = "SELECT * FROM SDE.VIEW_AG_DOMAIN_FIELD WHERE DOMAIN_NAME IS NOT NULL";
 
-        DataTable tb = mDataStore.GetTable(cmdTxt);
+        var tb = mDataStore.GetTable(cmdTxt);
 
         var domainInfoDict = new Dictionary<string, Dictionary<string, string>>();
 
@@ -492,7 +489,7 @@ public class SqlGenerator
     {
         var cmdTxt = "SELECT * FROM SDE.VIEW_AG_SUBTYPE_FIELD";
 
-        DataTable tb = mDataStore.GetTable(cmdTxt);
+        var tb = mDataStore.GetTable(cmdTxt);
 
         var subtypeInfoDict = new Dictionary<string, string>();
 
@@ -551,7 +548,7 @@ public class SqlGenerator
     {
         var cmdTxt = "SELECT * FROM SDE.VIEW_AG_SUBTYPE";
 
-        DataTable tb = mDataStore.GetTable(cmdTxt);
+        var tb = mDataStore.GetTable(cmdTxt);
 
         var resDict = new Dictionary<string, Dictionary<string, string>>();
 
@@ -576,7 +573,7 @@ public class SqlGenerator
     {
         var cmdTxt = "SELECT * FROM SDE.VIEW_AG_FIELD_INFO";
 
-        DataTable tb = mDataStore.GetTable(cmdTxt);
+        var tb = mDataStore.GetTable(cmdTxt);
 
         var resDict = new Dictionary<string, Dictionary<string, string>>();
 

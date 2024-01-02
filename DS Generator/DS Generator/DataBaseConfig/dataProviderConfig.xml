@@ -3,7 +3,9 @@
     <DATA_PROVIDER>
         <ID>DEFAULLT_DATA</ID>
         <DATA_STORE_TYPE>Oracle</DATA_STORE_TYPE>
-        <CONN_STR>Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User ID=SWMS_BM;Password=swms_bm</CONN_STR>
+        <CONN_STR>Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User
+            ID=SWMS_BM;Password=swms_bm
+        </CONN_STR>
         <SCHEMA>SWMS_BM</SCHEMA>
         <SDE_DEFAULT_VERSION>SDE.DEFAULT</SDE_DEFAULT_VERSION>
         <SRID>4326</SRID>
@@ -32,7 +34,9 @@
     <DATA_PROVIDER>
         <ID>METADATA_TLC</ID>
         <DATA_STORE_TYPE>SQL_SERVER</DATA_STORE_TYPE>
-        <CONN_STR>Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User ID=SWMS_BM;Password=swms_bm</CONN_STR>
+        <CONN_STR>Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User
+            ID=SWMS_BM;Password=swms_bm
+        </CONN_STR>
         <SCHEMA>SWMS_BM</SCHEMA>
         <DATA_ACCESS_UTILS_TYPE>WMSDataAccessUtils.WMSDataAccessUtils, WMSDataAccessUtils</DATA_ACCESS_UTILS_TYPE>
         <ID_FIELD>IDGIS</ID_FIELD>
@@ -41,7 +45,9 @@
     <DATA_PROVIDER>
         <ID>DEFAULT_DATA2</ID>
         <DATA_STORE_TYPE>Oracle</DATA_STORE_TYPE>
-        <CONN_STR>Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User ID=SWMS_BM;Password=swms_bm</CONN_STR>
+        <CONN_STR>Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User
+            ID=SWMS_BM;Password=swms_bm
+        </CONN_STR>
         <SCHEMA>SWMS_BM</SCHEMA>
         <SDE_DEFAULT_VERSION>SDE.DEFAULT</SDE_DEFAULT_VERSION>
         <SRID>4326</SRID>

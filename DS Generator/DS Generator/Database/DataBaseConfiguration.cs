@@ -7,21 +7,21 @@ namespace DS_Generator.Database;
 
 public class DataBaseConfiguration
 {
-    public List<string> dataBaseTypes = new List<string>();
-    public List<string> dataProviderIds = new List<string>();
-    public List<string> dataTables = new List<string>();
-    
-    private Dictionary<int, Tuple<string, string, string>> _databaseList =
-        new Dictionary<int, Tuple<string, string, string>>();
+    public List<string> dataBaseTypes = new();
+    public List<string> dataProviderIds = new();
+    public List<string> dataTables = new();
+
+    private Dictionary<int, Tuple<string, string, string>> _databaseList = new();
+
     public void PopulateData()
     {
         dataBaseTypes.Add("ORACLE");
         dataBaseTypes.Add("SQLSERVER");
-        
+
         dataProviderIds.Add("DEFAULT_DATA");
         dataProviderIds.Add("DEFAULT_SYSTEM");
         dataProviderIds.Add("METADATA_TLC");
-        
+
         dataTables.Add("WATER");
         dataTables.Add("GAS");
         dataTables.Add("ELECTRICITY");
@@ -32,31 +32,27 @@ public class DataBaseConfiguration
         dataTables.Add("DISTRICT_GAS");
         dataTables.Add("DISTRICT_ELECTRICITY");
         dataTables.Add("DISTRICT_THERMAL");
-        
     }
-    
+
     public string GetDatabaseType(int index)
     {
         return dataBaseTypes[index];
     }
-    
+
     public string GetDataProviderId(int index)
     {
         return dataProviderIds[index];
     }
-    
+
     public List<string> SearchDataTables(string nameStream)
     {
         foreach (var dataTable in dataTables)
-        {
             if (dataTable.Contains(nameStream))
             {
                 dataTables.Clear();
                 dataTables.Add(dataTable);
             }
-        }
 
         return dataTables;
     }
 }
-

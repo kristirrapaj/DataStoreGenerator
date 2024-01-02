@@ -3,9 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
-        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-        xmlns:dsGenerator="clr-namespace:DS_Generator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#F0F0F0"> <!-- Set a light gray background color -->
@@ -37,8 +34,7 @@
                       IsEditable="True" IsTextSearchEnabled="True"
                       ItemsSource="{Binding AvailableDataTables}"
                       SelectionChanged="OnDataTableSelectionChanged"
-                      HorizontalAlignment="Stretch"
-                      />
+                      HorizontalAlignment="Stretch" />
         </StackPanel>
     </Grid>
 </Window>

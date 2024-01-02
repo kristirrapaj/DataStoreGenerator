@@ -66,7 +66,7 @@ internal class ConfigGenerator
         //string connStr = "Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User ID=swms_bm;Password=swms_bm";
         //string schema = "swms_bm";
 
-        IDataStore dataStore = new global::DataStore.SQLServerDataStore.SQLServerGeomDataStore(connStr: connStr, schema: schema);
+        IDataStore dataStore = new DataStore.SQLServerDataStore.SQLServerGeomDataStore(connStr, schema);
         dataStore.DataProviderType = "SQL_SERVER";
 
         var generator = new SqlGenerator(dataStore);

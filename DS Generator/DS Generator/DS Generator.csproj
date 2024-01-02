@@ -10,42 +10,42 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="DataFactory">
-        <HintPath>lib\DataFactory.dll</HintPath>
-      </Reference>
-      <Reference Include="DataStore.Base">
-        <HintPath>lib\DataStore.Base.dll</HintPath>
-      </Reference>
-      <Reference Include="DataStore.Factory">
-        <HintPath>lib\DataStore.Factory.dll</HintPath>
-      </Reference>
-      <Reference Include="DataStore.Interface">
-        <HintPath>lib\DataStore.Interface.dll</HintPath>
-      </Reference>
-      <Reference Include="DataStore.Oracle">
-        <HintPath>lib\DataStore.Oracle.dll</HintPath>
-      </Reference>
-      <Reference Include="DataStore.SQLServer">
-        <HintPath>lib\DataStore.SQLServer.dll</HintPath>
-      </Reference>
-      <Reference Include="GridConfig.Interface">
-        <HintPath>lib\GridConfig.Interface.dll</HintPath>
-      </Reference>
-      <Reference Include="log4net">
-        <HintPath>lib\log4net.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data.SqlClient">
-        <HintPath>lib\System.Data.SqlClient.dll</HintPath>
-      </Reference>
+        <Reference Include="DataFactory">
+            <HintPath>lib\DataFactory.dll</HintPath>
+        </Reference>
+        <Reference Include="DataStore.Base">
+            <HintPath>lib\DataStore.Base.dll</HintPath>
+        </Reference>
+        <Reference Include="DataStore.Factory">
+            <HintPath>lib\DataStore.Factory.dll</HintPath>
+        </Reference>
+        <Reference Include="DataStore.Interface">
+            <HintPath>lib\DataStore.Interface.dll</HintPath>
+        </Reference>
+        <Reference Include="DataStore.Oracle">
+            <HintPath>lib\DataStore.Oracle.dll</HintPath>
+        </Reference>
+        <Reference Include="DataStore.SQLServer">
+            <HintPath>lib\DataStore.SQLServer.dll</HintPath>
+        </Reference>
+        <Reference Include="GridConfig.Interface">
+            <HintPath>lib\GridConfig.Interface.dll</HintPath>
+        </Reference>
+        <Reference Include="log4net">
+            <HintPath>lib\log4net.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Data.SqlClient">
+            <HintPath>lib\System.Data.SqlClient.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="output\" />
+        <Folder Include="output\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.0" />
-      <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+        <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.0"/>
+        <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1"/>
     </ItemGroup>
 
 </Project>
