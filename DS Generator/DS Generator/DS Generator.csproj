@@ -16,6 +16,9 @@
       <Reference Include="DataStore.Base">
         <HintPath>lib\DataStore.Base.dll</HintPath>
       </Reference>
+      <Reference Include="DataStore.Factory">
+        <HintPath>lib\DataStore.Factory.dll</HintPath>
+      </Reference>
       <Reference Include="DataStore.Interface">
         <HintPath>lib\DataStore.Interface.dll</HintPath>
       </Reference>
