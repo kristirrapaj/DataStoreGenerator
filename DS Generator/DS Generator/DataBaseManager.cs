@@ -50,15 +50,24 @@ public class DataBaseManager {
             select TagPickerXml(dataProvider, "CONN_STR")
         ).ToList();
         
+        var schema = (
+            from DataRow dataProvider in _configDataSet.Tables[0].Rows
+            where TagPickerXml(dataProvider, "ID") == _currentId
+            select TagPickerXml(dataProvider, "SCHEMA")
+        ).ToList();
+        
         _dsFactory = DataStoreFactory.GetDataStore(dataStoreType:_currentDataStoreType, connStr: cnnStr[0]);
-        _availableTables = _dsFactory.GetExistingTables().ToList();
+        _availableTables = _dsFactory.GetExistingTables(owner: schema[0]).ToList();
+        
+        //_dsFactory.GetTable()
     }
 
     private void SetAvailableDataType() {
         _availableDataProvider = (
             from DataRow dataProvider in _configDataSet.Tables[0].Rows
-            select TagPickerXml(dataProvider, "DATA_PROVIDER")
+            select TagPickerXml(dataProvider, "DATA_STORE_TYPE")
         ).ToList();
+        Console.WriteLine(_availableDataProvider);
     }
 
     private void SetAvailableDatabase() {
@@ -67,17 +76,19 @@ public class DataBaseManager {
             where TagPickerXml(dataProvider, "DATA_STORE_TYPE") == _currentDataStoreType
             select TagPickerXml(dataProvider, "ID")
         ).ToList();
+        Console.WriteLine(_availableDatabases);
     }
 
     private void SetDatasetConfig() {
         try {
             var dataset = new DataSet();
-            dataset.ReadXml(FolderPath + "dataProviderConfig.xml");
+            dataset.ReadXml(FolderPath + "/dataProviderConfig.xml");
             _configDataSet = dataset;
         }
         catch (Exception e) {
             Console.WriteLine(e);
         }
+        Console.WriteLine(_configDataSet);
     }
 
     private static string TagPickerXml(DataRow row, string tag) {

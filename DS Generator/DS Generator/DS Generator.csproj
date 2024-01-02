@@ -31,6 +31,12 @@
       <Reference Include="GridConfig.Interface">
         <HintPath>lib\GridConfig.Interface.dll</HintPath>
       </Reference>
+      <Reference Include="log4net">
+        <HintPath>lib\log4net.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Data.SqlClient">
+        <HintPath>lib\System.Data.SqlClient.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
     <ItemGroup>
@@ -38,6 +44,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.0" />
       <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
     </ItemGroup>
 

@@ -12,20 +12,20 @@
         <!-- Database Type -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
             <Label Content="Select Database Type: " Foreground="#333" />
-            <ComboBox x:Name="CbDatabaseType" Width="200" Height="20"
+            <ComboBox x:Name="CbDataProviderType" Width="200" Height="20"
                       SelectedIndex="0"
-                      ItemsSource="{Binding AvaliableDatabases}"
-                      SelectionChanged="OnDatabaseSelectionChanged"
+                      ItemsSource="{Binding AvailableDataProviders}"
+                      SelectionChanged="OnDataProviderSelectionChanged"
                       HorizontalAlignment="Stretch" />
         </StackPanel>
 
         <!-- DataProvider Type -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0">
             <Label Content="Select DataProvider Type: " Foreground="#333" />
-            <ComboBox x:Name="CbDataProviderType" Width="200" Height="20"
+            <ComboBox x:Name="CbDatabaseType" Width="200" Height="20"
                       SelectedIndex="0"
-                      ItemsSource="{Binding AvaliableDataProviders}"
-                      SelectionChanged="OnDataProviderSelectionChanged"
+                      ItemsSource="{Binding AvailableDatabases}"
+                      SelectionChanged="OnDatabaseSelectionChanged"
                       HorizontalAlignment="Stretch" />
         </StackPanel>
 
@@ -35,7 +35,7 @@
             <ComboBox x:Name="CbDataTableType" Width="150" Height="20"
                       StaysOpenOnEdit="True"
                       IsEditable="True" IsTextSearchEnabled="True"
-                      ItemsSource="{Binding AvaliableDataTables}"
+                      ItemsSource="{Binding AvailableDataTables}"
                       SelectionChanged="OnDataTableSelectionChanged"
                       HorizontalAlignment="Stretch"
                       />

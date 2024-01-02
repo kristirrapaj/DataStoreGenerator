@@ -13,59 +13,62 @@ namespace DS_Generator;
 public partial class MainWindow : Window
 {
     private DataBaseManager _dbManager = new DataBaseManager();
-    private List<string> AvaliableDatabases { get; set; }
-    private List<string> AvaliableDataProviders { get; set; }
+    private List<string> AvailableDatabases { get; set; }
+    private List<string> AvailableDataProviders { get; set; }
 
-    private List<string> AvaliableDataTables { get; set; }
-
-    DataBaseConfiguration dataBaseConfiguration = new DataBaseConfiguration();
+    private List<string> AvailableDataTables { get; set; }
 
     public MainWindow()
     {
         DataContext = this;
         InitializeComponent();
-        dataBaseConfiguration.PopulateData();
-        PopulateDatabaseComboBox();
-        PopulateDataTableComboBox();
+        PopulateDataProviderComboBox();
     }
 
     private void PopulateDatabaseComboBox()
     {
-        AvaliableDatabases = _dbManager.AvailableDatabase.ToList();
+        AvailableDatabases = _dbManager.AvailableDatabases.ToList();
         var placeholderItem = "Select an item...";
-        AvaliableDatabases.Insert(0, placeholderItem);
-        AvaliableDatabases.ForEach(x => CbDatabaseType.Items.Add(x));
+        AvailableDatabases.Insert(0, placeholderItem);
+        AvailableDatabases.ForEach(x => CbDatabaseType.Items.Add(x));
     }
 
     private void PopulateDataProviderComboBox()
     {
         CbDataProviderType.Items.Clear();
-        AvaliableDataProviders = _dbManager.AvailableDataProvider.ToList();
+        AvailableDataProviders = _dbManager.AvailableDataProvider.ToList();
         var placeholderItem = "Select an item...";
-        AvaliableDataProviders.Insert(0, placeholderItem);
-        AvaliableDataProviders.ForEach(x => CbDataProviderType.Items.Add(x));
+        AvailableDataProviders.Insert(0, placeholderItem);
+        AvailableDataProviders.ForEach(x => CbDataProviderType.Items.Add(x));
     }
 
     private void PopulateDataTableComboBox()
     {
-        AvaliableDataTables = dataBaseConfiguration.dataTables;
-        AvaliableDataTables.ForEach(x => CbDataTableType.Items.Add(x));
-    }
-
-    private void OnDatabaseSelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        var selectedIndex = CbDatabaseType.SelectedIndex - 1;
-        if (selectedIndex < 0) return;
-        _dbManager.ChooseDatabase(selectedIndex);
-
-        PopulateDataProviderComboBox();
+        AvailableDataTables = _dbManager.AvailableTables.ToList();
+        AvailableDataTables.ForEach(x => CbDataTableType.Items.Add(x));
+        foreach (var avaliableDatabase in AvailableDataTables)
+        {
+            Console.WriteLine(avaliableDatabase);
+        }
+        
     }
 
     private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var selectedIndex = CbDataProviderType.SelectedIndex - 1;
-        if (selectedIndex < 0) return;
-        _dbManager.ChooseDataProvider(selectedIndex);
+        if (CbDataProviderType.SelectedIndex <= 0) return;
+        var selectedItem = AvailableDataProviders[CbDataProviderType.SelectedIndex];
+        _dbManager.ChooseDataStoreType(selectedItem);
+        PopulateDatabaseComboBox();
+        Console.WriteLine(selectedItem);
+    }
+
+    private void OnDatabaseSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (CbDatabaseType.SelectedIndex <= 0) return;
+        var selectedItem = AvailableDatabases[CbDatabaseType.SelectedIndex];
+        Console.WriteLine(selectedItem);
+        _dbManager.ChooseDatabase(selectedItem);
+        PopulateDataTableComboBox();
     }
 
     private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)

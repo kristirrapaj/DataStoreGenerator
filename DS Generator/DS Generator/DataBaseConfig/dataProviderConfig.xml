@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="yes"?>
 <DataProviderDS xmlns="http://tempuri.org/DataProviderDS.xsd">
     <DATA_PROVIDER>
-        <ID>DEFAULT_DATA</ID>
+        <ID>DEFAULLT_DATA</ID>
         <DATA_STORE_TYPE>Oracle</DATA_STORE_TYPE>
         <CONN_STR>Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User ID=SWMS_BM;Password=swms_bm</CONN_STR>
         <SCHEMA>SWMS_BM</SCHEMA>
@@ -15,13 +15,19 @@
         <SPATIAL_INDEX_BOUNDING_BOX>5;30;30;50</SPATIAL_INDEX_BOUNDING_BOX>
     </DATA_PROVIDER>
     <DATA_PROVIDER>
-        <ID>DEFAULT_SYSTEM</ID>
+        <ID>DEFAULT_DATA</ID>
         <DATA_STORE_TYPE>SQL_SERVER</DATA_STORE_TYPE>
-        <CONN_STR>Data Source=vmsql2016dev;Initial Catalog=SWMS_BM;Persist Security Info=True;User ID=SWMS_SYS;Password=swms_sys</CONN_STR>
-        <SCHEMA>SWMS_SYS</SCHEMA>
-        <DATA_ACCESS_UTILS_TYPE>DataAccess.System.SystemDataAccessUtils, DataAccess.System</DATA_ACCESS_UTILS_TYPE>
-        <ID_FIELD>UID</ID_FIELD>
-        <IS_GEODATABASE>false</IS_GEODATABASE>
+        <CONN_STR>Data Source=vmsql2016dev;Initial Catalog=RETEAC;Persist Security Info=True;User ID=RETEAC;Password=reteac</CONN_STR>
+        <SCHEMA>RETEAC</SCHEMA>
+        <SDE_DEFAULT_VERSION>SDE.DEFAULT</SDE_DEFAULT_VERSION>
+        <SRID>25832</SRID>
+        <DATA_ACCESS_UTILS_TYPE>WMSDataAccessUtils.WMSDataAccessUtils, WMSDataAccessUtils</DATA_ACCESS_UTILS_TYPE>
+        <ID_FIELD>IDGIS</ID_FIELD>
+        <ID_FIELD_PREFIX_LENGTH>3</ID_FIELD_PREFIX_LENGTH>
+        <ID_FIELD_LENGTH>20</ID_FIELD_LENGTH>
+        <SHAPE_FIELD>SHAPE</SHAPE_FIELD>
+        <SPATIAL_INDEX_BOUNDING_BOX>540000;790000;4600000;4950000</SPATIAL_INDEX_BOUNDING_BOX>
+        <VARCHAR_PARAM>varchar</VARCHAR_PARAM>
     </DATA_PROVIDER>
     <DATA_PROVIDER>
         <ID>METADATA_TLC</ID>
