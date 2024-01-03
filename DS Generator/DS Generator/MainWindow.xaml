@@ -5,9 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="#F0F0F0"> <!-- Set a light gray background color -->
+    <Grid Background="#F0F0F0">
+        <!-- Config Path -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 5, 0, 0">
+            <Label Content="Select configuration file path:"></Label>
+            <!-- Browse Button -->
+            <Button Content="Browse" Click="OnBrowseButtonClick"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0, 30, 0, 0">
+            <Label Content="Select final write path:"></Label>
+            <!-- Browse Button -->
+            <Button Content="Browse" Click="OnFinalBrowseButtonClick"></Button>
+        </StackPanel>
         <!-- Database Type -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0">
             <Label Content="Select Database Type: " Foreground="#333" />
             <ComboBox x:Name="CbDataProviderType" Width="200" Height="20"
                       SelectedIndex="0"
@@ -17,7 +28,7 @@
         </StackPanel>
 
         <!-- DataProvider Type -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
             <Label Content="Select DataProvider Type: " Foreground="#333" />
             <ComboBox x:Name="CbDatabaseType" Width="200" Height="20"
                       SelectedIndex="0"
@@ -27,7 +38,7 @@
         </StackPanel>
 
         <!-- Select Table -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,120,0,0">
             <Label Content="Select Table: " Foreground="#333" />
             <ComboBox x:Name="CbDataTableType" Width="150" Height="20"
                       StaysOpenOnEdit="True"
@@ -35,6 +46,22 @@
                       ItemsSource="{Binding AvailableDataTables}"
                       SelectionChanged="OnDataTableSelectionChanged"
                       HorizontalAlignment="Stretch" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,150,0,0">
+            <Label Content="Tables selected: "></Label>
+            <ListBox Name="MyListBox" Width="200" ItemsSource="{Binding _tablesSelected}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}"/>
+                            <Button Name="remove_Button" Content="REMOVE"  Click="OnTableRemoveButtonSelect"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,180,0,0">
+            <Button Content="Generate" Click="OnGenerateButtonSelected"></Button>
         </StackPanel>
     </Grid>
 </Window>
