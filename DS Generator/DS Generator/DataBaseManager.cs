@@ -37,9 +37,8 @@ public class DataBaseManager {
         SetAvailableTables();
     }
 
-    public void ChooseTable(string tableName) {
+    public void ChooseTable(string[] tables) {
         var sqlgen = new SqlGenerator(_dsFactory);
-        var tables = new []{tableName};
         sqlgen.Generate(@"../../../DataBaseConfig", tables);
     }
 

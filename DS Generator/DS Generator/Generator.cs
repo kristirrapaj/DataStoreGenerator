@@ -36,7 +36,7 @@ public class Generator {
                 Console.WriteLine(e);
             }
 
-        foreach (var newline in lines.Select(line => line.Split(","))
+        /*foreach (var newline in lines.Select(line => line.Split(","))
                      .Where(newline => _dataFieldName.Equals(newline[0]))) {
             Group = newline[1];
             Category = newline[2];
@@ -45,6 +45,21 @@ public class Generator {
             Console.WriteLine(newline.Length);
             //Nullable = ConvertValue(newline[5]);
             //todo: add to file then -> Position = int.Parse(newline[6]);
+        }*/
+        
+        using StreamReader reader = new(File);
+        var rLine = "";
+        while ((rLine = reader.ReadLine()) != null)
+        {
+            var newline = rLine.Split(",");
+            if (_dataFieldName.Equals(newline[0]))
+            {
+                Group = newline[1];
+                Category = newline[2];
+                Editable = ConvertValue(newline[3]);
+                Visible = ConvertValue(newline[4]);
+                Nullable = ConvertValue(newline[5]);
+            }
         }
     }
 

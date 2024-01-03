@@ -1432,24 +1432,24 @@ TIPO,Tipo,Dettagli,True,True,True
 
 SUBTIPO,Tipo,Dettagli,True,True,True
 
-CREATED_DATE,User/Operatore,False,True,True
+CREATED_DATE,User/Operatore,Dettagli,False,True,True
 
-CREATED_USER,User/Operatore,False,True,True
+CREATED_USER,User/Operatore,Dettagli,False,True,True
 
-ROLE,User/Operatore,False,True,True
+ROLE,User/Operatore,Dettagli,False,True,True
 
-SN_COP_TOT_GEST,User/Operatore,False,True,True
+SN_COP_TOT_GEST,User/Operatore,Dettagli,False,True,True
 
-SN_COSTR_GEST,User/Operatore,False,True,True
+SN_COSTR_GEST,User/Operatore,Dettagli,False,True,True
 
-OPERATORE,User/Operatore,False,True,True
+OPERATORE,User/Operatore,Dettagli,False,True,True
 
-SN_COSTR_GEST,User/Operatore,False,True,True
+SN_COSTR_GEST,User/Operatore,Dettagli,False,True,True
 
-OPERATORE,User/Operatore,False,True,True
+OPERATORE,User/Operatore,Dettagli,False,True,True
 
-OPERATORE,User/Operatore,False,True,True
+OPERATORE,User/Operatore,Dettagli,False,True,True
 
-SN_UTENZA,User/Operatore,False,True,True
+SN_UTENZA,User/Operatore,Dettagli,False,True,True
 
 
