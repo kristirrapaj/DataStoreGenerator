@@ -2,7 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using DS_Generator.Database;
+using DS_Generator.UI;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace DS_Generator;
@@ -17,6 +19,8 @@ public partial class MainWindow : Window
     private List<string> AvailableDataProviders { get; set; }
 
     private List<string> AvailableDataTables { get; set; }
+    
+    public List<string> _tablesSelected = new();
 
     public MainWindow()
     {
@@ -76,6 +80,69 @@ public partial class MainWindow : Window
         if (CbDataTableType.SelectedIndex <= 0) return;
         var selectedItem = AvailableDataTables[CbDataTableType.SelectedIndex -1];
         Console.WriteLine(selectedItem);
-        _dbManager.ChooseTable(selectedItem);
+        _tablesSelected.Add(selectedItem);
+        //_dbManager.ChooseTable(_tablesSelected);
+        PopulateTablesComboBox(selectedItem);
+    }
+
+    private void PopulateTablesComboBox(string selectedItem)
+    {
+        MyListBox.Items.Add(selectedItem);
+    }
+
+    private void OnTableRemoveButtonSelect(object sender, RoutedEventArgs e)
+    {
+        var selectedItem = MyListBox.SelectedItem;
+        MyListBox.Items.Remove(selectedItem);
+    }
+
+    private void OnBrowseButtonClick(object sender, RoutedEventArgs e)
+    {
+        var dialog = new CommonOpenFileDialog
+        {
+            IsFolderPicker = true,
+            InitialDirectory = "C:\\Users\\",
+            AddToMostRecentlyUsedList = false,
+            AllowNonFileSystemItems = false,
+            DefaultDirectory = "C:\\Users\\",
+            EnsureFileExists = true,
+            EnsurePathExists = true,
+            EnsureReadOnly = false,
+            EnsureValidNames = true,
+            Multiselect = false,
+            ShowPlacesList = true
+        };
+
+        if (dialog.ShowDialog() != CommonFileDialogResult.Ok) return;
+        var selectedPath = dialog.FileName;
+        //dai il path a daniele
+    }
+
+    private void OnFinalBrowseButtonClick(object sender, RoutedEventArgs e)
+    {
+        var dialog = new CommonOpenFileDialog
+        {
+            IsFolderPicker = true,
+            InitialDirectory = "C:\\Users\\",
+            AddToMostRecentlyUsedList = false,
+            AllowNonFileSystemItems = false,
+            DefaultDirectory = "C:\\Users\\",
+            EnsureFileExists = true,
+            EnsurePathExists = true,
+            EnsureReadOnly = false,
+            EnsureValidNames = true,
+            Multiselect = false,
+            ShowPlacesList = true
+        };
+
+        if (dialog.ShowDialog() != CommonFileDialogResult.Ok) return;
+        var selectedPath = dialog.FileName;
+        //dai il path a daniele
+    }
+
+    private void OnGenerateButtonSelected(object sender, RoutedEventArgs e)
+    {
+        //daniele chiama il metodo di daniele
+        Console.WriteLine("Generate button selected");
     }
 }
