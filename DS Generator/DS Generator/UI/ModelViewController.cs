@@ -8,7 +8,6 @@ public class ModelViewController
 
     private DataBaseManager DataBaseManager;
     
-    
     public List<string> GetAvaliableDatabases()
     {
         return DataBaseManager.AvailableDatabases.ToList();
