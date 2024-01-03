@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
         <TargetFramework>net8.0-windows</TargetFramework>
@@ -47,5 +46,7 @@
         <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.0"/>
         <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1"/>
     </ItemGroup>
+    
+    
 
 </Project>

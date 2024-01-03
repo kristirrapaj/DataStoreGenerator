@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -14,74 +15,52 @@ namespace DS_Generator;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private DataBaseManager _dbManager = new();
-    private List<string> AvailableDatabases { get; set; }
-    private List<string> AvailableDataProviders { get; set; }
-
-    private List<string> AvailableDataTables { get; set; }
-    
-    public List<string> _tablesSelected = new();
+    private readonly ModelViewController _mvc = new();
 
     public MainWindow()
     {
         DataContext = this;
         InitializeComponent();
-        PopulateDataProviderComboBox();
     }
 
     private void PopulateDatabaseComboBox()
     {
-        CbDatabaseType.Items.Clear();
-        AvailableDatabases = _dbManager.AvailableDatabases.ToList();
-        var placeholderItem = "Select an item...";
-        AvailableDatabases.Insert(0, placeholderItem);
-        AvailableDatabases.ForEach(x => CbDatabaseType.Items.Add(x));
+        CbDatabaseType.ItemsSource = _mvc.GetAvaliableDatabases();
     }
 
     private void PopulateDataProviderComboBox()
     {
-        CbDataProviderType.Items.Clear();
-        AvailableDataProviders = _dbManager.AvailableDataProvider.ToList();
-        var placeholderItem = "Select an item...";
-        AvailableDataProviders.Insert(0, placeholderItem);
-        AvailableDataProviders.ForEach(x => CbDataProviderType.Items.Add(x));
+        CbDataProviderType.ItemsSource = _mvc.GetAvaliableDataProviders();
     }
 
     private void PopulateDataTableComboBox()
     {
-        CbDataTableType.Items.Clear();
-        CbDataTableType.Items.Add("Select an item...");
-        CbDataTableType.SelectedIndex = 0;
-        AvailableDataTables = _dbManager.AvailableTables.ToList();
-        AvailableDataTables.ForEach(x => CbDataTableType.Items.Add(x));
+        CbDataTableType.ItemsSource = _mvc.GetAvaliableDataTables();
     }
 
     private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (CbDataProviderType.SelectedIndex <= 0) return;
-        var selectedItem = AvailableDataProviders[CbDataProviderType.SelectedIndex];
-        _dbManager.ChooseDataStoreType(selectedItem);
+
+        var selectedItem = CbDataProviderType.SelectedItem.ToString();
+        _mvc.SetDataStoreType(selectedItem);
+        
         PopulateDatabaseComboBox();
-        Console.WriteLine(selectedItem);
     }
 
     private void OnDatabaseSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (CbDatabaseType.SelectedIndex <= 0) return;
-        var selectedItem = AvailableDatabases[CbDatabaseType.SelectedIndex];
+        var selectedItem = CbDatabaseType.SelectedItem.ToString();
         Console.WriteLine(selectedItem);
-        _dbManager.ChooseDatabase(selectedItem);
+        _mvc.SetDatabase(selectedItem);
+        
         PopulateDataTableComboBox();
     }
 
     private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        Console.WriteLine("Selected table changed");
-        if (CbDataTableType.SelectedIndex <= 0) return;
-        var selectedItem = AvailableDataTables[CbDataTableType.SelectedIndex -1];
-        Console.WriteLine(selectedItem);
-        _tablesSelected.Add(selectedItem);
-        //_dbManager.ChooseTable(_tablesSelected);
+        var selectedItem = CbDataTableType.SelectedItem.ToString();
+        _mvc.AddToSelectedTables(selectedItem);
+        
         PopulateTablesComboBox(selectedItem);
     }
 
@@ -93,56 +72,32 @@ public partial class MainWindow : Window
     private void OnTableRemoveButtonSelect(object sender, RoutedEventArgs e)
     {
         var selectedItem = MyListBox.SelectedItem;
-        MyListBox.Items.Remove(selectedItem);
+        _mvc.RemoveFromSelectedTables(selectedItem.ToString());
     }
 
     private void OnBrowseButtonClick(object sender, RoutedEventArgs e)
     {
-        var dialog = new CommonOpenFileDialog
-        {
-            IsFolderPicker = true,
-            InitialDirectory = "C:\\Users\\",
-            AddToMostRecentlyUsedList = false,
-            AllowNonFileSystemItems = false,
-            DefaultDirectory = "C:\\Users\\",
-            EnsureFileExists = true,
-            EnsurePathExists = true,
-            EnsureReadOnly = false,
-            EnsureValidNames = true,
-            Multiselect = false,
-            ShowPlacesList = true
-        };
+        var dialog = _mvc.DialogCreator("xml");
 
         if (dialog.ShowDialog() != CommonFileDialogResult.Ok) return;
         var selectedPath = dialog.FileName;
-        //dai il path a daniele
+        
+        _mvc.SetConfigurationFile(selectedPath);
+        PopulateDataProviderComboBox();
     }
 
     private void OnFinalBrowseButtonClick(object sender, RoutedEventArgs e)
     {
-        var dialog = new CommonOpenFileDialog
-        {
-            IsFolderPicker = true,
-            InitialDirectory = "C:\\Users\\",
-            AddToMostRecentlyUsedList = false,
-            AllowNonFileSystemItems = false,
-            DefaultDirectory = "C:\\Users\\",
-            EnsureFileExists = true,
-            EnsurePathExists = true,
-            EnsureReadOnly = false,
-            EnsureValidNames = true,
-            Multiselect = false,
-            ShowPlacesList = true
-        };
-
+        var dialog = _mvc.DialogCreator("directory");
         if (dialog.ShowDialog() != CommonFileDialogResult.Ok) return;
+        
         var selectedPath = dialog.FileName;
-        //dai il path a daniele
+        _mvc.SetOutputDirectory(selectedPath);
     }
 
     private void OnGenerateButtonSelected(object sender, RoutedEventArgs e)
     {
-        //daniele chiama il metodo di daniele
-        Console.WriteLine("Generate button selected");
+        _mvc.SetTables();
     }
+    
 }

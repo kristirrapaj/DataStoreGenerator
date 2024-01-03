@@ -21,7 +21,6 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0">
             <Label Content="Select Database Type: " Foreground="#333" />
             <ComboBox x:Name="CbDataProviderType" Width="200" Height="20"
-                      SelectedIndex="0"
                       ItemsSource="{Binding AvailableDataProviders}"
                       SelectionChanged="OnDataProviderSelectionChanged"
                       HorizontalAlignment="Stretch" />
@@ -31,7 +30,6 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
             <Label Content="Select DataProvider Type: " Foreground="#333" />
             <ComboBox x:Name="CbDatabaseType" Width="200" Height="20"
-                      SelectedIndex="0"
                       ItemsSource="{Binding AvailableDatabases}"
                       SelectionChanged="OnDatabaseSelectionChanged"
                       HorizontalAlignment="Stretch" />

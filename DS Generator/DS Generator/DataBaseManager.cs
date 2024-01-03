@@ -21,11 +21,6 @@ public class DataBaseManager
 
     public List<string>? AvailableTables { get; private set; }
 
-    public string ConfigFilePath
-    {
-        set => mConfigFilePath = value;
-    }
-
     public string OutputConfigFilePath
     {
         set => mOutputConfigFilePath = value;
@@ -44,7 +39,7 @@ public class DataBaseManager
     {
         set
         {
-            mCurrentId = value;
+            mCurrentId = value.Split(":")[0];
             SetAvailableTables();
         }
     }
@@ -59,6 +54,7 @@ public class DataBaseManager
                 if (mDataStore == null) throw new Exception("DataStore is null");
                 var sqlGen = new SqlGenerator(mDataStore);
                 sqlGen.Generate(mOutputConfigFilePath, value);
+                
             }
             catch (Exception e)
             {
@@ -71,12 +67,12 @@ public class DataBaseManager
     ///  Read the config file and set the dataset.
     ///  Set the available database types in DatabaseManager.AvailableDataProvider.
     /// </summary>
-    public DataBaseManager()
+    public DataBaseManager(string configFilePath)
     {
         mCurrentDataStoreType = "";
         mCurrentId = "";
         mConfigDataSet = new DataSet();
-        mConfigFilePath = "";
+        mConfigFilePath = configFilePath;
         mOutputConfigFilePath = "";
         IDataStore mDataStore = null!;
         try
@@ -114,6 +110,8 @@ public class DataBaseManager
             select TagPickerXml(dataProvider, "SCHEMA")
         ).ToList();
 
+        Console.WriteLine(mCurrentDataStoreType, cnnStr[0], schema[0]);
+        
         // Pass the connection string and schema to the data store factory to get the available tables and views from the DataStore
         mDataStore = DataStoreFactory.GetDataStore(mCurrentDataStoreType, connStr: cnnStr[0], schema: schema[0]);
         mDataStore.DataProviderType = mCurrentDataStoreType;
