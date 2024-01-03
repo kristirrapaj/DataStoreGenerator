@@ -5,6 +5,7 @@ namespace DS_Generator.UI;
 
 public class FindVisual
 {
+    // eccoci
     public T FindVisualChild<T>(DependencyObject parent, string name) where T : FrameworkElement
     {
         if (parent == null)
