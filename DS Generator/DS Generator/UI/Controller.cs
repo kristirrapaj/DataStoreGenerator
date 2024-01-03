@@ -2,7 +2,7 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace DS_Generator.UI;
 
-public class ModelViewController
+public class Controller
 {
     public List<string> SelectedTables = new List<string>();
 
