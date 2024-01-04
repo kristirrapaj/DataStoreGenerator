@@ -6,6 +6,13 @@ using DataStore.Interface;
 
 namespace DS_Generator;
 
+/// <summary>
+/// TODO: Creare controlli per la selezione, cosi da non avere la stessa scelta muultiple volte
+/// TODO: Transformare tutti gli errori in eccezioni e finestrelle di errore
+/// TODO: Creare un file di configurazione per il programma
+/// TODO: Rimuovere datastore type (?)
+/// </summary>
+
 public class DataBaseManager
 {
     private string mCurrentDataStoreType;
