@@ -7,31 +7,20 @@ public class MainWindowController {
     public List<string> SelectedTables = new List<string>();
     private DataBaseManager DataBaseManager;
 
-    // DONE
-    private List<string> GetAvaliableDatabases => DataBaseManager.AvailableDatabases;
-    
-    
-    public List<string> GetAvaliableDataProviders() {
-        return DataBaseManager.AvailableDataProvider;
-    }
+    //DONE
+    public List<string> GetAvaliableDatastores => DataBaseManager.AvailableDatastores;
 
-    public List<string> GetAvaliableDataTables() {
-        return DataBaseManager.AvailableTables.ToList();
-    }
+    //DONE
+    private List<string> GetAvaliableProviders => DataBaseManager.AvailableDataProviders;
 
-   
+    //DONE
+    public List<string> GetAvaliableDataTables => DataBaseManager.AvailableTables;
 
-    public void SetDatabase(string database) {
-        DataBaseManager.Database = database;
-    }
 
     public void SetTables() {
         DataBaseManager.Tables = SelectedTables.ToArray();
     }
 
-    public void SetConfigurationFile(string file) {
-        DataBaseManager = new DataBaseManager($"{file}");
-    }
 
     public void SetOutputDirectory(string directory) {
         DataBaseManager.OutputConfigFilePath = $"{directory}";
@@ -45,39 +34,39 @@ public class MainWindowController {
         SelectedTables.Remove(table);
     }
 
-    //DONE
-    public List<string> SetDataStoreType(string dataStoreType) {
-        DataBaseManager.DataStoreType = dataStoreType;
-        return GetAvaliableDatabases;
-    }
-
-    //DONE
-    public void OnDialogBrowse(string type) {
-        var dialog = DialogCreator(type);
-        if (dialog!.ShowDialog() != CommonFileDialogResult.Ok) return;
-
-        var selectedPath = dialog.FileName;
-        switch (type) {
-            case "XML":
-                SetConfigurationFile(selectedPath);
-                break;
-            case "DIRECTORY":
-                SetOutputDirectory(selectedPath);
-                break;
-        }
-
-        ChangeConsoleText($"{type} set correctly.", Brushes.Green);
-    }
-
     private static void ChangeConsoleText(string text, Brush color) {
         throw new NotImplementedException();
     }
 
     //DONE
-    private static CommonOpenFileDialog? DialogCreator(string type) {
+    public void SetConfigurationFile(string file) {
+        DataBaseManager = new DataBaseManager($"{file}");
+    }
+
+    public List<string> SetDataProvider(string dataProvider) {
+        DataBaseManager.DataProvider = dataProvider;
+        return GetAvaliableDataTables;
+    }
+
+    //DONE
+    public List<string> SetDataStoreType(string dataStoreType) {
+        DataBaseManager.DataStoreType = dataStoreType;
+        return GetAvaliableProviders;
+    }
+
+    //DONE
+    public string OnDialogBrowse(string type) {
+        var dialog = DialogCreator(type);
+        ChangeConsoleText($"{type} set correctly.", Brushes.Green);
+        return dialog ?? "Error";
+    }
+
+    //DONE
+    private static string? DialogCreator(string type) {
+        CommonOpenFileDialog dialog;
         switch (type) {
             case "XML":
-                var dialog = new CommonOpenFileDialog {
+                dialog = new CommonOpenFileDialog {
                     InitialDirectory =
                         "C:\\Users\\K.Rrapaj\\DataStoreGenerator\\DS Generator\\DS Generator\\DataBaseConfig",
                     AddToMostRecentlyUsedList = false,
@@ -91,9 +80,9 @@ public class MainWindowController {
                     ShowPlacesList = true,
                     DefaultExtension = "xml"
                 };
-                return dialog;
+                return dialog.ShowDialog() != CommonFileDialogResult.Ok ? null : dialog.FileName;
             case "DIRECTORY":
-                var dialog2 = new CommonOpenFileDialog {
+                dialog = new CommonOpenFileDialog {
                     IsFolderPicker = true,
                     InitialDirectory =
                         "C:\\Users\\K.Rrapaj\\DataStoreGenerator\\DS Generator\\DS Generator\\DataBaseConfig",
@@ -107,7 +96,7 @@ public class MainWindowController {
                     Multiselect = false,
                     ShowPlacesList = true,
                 };
-                return dialog2;
+                return dialog.ShowDialog() != CommonFileDialogResult.Ok ? null : dialog.FileName;
             default:
                 Console.WriteLine("Invalid type");
                 return null;

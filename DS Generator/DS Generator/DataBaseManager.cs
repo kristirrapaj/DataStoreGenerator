@@ -15,9 +15,9 @@ public class DataBaseManager
     private string mOutputConfigFilePath;
     private IDataStore? mDataStore;
 
-    public List<string>? AvailableDataProvider { get; private set; }
+    public List<string>? AvailableDatastores { get; private set; }
 
-    public List<string>? AvailableDatabases { get; private set; }
+    public List<string>? AvailableDataProviders { get; private set; }
 
     public List<string>? AvailableTables { get; private set; }
 
@@ -35,7 +35,7 @@ public class DataBaseManager
         }
     }
 
-    public string Database
+    public string DataProvider
     {
         set
         {
@@ -87,7 +87,7 @@ public class DataBaseManager
         }
 
         // Get the available data store types from the config file
-        AvailableDataProvider = (
+        AvailableDatastores = (
             from DataRow dataProvider in mConfigDataSet.Tables[0].Rows
             select TagPickerXml(dataProvider, "DATA_STORE_TYPE")
         ).ToList();
@@ -118,7 +118,7 @@ public class DataBaseManager
         AvailableTables = mDataStore.GetExistingTables(owner: schema[0]).ToList();
         foreach (var view in mDataStore.GetExistingViews())
         {
-            AvailableDatabases.Add(view);
+            AvailableDataProviders.Add(view);
         }
 
         AvailableTables.Sort();
@@ -153,7 +153,7 @@ public class DataBaseManager
             select id + ": " + schema
         ).ToList();
 
-        AvailableDatabases = availableDb;
+        AvailableDataProviders = availableDb;
     }
 
     /// <summary>

@@ -11,89 +11,60 @@ namespace DS_Generator;
 /// </summary>
 public partial class MainWindow : Window {
     private MainWindowController mMainWindowController;
-    
-    private List<string> mAvailableDatastore; // todo: INIZIALIZZARE
-    private List<string> mAvailableDataProviders; // todo: INIZIALIZZARE
-    
+    private List<string> mAvailableDatastore;
+    private List<string> mAvailableDataProviders;
+    private List<string> mAvailableDataTables;
+
     private const string SelectConfigFileButton = "mSelectConfigFileButton";
     private const string DirectoryButton = "mDirectoryButton";
-    
+
     public MainWindow() {
-        // REQUIRED
+        mMainWindowController = new MainWindowController();
+        mAvailableDatastore = new List<string>();
+        mAvailableDataProviders = new List<string>();
+        mAvailableDataTables = new List<string>();
         DataContext = this;
         InitializeComponent();
-        mMainWindowController = new MainWindowController();
+    }
+
+    //TODO: Implement TABLE SYSTEM
+    ////////////////////////////////////////////////////////////////////////////////
+    private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e) {
+        Console.WriteLine("autismo");
+        /*var selectedItem = TablesListView.SelectedItem.ToString();
+        mMainWindowController.AddToSelectedTables(selectedItem);
+        PopulateTablesComboBox(selectedItem);*/
+    }
+
+    private void PopulateTablesComboBox(string selectedItem) {
+        mSelectedTablesListBox.Items.Add(selectedItem);
+    }
+
+    private void OnTableRemoveButtonSelect(object sender, RoutedEventArgs e) {
+        if (mSelectedTablesListBox.SelectedItem == null) return;
+        mMainWindowController.RemoveFromSelectedTables(mSelectedTablesListBox.SelectedItem.ToString());
+        mSelectedTablesListBox.Items.Remove(mSelectedTablesListBox.SelectedItem);
     }
 
     private void OnWindowSizeChanged(object sender, SizeChangedEventArgs e) {
         throw new NotImplementedException();
     }
-    
-    private void PopulateDataTableComboBox() {
-        TablesListView.ItemsSource = mMainWindowController.GetAvaliableDataTables();
-    }
-    
-    
 
-    private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e) {
-        mMainWindowController.SetDatabase(CbDatabaseType.SelectedItem.ToString());
-
-        ChangeConsoleText($"Database set {CbDatabaseType.SelectedItem}", Brushes.Green);
-
-        PopulateDataTableComboBox();
-    }
-
-    private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e) {
-        var selectedItem = TablesListView.SelectedItem.ToString();
-        mMainWindowController.AddToSelectedTables(selectedItem);
-
-        SetVisibility(GeneratePanel, true);
-        PopulateTablesComboBox(selectedItem);
-    }
-
-    private void PopulateTablesComboBox(string selectedItem) {
-        SetVisibility(SelectedTablesPanel, true);
-        SelectedTablesListBox.Items.Add(selectedItem);
-    }
-
-    private void OnTableRemoveButtonSelect(object sender, RoutedEventArgs e) {
-        if (SelectedTablesListBox.SelectedItem == null) return;
-        mMainWindowController.RemoveFromSelectedTables(SelectedTablesListBox.SelectedItem.ToString());
-        SelectedTablesListBox.Items.Remove(SelectedTablesListBox.SelectedItem);
-    }
-    
-    private void ChangeConsoleText(string text, Brush color) {
-        ConsoleLabel.Content += "\n" + text;
-        ConsoleLabel.Foreground = color;
-    }
-    
     private void OnGenerateButtonSelected(object sender, RoutedEventArgs e) {
         mMainWindowController.SetTables();
     }
+    ////////////////////////////////////////////////////////////////////////////////
 
-    private void SetVisibility(object item, bool isVisible) {
-        if (item is ComboBox comboBox) {
-            comboBox.Visibility = isVisible ? Visibility.Visible : Visibility.Hidden;
-        }
-
-        if (item is Button button) {
-            button.Visibility = isVisible ? Visibility.Visible : Visibility.Hidden;
-        }
-
-        if (item is StackPanel stackPanel) {
-            stackPanel.Visibility = isVisible ? Visibility.Visible : Visibility.Hidden;
-        }
-
-        if (item is TextBox textBox) {
-            textBox.Visibility = isVisible ? Visibility.Visible : Visibility.Hidden;
-        }
+    // DONE
+    private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e) {
+        mAvailableDataTables = mMainWindowController.SetDataProvider(mCbDataProviderType.SelectedItem.ToString());
     }
-    
+
     // DONE
     private void OnDatastoreSelectionChanged(object sender, SelectionChangedEventArgs e) {
         mAvailableDataProviders = mMainWindowController.SetDataStoreType(mCbDatastoreType.SelectedItem.ToString()!);
     }
-    
+
     // DONE
     private void OnOpenDialogButtonClick(object sender, RoutedEventArgs e) {
         switch ((sender as Button)?.Name) {
@@ -102,7 +73,7 @@ public partial class MainWindow : Window {
                 break;
             case DirectoryButton:
                 mMainWindowController.OnDialogBrowse("DIRECTORY");
-                mCbDatastoreType.ItemsSource = mMainWindowController.GetAvaliableDataProviders();
+                mCbDatastoreType.ItemsSource = mMainWindowController.GetAvaliableDatastores;
                 break;
         }
     }

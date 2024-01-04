@@ -4,23 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d">
+    <!-- Main Grid -->
     <Grid x:Name="BaseGrid">
-
         <!-- Config File Path -->
         <StackPanel x:Name="mConfigFilePanel">
             <Label x:Name="mSelectConfigFileLabel" Content="Select configuration file path:" />
             <!-- Browse Button -->
             <Button x:Name="mSelectConfigFileButton" Content="Browse" Click="OnOpenDialogButtonClick" />
         </StackPanel>
-
         <!-- Directory Path -->
         <StackPanel x:Name="mDirectoryPanel">
             <Label x:Name="mDirectoryLabel" Content="Select final write path:" />
             <!-- Browse Button -->
             <Button x:Name="mDirectoryButton" Content="Browse" Click="OnOpenDialogButtonClick" />
         </StackPanel>
-
-
         <!-- Datastore Type -->
         <StackPanel x:Name="mDatastorePanel">
             <Label x:Name="mDatastoreLabel" Content="Select Database Type: " />
@@ -28,43 +25,41 @@
                       ItemsSource="{Binding mAvailableDatastore}"
                       SelectionChanged="OnDatastoreSelectionChanged" />
         </StackPanel>
-
-
         <!-- DataProvider Type -->
         <StackPanel x:Name="mProviderPanel">
             <Label x:Name="mProviderLabel" Content="Select DataProvider Type: " Foreground="#333" />
             <ComboBox x:Name="mCbDataProviderType"
                       ItemsSource="{Binding mAvailableDataProviders}"
-                      SelectionChanged="OnDatabaseSelectionChanged" />
+                      SelectionChanged="OnDataProviderSelectionChanged" />
         </StackPanel>
-
         <!-- Select Table -->
-        <Grid x:Name="TablesGrid">
-            <StackPanel x:Name="TablesPanel">
-                <Label Content="Select Table: " />
-                <ListView x:Name="TablesListView"
-                          ItemsSource="{Binding AvailableDataTables}"
+        <Grid x:Name="mTablesGrid">
+            <!-- Select Table Panel -->
+            <StackPanel x:Name="mTablesPanel">
+                <Label x:Name="mTablesLabel" Content="Select Table: " />
+                <ListView x:Name="mTablesListView"
+                          ItemsSource="{Binding mAvailableDataTables}"
                           SelectionChanged="OnDataTableSelectionChanged" />
             </StackPanel>
-            <StackPanel x:Name="SelectedTablesPanel">
-                <Label x:Name="SelectedTablesLabel" Content="Tables selected: " />
-                <ListBox Name="SelectedTablesListBox" ItemsSource="{Binding _tablesSelected}">
+            <!-- Selected Tables -->
+            <StackPanel x:Name="mSelectedTablesPanel">
+                <Label x:Name="mSelectedTablesLabel" Content="Tables selected: " />
+                <ListBox Name="mSelectedTablesListBox" ItemsSource="{Binding mTablesSelected}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel x:Name="SelectedTablesListBoxPanel">
-                                <TextBlock x:Name="SelectedTablesTextBlock" Text="{Binding}" />
-                                <Button Name="RemoveButton" Content="REMOVE" Click="OnTableRemoveButtonSelect" />
+                            <StackPanel x:Name="mSelectedTablesListBoxPanel">
+                                <TextBlock x:Name="mSelectedTablesTextBlock" />
+                                <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnTableRemoveButtonSelect" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
         </Grid>
-
-
-        <StackPanel x:Name="GeneratePanel">
-            <Button x:Name="GenerateButton" Content="Generate" Click="OnGenerateButtonSelected" />
+        <!-- Generate Button -->
+        <StackPanel x:Name="mGeneratePanel">
+            <Button x:Name="mGenerateButton" Content="Generate" Click="OnGenerateButtonSelected" />
         </StackPanel>
-        <Label x:Name="ConsoleLabel" />
+        <Label x:Name="mConsoleLabel" />
     </Grid>
 </Window>
