@@ -4,16 +4,29 @@
 
     <!-- Buttons -->
     <Style x:Key="ButtonStyle" TargetType="Button">
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="Padding" Value="5"/>
         <Setter Property="Width" Value="100"/> 
-        <Setter Property="Height" Value="30"/>  
-        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Margin" Value="5, 0, 5,  0"/>
     </Style>
 
     <!-- Labels -->
     <Style x:Key="LabelStyle" TargetType="Label">
         <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+    
+    <!-- Listbox -->
+    <Style x:Key="ListBoxStyle" TargetType="ListBox">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Height" Value="100"/>
+    </Style>
+    
+    <!-- ListView -->
+    <Style x:Key="ListViewStyle" TargetType="ListView">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Height" Value="100"/>
     </Style>
     
     <!-- Combobox -->
@@ -24,7 +37,6 @@
     <!-- Grid -->
     <Style x:Key="GridStyle" TargetType="Grid">
         <Setter Property="Margin" Value="5"/>
-        
     </Style>
 
 

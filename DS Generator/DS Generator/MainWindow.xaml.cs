@@ -31,35 +31,35 @@ public partial class MainWindow : Window {
         mAvailableDataProviders = new List<string>();
         mAvailableDataTables = new List<string>();
     }
-
-    /*private void OnWindowSizeChanged(object sender, SizeChangedEventArgs e) {
-        throw new NotImplementedException();
-    }*/
-
+    
+    
     private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e) {
         var selectedItem = mTablesListView.SelectedItem.ToString();
-        if (selectedItem == null) return;
         mMainWindowController.ModifySelectedTables(selectedItem, "ADD");
+        if (mSelectedTablesListBox.Items.Contains(selectedItem)) return;
         mSelectedTablesListBox.Items.Add(selectedItem);
     }
 
     private void OnRemoveButtonClick(object sender, RoutedEventArgs e) {
+        if (mSelectedTablesListBox.SelectedItem == null) return;
         var selectedItem = mSelectedTablesListBox.SelectedItem.ToString();
-        if (selectedItem == null) return;
         mMainWindowController.ModifySelectedTables(selectedItem, "REMOVE");
         mSelectedTablesListBox.Items.Remove(selectedItem);
     }
 
     private void OnGenerateButtonSelected(object sender, RoutedEventArgs e) {
         mMainWindowController.SetTables();
+        mConsoleLabel.Content = "Generated files successfully";
     }
 
     private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e) {
         mAvailableDataTables = mMainWindowController.SetDataProvider(mCbDataProviderType.SelectedItem.ToString());
+        mTablesListView.ItemsSource = mAvailableDataTables;
     }
 
     private void OnDatastoreSelectionChanged(object sender, SelectionChangedEventArgs e) {
         mAvailableDataProviders = mMainWindowController.SetDataStoreType(mCbDatastoreType.SelectedItem.ToString());
+        mCbDataProviderType.ItemsSource = mAvailableDataProviders;
     }
 
     private void OnOpenDialogButtonClick(object sender, RoutedEventArgs e) {
@@ -75,5 +75,10 @@ public partial class MainWindow : Window {
                 mAvailableDatastore = mMainWindowController.GetAvaliableDatastores;
                 break;
         }
+    }
+
+    private void OnClearButtonClick(object sender, RoutedEventArgs e)
+    {
+        mSelectedTablesListBox.Items.Clear();
     }
 }

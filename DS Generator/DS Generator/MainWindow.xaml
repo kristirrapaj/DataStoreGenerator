@@ -6,7 +6,8 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Data Source Generator"
-        MinWidth="800"
+        Width="600"
+        MinWidth="600"
         MinHeight="600">
 
     <!-- Reference to the Resource Dictionary for styles -->
@@ -65,18 +66,22 @@
                         <StackPanel x:Name="mTablesPanel" Grid.Column="0">
                             <Label x:Name="mTablesLabel" Content="Select Table: " Style="{StaticResource LabelStyle}" />
                             <ListView x:Name="mTablesListView"
+                                      Style="{StaticResource ListViewStyle}"
                                       ItemsSource="{Binding mAvailableDataTables}"
                                       SelectionChanged="OnDataTableSelectionChanged" />
                         </StackPanel>
 
                         <StackPanel x:Name="mSelectedTablesPanel" Grid.Column="1">
-                            <Label x:Name="mSelectedTablesLabel" Content="Tables selected: " Style="{StaticResource LabelStyle}" />
-                            <ListBox Name="mSelectedTablesListBox" ItemsSource="{Binding mTablesSelected}">
+                            <StackPanel Orientation="Horizontal">
+                                <Label x:Name="mSelectedTablesLabel" Content="Tables selected: " Style="{StaticResource LabelStyle}" />
+                                <Button x:Name="mClearButton" Content="CLEAR" Click="OnClearButtonClick" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"/>
+                            </StackPanel>
+                            <ListBox Name="mSelectedTablesListBox" Style="{StaticResource ListBoxStyle}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel x:Name="mSelectedTablesListBoxPanel">
-                                            <TextBlock x:Name="mSelectedTablesTextBlock" Style="{StaticResource TextBlockStyle}" />
-                                            <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnRemoveButtonClick" Style="{StaticResource ButtonStyle}" />
+                                        <StackPanel x:Name="mSelectedTablesListBoxPanel" Orientation="Horizontal" >
+                                            <TextBlock x:Name="mSelectedTablesTextBlock" Text="{Binding}" HorizontalAlignment="Left" />
+                                            <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnRemoveButtonClick" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
