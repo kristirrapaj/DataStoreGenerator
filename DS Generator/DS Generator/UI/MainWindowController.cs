@@ -1,19 +1,17 @@
+using System.Windows.Controls;
 using System.Windows.Media;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace DS_Generator.UI;
 
 public class MainWindowController {
-    public List<string> SelectedTables = new List<string>();
-    private DataBaseManager DataBaseManager;
-
-    //DONE
+    private List<string> SelectedTables = [];
+    private DataBaseManager DataBaseManager = new();
+    
     public List<string> GetAvaliableDatastores => DataBaseManager.AvailableDatastores;
 
-    //DONE
     private List<string> GetAvaliableProviders => DataBaseManager.AvailableDataProviders;
 
-    //DONE
     public List<string> GetAvaliableDataTables => DataBaseManager.AvailableTables;
 
 
@@ -26,21 +24,19 @@ public class MainWindowController {
         DataBaseManager.OutputConfigFilePath = $"{directory}";
     }
 
-    public void AddToSelectedTables(string table) {
-        SelectedTables.Add(table);
-    }
-
-    public void RemoveFromSelectedTables(string table) {
-        SelectedTables.Remove(table);
+    public void ModifySelectedTables(string table, string command) {
+        switch (command) {
+            case "ADD":
+                SelectedTables.Add(table);
+                break;
+            case "REMOVE":
+                SelectedTables.Remove(table);
+                break;
+        }
     }
 
     private static void ChangeConsoleText(string text, Brush color) {
         throw new NotImplementedException();
-    }
-
-    //DONE
-    public void SetConfigurationFile(string file) {
-        DataBaseManager = new DataBaseManager($"{file}");
     }
 
     public List<string> SetDataProvider(string dataProvider) {
@@ -48,21 +44,12 @@ public class MainWindowController {
         return GetAvaliableDataTables;
     }
 
-    //DONE
     public List<string> SetDataStoreType(string dataStoreType) {
         DataBaseManager.DataStoreType = dataStoreType;
         return GetAvaliableProviders;
     }
-
-    //DONE
-    public string OnDialogBrowse(string type) {
-        var dialog = DialogCreator(type);
-        ChangeConsoleText($"{type} set correctly.", Brushes.Green);
-        return dialog ?? "Error";
-    }
-
-    //DONE
-    private static string? DialogCreator(string type) {
+    
+    public string? DialogCreator(string type) {
         CommonOpenFileDialog dialog;
         switch (type) {
             case "XML":
@@ -80,7 +67,7 @@ public class MainWindowController {
                     ShowPlacesList = true,
                     DefaultExtension = "xml"
                 };
-                return dialog.ShowDialog() != CommonFileDialogResult.Ok ? null : dialog.FileName;
+                break;
             case "DIRECTORY":
                 dialog = new CommonOpenFileDialog {
                     IsFolderPicker = true,
@@ -96,10 +83,13 @@ public class MainWindowController {
                     Multiselect = false,
                     ShowPlacesList = true,
                 };
-                return dialog.ShowDialog() != CommonFileDialogResult.Ok ? null : dialog.FileName;
+                break;
             default:
                 Console.WriteLine("Invalid type");
                 return null;
         }
+        SetOutputDirectory(dialog.FileName);
+        return dialog.ShowDialog() != CommonFileDialogResult.Ok ? null : dialog.FileName;
+
     }
 }

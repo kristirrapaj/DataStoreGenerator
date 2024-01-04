@@ -49,7 +49,7 @@
                         <DataTemplate>
                             <StackPanel x:Name="mSelectedTablesListBoxPanel">
                                 <TextBlock x:Name="mSelectedTablesTextBlock" />
-                                <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnTableRemoveButtonSelect" />
+                                <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnRemoveButtonClick" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

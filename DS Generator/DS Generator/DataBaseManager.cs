@@ -11,15 +11,17 @@ public class DataBaseManager
     private string mCurrentDataStoreType;
     private string mCurrentId;
     private DataSet mConfigDataSet;
-    private string mConfigFilePath;
     private string mOutputConfigFilePath;
     private IDataStore? mDataStore;
-
+    private string mConfigFilePath;
     public List<string>? AvailableDatastores { get; private set; }
 
     public List<string>? AvailableDataProviders { get; private set; }
 
     public List<string>? AvailableTables { get; private set; }
+
+    
+    public string ConfigFilePath { set => mConfigFilePath = value;}
 
     public string OutputConfigFilePath
     {
@@ -67,14 +69,17 @@ public class DataBaseManager
     ///  Read the config file and set the dataset.
     ///  Set the available database types in DatabaseManager.AvailableDataProvider.
     /// </summary>
-    public DataBaseManager(string configFilePath)
+    public DataBaseManager()
     {
         mCurrentDataStoreType = "";
         mCurrentId = "";
         mConfigDataSet = new DataSet();
-        mConfigFilePath = configFilePath;
+        mConfigFilePath = "";
         mOutputConfigFilePath = "";
         IDataStore mDataStore = null!;
+    }
+
+    public void Initialize() {
         try
         {
             var dataset = new DataSet();

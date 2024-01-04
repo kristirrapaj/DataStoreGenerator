@@ -14,65 +14,61 @@ public partial class MainWindow : Window {
     private List<string> mAvailableDatastore;
     private List<string> mAvailableDataProviders;
     private List<string> mAvailableDataTables;
+    private List<string> mTablesSelected;
 
     private const string SelectConfigFileButton = "mSelectConfigFileButton";
     private const string DirectoryButton = "mDirectoryButton";
+    private const string TablesListView = "mTablesListView";
+    private const string RemoveButton = "mRemoveButton";
 
     public MainWindow() {
+        DataContext = this;
+        InitializeComponent();
+
         mMainWindowController = new MainWindowController();
+        mTablesSelected = new List<string>();
         mAvailableDatastore = new List<string>();
         mAvailableDataProviders = new List<string>();
         mAvailableDataTables = new List<string>();
-        DataContext = this;
-        InitializeComponent();
-    }
-
-    //TODO: Implement TABLE SYSTEM
-    ////////////////////////////////////////////////////////////////////////////////
-    private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e) {
-        Console.WriteLine("autismo");
-        /*var selectedItem = TablesListView.SelectedItem.ToString();
-        mMainWindowController.AddToSelectedTables(selectedItem);
-        PopulateTablesComboBox(selectedItem);*/
-    }
-
-    private void PopulateTablesComboBox(string selectedItem) {
-        mSelectedTablesListBox.Items.Add(selectedItem);
-    }
-
-    private void OnTableRemoveButtonSelect(object sender, RoutedEventArgs e) {
-        if (mSelectedTablesListBox.SelectedItem == null) return;
-        mMainWindowController.RemoveFromSelectedTables(mSelectedTablesListBox.SelectedItem.ToString());
-        mSelectedTablesListBox.Items.Remove(mSelectedTablesListBox.SelectedItem);
     }
 
     private void OnWindowSizeChanged(object sender, SizeChangedEventArgs e) {
         throw new NotImplementedException();
     }
 
+    private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e) {
+        var selectedItem = mTablesListView.SelectedItem.ToString();
+        if (selectedItem == null) return;
+        mMainWindowController.ModifySelectedTables(selectedItem, "ADD");
+        mSelectedTablesListBox.Items.Add(selectedItem);
+    }
+
+    private void OnRemoveButtonClick(object sender, RoutedEventArgs e) {
+        var selectedItem = mSelectedTablesListBox.SelectedItem.ToString();
+        if (selectedItem == null) return;
+        mMainWindowController.ModifySelectedTables(selectedItem, "REMOVE");
+        mSelectedTablesListBox.Items.Remove(selectedItem);
+    }
+
     private void OnGenerateButtonSelected(object sender, RoutedEventArgs e) {
         mMainWindowController.SetTables();
     }
-    ////////////////////////////////////////////////////////////////////////////////
 
-    // DONE
     private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e) {
         mAvailableDataTables = mMainWindowController.SetDataProvider(mCbDataProviderType.SelectedItem.ToString());
     }
 
-    // DONE
     private void OnDatastoreSelectionChanged(object sender, SelectionChangedEventArgs e) {
         mAvailableDataProviders = mMainWindowController.SetDataStoreType(mCbDatastoreType.SelectedItem.ToString()!);
     }
 
-    // DONE
     private void OnOpenDialogButtonClick(object sender, RoutedEventArgs e) {
         switch ((sender as Button)?.Name) {
             case SelectConfigFileButton:
-                mMainWindowController.OnDialogBrowse("XML");
+                mMainWindowController.DialogCreator("XML");
                 break;
             case DirectoryButton:
-                mMainWindowController.OnDialogBrowse("DIRECTORY");
+                mMainWindowController.DialogCreator("DIRECTORY");
                 mCbDatastoreType.ItemsSource = mMainWindowController.GetAvaliableDatastores;
                 break;
         }
