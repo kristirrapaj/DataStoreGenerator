@@ -1,0 +1,43 @@
+<ProgramWindow> <!-- This is the main window of the program -->
+    <BaseGrid> <!-- This is the main grid of the window -->
+        <ConfigPanel> <!-- This is the StackPanel for getting the configuration file -->
+            <SelectConfigLabel/> <!-- This is the label for the configuration file -->
+            <SelectConfigButton/> <!-- This is the button for selecting the configuration file -->
+        </ConfigPanel>
+        <OutputPanel> <!-- This is the StackPanel for the output file -->
+            <OutputLabel/> <!-- This is the label for the output file -->
+            <OutputButton/> <!-- This is the button for selecting the output file -->
+        </OutputPanel>
+        <DatabasePanel> <!-- This is the StackPanel for the database file -->
+            <DatabaseLabel/> <!-- This is the label for the database file -->
+            <DatabaseButton/> <!-- This is the button for selecting the database file -->
+        </DatabasePanel>
+        <ProviderPanel> <!-- This is the StackPanel for the provider file -->
+            <ProviderLabel/> <!-- This is the label for the provider file -->
+            <ProviderButton/> <!-- This is the button for selecting the provider file -->
+        </ProviderPanel>
+        <TablesGrid> <!-- This is the grid for the tables -->
+            <TablesPanel> <!-- This is the StackPanel for the tables -->
+                <TablesLabel/> <!-- This is the label for the tables -->
+                <TablesListView/> <!-- This is the ListView for the tables -->
+            </TablesPanel>
+            <SelectedTablesPanel> <!-- This is the StackPanel for the selected tables -->
+                <SelectedTablesLabel/> <!-- This is the label for the selected tables -->
+                <SelectedTablesListBox> <!-- This is the ListView for the selected tables -->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <SelectedTablesListBoxPanel> <!-- This is the StackPanel for the selected tables in the ListBox -->
+                                <SelectedTablesTextBlock/> <!-- This is the TextBlock for the selected tables in the ListBox -->
+                                <RemoveButton/>
+                            </SelectedTablesListBoxPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </SelectedTablesListBox>
+            </SelectedTablesPanel>
+        </TablesGrid>
+        <GeneratePanel> <!-- This is the StackPanel for the generate button -->
+            <GenerateButton/> <!-- This is the button for generating the code -->
+        </GeneratePanel>
+        <ConsoleLabel/> <!-- This is the label for the console -->
+    </BaseGrid>
+</ProgramWindow>

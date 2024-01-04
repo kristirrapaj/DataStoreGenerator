@@ -26,7 +26,7 @@ public partial class MainWindow : Window
 
     private void SetMargins()
     {
-        MyGrid.Width = Width / 2;
+        TablesGrid.Width = Width / 2;
     }
     
     private void OnwindowSizeChanged(object sender, SizeChangedEventArgs e)
@@ -58,7 +58,7 @@ public partial class MainWindow : Window
     private void PopulateDataTableComboBox()
     {
         SetVisibility(TablesPanel, true);
-        CbDataTableType.ItemsSource = _mvc.GetAvaliableDataTables();
+        TablesListView.ItemsSource = _mvc.GetAvaliableDataTables();
     }
 
     private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -81,7 +81,7 @@ public partial class MainWindow : Window
 
     private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var selectedItem = CbDataTableType.SelectedItem.ToString();
+        var selectedItem = TablesListView.SelectedItem.ToString();
         _mvc.AddToSelectedTables(selectedItem);
         
         SetVisibility(GeneratePanel, true);
@@ -91,14 +91,14 @@ public partial class MainWindow : Window
     private void PopulateTablesComboBox(string selectedItem)
     {
         SetVisibility(SelectedTablesPanel, true);
-        MyListBox.Items.Add(selectedItem);
+        SelectedTablesListBox.Items.Add(selectedItem);
     }
 
     private void OnTableRemoveButtonSelect(object sender, RoutedEventArgs e)
     {
-        if (MyListBox.SelectedItem == null) return;
-        _mvc.RemoveFromSelectedTables(MyListBox.SelectedItem.ToString());
-        MyListBox.Items.Remove(MyListBox.SelectedItem);
+        if (SelectedTablesListBox.SelectedItem == null) return;
+        _mvc.RemoveFromSelectedTables(SelectedTablesListBox.SelectedItem.ToString());
+        SelectedTablesListBox.Items.Remove(SelectedTablesListBox.SelectedItem);
     }
 
     private void OnBrowseButtonClick(object sender, RoutedEventArgs e)
@@ -122,8 +122,8 @@ public partial class MainWindow : Window
     
     private void ChangeConsoleText(string text, Brush color)
     {
-        ConsoleText.Content += "\n" + text;
-        ConsoleText.Foreground = color;
+        ConsoleLabel.Content += "\n" + text;
+        ConsoleLabel.Foreground = color;
     }
 
     private void OnFinalBrowseButtonClick(object sender, RoutedEventArgs e)
