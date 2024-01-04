@@ -13,6 +13,8 @@ public class MainWindowController {
     private List<string> GetAvaliableProviders => DataBaseManager.AvailableDataProviders;
 
     public List<string> GetAvaliableDataTables => DataBaseManager.AvailableTables;
+    
+    //public string ConfigFilePath { set => mConfigFilePath = value; }
 
 
     public void SetTables() {
@@ -49,7 +51,12 @@ public class MainWindowController {
         return GetAvaliableProviders;
     }
     
-    public string? DialogCreator(string type) {
+    private void SetConfigFilePath(string path) {
+        DataBaseManager.ConfigFilePath = path;
+        DataBaseManager.Initialize();
+    }
+    
+    public void DialogCreator(string type) {
         CommonOpenFileDialog dialog;
         switch (type) {
             case "XML":
@@ -67,6 +74,11 @@ public class MainWindowController {
                     ShowPlacesList = true,
                     DefaultExtension = "xml"
                 };
+                if (dialog.ShowDialog() != CommonFileDialogResult.Ok)
+                {
+                    throw new InvalidCastException();
+                } 
+                SetConfigFilePath(dialog.FileName);
                 break;
             case "DIRECTORY":
                 dialog = new CommonOpenFileDialog {
@@ -83,13 +95,16 @@ public class MainWindowController {
                     Multiselect = false,
                     ShowPlacesList = true,
                 };
+                if (dialog.ShowDialog() != CommonFileDialogResult.Ok)
+                {
+                    throw new InvalidCastException();
+                } 
+                SetOutputDirectory(dialog.FileName);
                 break;
             default:
-                Console.WriteLine("Invalid type");
-                return null;
+                ChangeConsoleText("Invalid dialog type", Brushes.Red);
+                throw new InvalidCastException();
         }
-        SetOutputDirectory(dialog.FileName);
-        return dialog.ShowDialog() != CommonFileDialogResult.Ok ? null : dialog.FileName;
-
+        
     }
 }

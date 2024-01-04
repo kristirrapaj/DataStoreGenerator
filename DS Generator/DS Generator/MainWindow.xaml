@@ -35,7 +35,7 @@
                 </Expander>
 
                 <!-- Database Type Section -->
-                <Expander Header="Database Type" IsExpanded="True">
+                <Expander Header="Data Store Type" IsExpanded="True">
                     <StackPanel x:Name="mDatastorePanel">
                         <Label x:Name="mDatastoreLabel" Content="Select Database Type: " Style="{StaticResource LabelStyle}" />
                         <ComboBox x:Name="mCbDatastoreType"
@@ -76,7 +76,7 @@
                                     <DataTemplate>
                                         <StackPanel x:Name="mSelectedTablesListBoxPanel">
                                             <TextBlock x:Name="mSelectedTablesTextBlock" Style="{StaticResource TextBlockStyle}" />
-                                            <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnTableRemoveButtonSelect" Style="{StaticResource ButtonStyle}" />
+                                            <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnRemoveButtonClick" Style="{StaticResource ButtonStyle}" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>

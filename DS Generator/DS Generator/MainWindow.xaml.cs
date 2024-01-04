@@ -59,17 +59,20 @@ public partial class MainWindow : Window {
     }
 
     private void OnDatastoreSelectionChanged(object sender, SelectionChangedEventArgs e) {
-        mAvailableDataProviders = mMainWindowController.SetDataStoreType(mCbDatastoreType.SelectedItem.ToString()!);
+        mAvailableDataProviders = mMainWindowController.SetDataStoreType(mCbDatastoreType.SelectedItem.ToString());
     }
 
     private void OnOpenDialogButtonClick(object sender, RoutedEventArgs e) {
         switch ((sender as Button)?.Name) {
             case SelectConfigFileButton:
+                Console.WriteLine("SelectConfigFileButton");
                 mMainWindowController.DialogCreator("XML");
                 break;
             case DirectoryButton:
+                Console.WriteLine("DirectoryButton");
                 mMainWindowController.DialogCreator("DIRECTORY");
                 mCbDatastoreType.ItemsSource = mMainWindowController.GetAvaliableDatastores;
+                mAvailableDatastore = mMainWindowController.GetAvaliableDatastores;
                 break;
         }
     }
