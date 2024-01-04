@@ -3,68 +3,63 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d"
-        >
-    <Grid x:Name="BaseGrid" Background="#F0F0F0">
+        mc:Ignorable="d">
+    <Grid x:Name="BaseGrid">
         <!-- Config Path -->
         <StackPanel x:Name="ConfigPanel">
-            <Label x:Name="SelectConfigLabel" Content="Select configuration file path:"></Label>
+            <Label x:Name="SelectConfigLabel" Content="Select configuration file path:" />
             <!-- Browse Button -->
-            <Button x:Name="SelectConfigButton" Content="Browse" Click="OnBrowseButtonClick"></Button>
+            <Button x:Name="SelectConfigButton" Content="Browse" Click="OnBrowseButtonClick" />
         </StackPanel>
         <StackPanel x:Name="OutputPanel">
-            <Label x:Name="OutputLabel" Content="Select final write path:"></Label>
+            <Label x:Name="OutputLabel" Content="Select final write path:" />
             <!-- Browse Button -->
-            <Button x:Name="OutputButton" Content="Browse" Click="OnFinalBrowseButtonClick"></Button>
+            <Button x:Name="OutputButton" Content="Browse" Click="OnFinalBrowseButtonClick" />
         </StackPanel>
         <!-- Database Type -->
-        <StackPanel x:Name="DatabasePanel" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,60,0,0">
-            <Label x:Name="DatabaseLabel" Content="Select Database Type: " Foreground="#333" />
-            <ComboBox x:Name="CbDataProviderType" Width="200" Height="20"
+        <StackPanel x:Name="DatabasePanel">
+            <Label x:Name="DatabaseLabel" Content="Select Database Type: " />
+            <ComboBox x:Name="CbDataProviderType"
                       ItemsSource="{Binding AvailableDataProviders}"
-                      SelectionChanged="OnDataProviderSelectionChanged"
-                      HorizontalAlignment="Stretch" />
+                      SelectionChanged="OnDataProviderSelectionChanged" />
         </StackPanel>
-        
-        
+
 
         <!-- DataProvider Type -->
-        <StackPanel x:Name="ProviderPanel" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,90,0,0">
+        <StackPanel x:Name="ProviderPanel">
             <Label Content="Select DataProvider Type: " Foreground="#333" />
-            <ComboBox x:Name="CbDatabaseType" Width="200" Height="20"
+            <ComboBox x:Name="CbDatabaseType"
                       ItemsSource="{Binding AvailableDatabases}"
-                      SelectionChanged="OnDatabaseSelectionChanged"
-                      HorizontalAlignment="Stretch" />
+                      SelectionChanged="OnDatabaseSelectionChanged" />
         </StackPanel>
 
         <!-- Select Table -->
         <Grid x:Name="TablesGrid">
-            <StackPanel x:Name="TablesPanel" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,120,0,0">
-                <Label Content="Select Table: " Foreground="#333" />
-                <ListView x:Name="TablesListView" Width="150" Height="100"
+            <StackPanel x:Name="TablesPanel">
+                <Label Content="Select Table: "/>
+                <ListView x:Name="TablesListView"
                           ItemsSource="{Binding AvailableDataTables}"
-                          SelectionChanged="OnDataTableSelectionChanged"
-                          HorizontalAlignment="Stretch" />
+                          SelectionChanged="OnDataTableSelectionChanged" />
             </StackPanel>
-            <StackPanel x:Name="SelectedTablesPanel" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,0,0">
-                <Label x:Name="SelectedTablesLabel" Content="Tables selected: "></Label>
-                <ListBox Name="SelectedTablesListBox" Width="200" Height="90" ItemsSource="{Binding _tablesSelected}">
+            <StackPanel x:Name="SelectedTablesPanel">
+                <Label x:Name="SelectedTablesLabel" Content="Tables selected: " />
+                <ListBox Name="SelectedTablesListBox" ItemsSource="{Binding _tablesSelected}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel x:Name="SelectedTablesListBoxPanel" Orientation="Horizontal" HorizontalAlignment="Stretch">
-                                <TextBlock x:Name="SelectedTablesTextBlock" Text="{Binding}"/>
-                                <Button Name="RemoveButton" Content="REMOVE"  Click="OnTableRemoveButtonSelect"/>
+                            <StackPanel x:Name="SelectedTablesListBoxPanel">
+                                <TextBlock x:Name="SelectedTablesTextBlock" Text="{Binding}" />
+                                <Button Name="RemoveButton" Content="REMOVE" Click="OnTableRemoveButtonSelect" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
         </Grid>
-        
-        
-        <StackPanel x:Name="GeneratePanel" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,250,0,0">
-            <Button x:Name="GenerateButton" Content="Generate" Click="OnGenerateButtonSelected"></Button>
+
+
+        <StackPanel x:Name="GeneratePanel">
+            <Button x:Name="GenerateButton" Content="Generate" Click="OnGenerateButtonSelected" />
         </StackPanel>
-        <Label x:Name="ConsoleLabel" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="12" Margin="0, 300, 0, 0"></Label>
+        <Label x:Name="ConsoleLabel" />
     </Grid>
 </Window>
