@@ -32,9 +32,9 @@ public partial class MainWindow : Window {
         mAvailableDataTables = new List<string>();
     }
 
-    private void OnWindowSizeChanged(object sender, SizeChangedEventArgs e) {
+    /*private void OnWindowSizeChanged(object sender, SizeChangedEventArgs e) {
         throw new NotImplementedException();
-    }
+    }*/
 
     private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e) {
         var selectedItem = mTablesListView.SelectedItem.ToString();

@@ -1,65 +1,97 @@
-﻿<Window x:Name="ProgramWindow" SizeChanged="OnWindowSizeChanged" x:Class="DS_Generator.MainWindow"
+﻿<Window x:Name="ProgramWindow" x:Class="DS_Generator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d">
-    <!-- Main Grid -->
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Data Source Generator"
+        MinWidth="800"
+        MinHeight="600">
+
+    <!-- Reference to the Resource Dictionary for styles -->
+    <Window.Resources>
+        <ResourceDictionary Source="Styles.xaml"/>
+    </Window.Resources>
+
     <Grid x:Name="BaseGrid">
-        <!-- Config File Path -->
-        <StackPanel x:Name="mConfigFilePanel">
-            <Label x:Name="mSelectConfigFileLabel" Content="Select configuration file path:" />
-            <!-- Browse Button -->
-            <Button x:Name="mSelectConfigFileButton" Content="Browse" Click="OnOpenDialogButtonClick" />
-        </StackPanel>
-        <!-- Directory Path -->
-        <StackPanel x:Name="mDirectoryPanel">
-            <Label x:Name="mDirectoryLabel" Content="Select final write path:" />
-            <!-- Browse Button -->
-            <Button x:Name="mDirectoryButton" Content="Browse" Click="OnOpenDialogButtonClick" />
-        </StackPanel>
-        <!-- Datastore Type -->
-        <StackPanel x:Name="mDatastorePanel">
-            <Label x:Name="mDatastoreLabel" Content="Select Database Type: " />
-            <ComboBox x:Name="mCbDatastoreType"
-                      ItemsSource="{Binding mAvailableDatastore}"
-                      SelectionChanged="OnDatastoreSelectionChanged" />
-        </StackPanel>
-        <!-- DataProvider Type -->
-        <StackPanel x:Name="mProviderPanel">
-            <Label x:Name="mProviderLabel" Content="Select DataProvider Type: " Foreground="#333" />
-            <ComboBox x:Name="mCbDataProviderType"
-                      ItemsSource="{Binding mAvailableDataProviders}"
-                      SelectionChanged="OnDataProviderSelectionChanged" />
-        </StackPanel>
-        <!-- Select Table -->
-        <Grid x:Name="mTablesGrid">
-            <!-- Select Table Panel -->
-            <StackPanel x:Name="mTablesPanel">
-                <Label x:Name="mTablesLabel" Content="Select Table: " />
-                <ListView x:Name="mTablesListView"
-                          ItemsSource="{Binding mAvailableDataTables}"
-                          SelectionChanged="OnDataTableSelectionChanged" />
+        <!-- ScrollViewer for better resizing and scrolling -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Configuration File Section -->
+                <Expander Header="Configuration File" IsExpanded="True">
+                    <StackPanel x:Name="mConfigFilePanel">
+                        <Label x:Name="mSelectConfigFileLabel" Content="Select configuration file path:" Style="{StaticResource LabelStyle}" />
+                        <Button x:Name="mSelectConfigFileButton" Content="Browse" Click="OnOpenDialogButtonClick" Style="{StaticResource ButtonStyle}" />
+                    </StackPanel>
+                </Expander>
+
+                <!-- Directory Path Section -->
+                <Expander Header="Directory Path" IsExpanded="True">
+                    <StackPanel x:Name="mDirectoryPanel">
+                        <Label x:Name="mDirectoryLabel" Content="Select final write path:" Style="{StaticResource LabelStyle}" />
+                        <Button x:Name="mDirectoryButton" Content="Browse" Click="OnOpenDialogButtonClick" Style="{StaticResource ButtonStyle}" />
+                    </StackPanel>
+                </Expander>
+
+                <!-- Database Type Section -->
+                <Expander Header="Database Type" IsExpanded="True">
+                    <StackPanel x:Name="mDatastorePanel">
+                        <Label x:Name="mDatastoreLabel" Content="Select Database Type: " Style="{StaticResource LabelStyle}" />
+                        <ComboBox x:Name="mCbDatastoreType"
+                                  ItemsSource="{Binding mAvailableDatastore}"
+                                  SelectionChanged="OnDatastoreSelectionChanged" Style="{StaticResource ComboBoxStyle}" />
+                    </StackPanel>
+                </Expander>
+
+                <!-- DataProvider Type Section -->
+                <Expander Header="DataProvider Type" IsExpanded="True">
+                    <StackPanel x:Name="mProviderPanel">
+                        <Label x:Name="mProviderLabel" Content="Select DataProvider Type: " Style="{StaticResource LabelStyle}" />
+                        <ComboBox x:Name="mCbDataProviderType"
+                                  ItemsSource="{Binding mAvailableDataProviders}"
+                                  SelectionChanged="OnDataProviderSelectionChanged" Style="{StaticResource ComboBoxStyle}" />
+                    </StackPanel>
+                </Expander>
+
+                <!-- Table Selection Section -->
+                <Expander Header="Table Selection" IsExpanded="True">
+                    <Grid x:Name="mTablesGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel x:Name="mTablesPanel" Grid.Column="0">
+                            <Label x:Name="mTablesLabel" Content="Select Table: " Style="{StaticResource LabelStyle}" />
+                            <ListView x:Name="mTablesListView"
+                                      ItemsSource="{Binding mAvailableDataTables}"
+                                      SelectionChanged="OnDataTableSelectionChanged" />
+                        </StackPanel>
+
+                        <StackPanel x:Name="mSelectedTablesPanel" Grid.Column="1">
+                            <Label x:Name="mSelectedTablesLabel" Content="Tables selected: " Style="{StaticResource LabelStyle}" />
+                            <ListBox Name="mSelectedTablesListBox" ItemsSource="{Binding mTablesSelected}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel x:Name="mSelectedTablesListBoxPanel">
+                                            <TextBlock x:Name="mSelectedTablesTextBlock" Style="{StaticResource TextBlockStyle}" />
+                                            <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnTableRemoveButtonSelect" Style="{StaticResource ButtonStyle}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </Grid>
+                </Expander>
+
+                <!-- Generate Button -->
+                <StackPanel x:Name="mGeneratePanel">
+                    <Button x:Name="mGenerateButton" Content="Generate" Click="OnGenerateButtonSelected" Style="{StaticResource ButtonStyle}" />
+                </StackPanel>
             </StackPanel>
-            <!-- Selected Tables -->
-            <StackPanel x:Name="mSelectedTablesPanel">
-                <Label x:Name="mSelectedTablesLabel" Content="Tables selected: " />
-                <ListBox Name="mSelectedTablesListBox" ItemsSource="{Binding mTablesSelected}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel x:Name="mSelectedTablesListBoxPanel">
-                                <TextBlock x:Name="mSelectedTablesTextBlock" />
-                                <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnRemoveButtonClick" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>
-        </Grid>
-        <!-- Generate Button -->
-        <StackPanel x:Name="mGeneratePanel">
-            <Button x:Name="mGenerateButton" Content="Generate" Click="OnGenerateButtonSelected" />
-        </StackPanel>
-        <Label x:Name="mConsoleLabel" />
+        </ScrollViewer>
+        <Label x:Name="mConsoleLabel" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource LabelStyle}" />
     </Grid>
 </Window>
+
