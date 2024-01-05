@@ -5,78 +5,70 @@ using Microsoft.WindowsAPICodePack.Dialogs;
 namespace DS_Generator.UI;
 
 public class MainWindowController {
-    private List<string> SelectedTables = [];
-    private DataBaseManager DataBaseManager = new();
-    
-    public List<string> GetAvaliableDatastores => DataBaseManager.AvailableDatastores;
+    private List<string> mSelectedTables;
+    private DataBaseManager mDataBaseManager;
 
-    private List<string> GetAvaliableProviders => DataBaseManager.AvailableDataProviders;
+    public MainWindowController() {
+        mSelectedTables = [];
+        mDataBaseManager = new DataBaseManager();
+    }
 
-    public List<string> GetAvaliableDataTables => DataBaseManager.AvailableTables;
-    
-    //public string ConfigFilePath { set => mConfigFilePath = value; }
+    public List<string> GetAvaliableDatastores => mDataBaseManager.AvailableDatastores;
+    public List<string> GetTablesList => mDataBaseManager.AvailableTables;
 
     private List<string> _supportedDataProviders = new List<string>();
 
-    public List<string> SupportedDataProviders
-    {
+    public List<string> SupportedDataProviders {
         get => _supportedDataProviders;
-        set
-        {
+        set {
             _supportedDataProviders = value ?? new List<string>();
             AddDefaultDataProvider();
         }
     }
 
-    private void AddDefaultDataProvider()
-    {
-        if (!_supportedDataProviders.Contains("SQL_SERVER"))
-        {
+    private void AddDefaultDataProvider() {
+        if (!_supportedDataProviders.Contains("SQL_SERVER")) {
             _supportedDataProviders.Add("SQL_SERVER");
         }
     }
 
-
-    public void SetTables() {
-        DataBaseManager.Tables = SelectedTables.ToArray();
+    private void SetOutputDirectory(string directory) {
+        mDataBaseManager.OutputConfigFilePath = $"{directory}";
     }
 
 
-    public void SetOutputDirectory(string directory) {
-        DataBaseManager.OutputConfigFilePath = $"{directory}";
+    // CHIAMALO QUANDO L'USER SELEZIONA UNA DATABASE
+    // IN AUTOMATICO SETTA LE TABELLE DISPONIBILI
+    public void SetDatabase(string database) {
+        mDataBaseManager.Database = database;
+    }
+
+    // CHIAMALO QUANDO L'USER HA SELEZIONATO LE TABELLE ED È PRONTO PER GENERARE
+    public void SetTables() {
+        mDataBaseManager.Tables = mSelectedTables.ToArray();
     }
 
     public void ModifySelectedTables(string table, string command) {
         switch (command) {
             case "ADD":
-                SelectedTables.Add(table);
+                mSelectedTables.Add(table);
                 break;
             case "REMOVE":
-                SelectedTables.Remove(table);
+                mSelectedTables.Remove(table);
                 break;
         }
     }
 
-    public void ChangeConsoleText(Label label,string text, Brush color) {
+    public static void ChangeConsoleText(Label label, string text, Brush color) {
         label.Content = text;
         label.Foreground = color;
     }
 
-    public List<string> SetDataProvider(string dataProvider) {
-        DataBaseManager.DataProvider = dataProvider;
-        return GetAvaliableDataTables;
+    private void SetConfigFilePath(string path) {
+        mDataBaseManager.ConfigFilePath = path;
+        mDataBaseManager.FetchDatabasesFromConfigurationFile();
     }
 
-    public List<string> SetDataStoreType(string dataStoreType) {
-        DataBaseManager.DataStoreType = dataStoreType;
-        return GetAvaliableProviders;
-    }
-    
-    private void SetConfigFilePath(string path) {
-        DataBaseManager.ConfigFilePath = path;
-        DataBaseManager.Initialize();
-    }
-    
     public void DialogCreator(string type) {
         CommonOpenFileDialog dialog;
         switch (type) {
@@ -95,10 +87,10 @@ public class MainWindowController {
                     ShowPlacesList = true,
                     DefaultExtension = "xml"
                 };
-                if (dialog.ShowDialog() != CommonFileDialogResult.Ok)
-                {
+                if (dialog.ShowDialog() != CommonFileDialogResult.Ok) {
                     throw new InvalidCastException();
-                } 
+                }
+
                 SetConfigFilePath(dialog.FileName);
                 break;
             case "DIRECTORY":
@@ -116,16 +108,15 @@ public class MainWindowController {
                     Multiselect = false,
                     ShowPlacesList = true,
                 };
-                if (dialog.ShowDialog() != CommonFileDialogResult.Ok)
-                {
+                if (dialog.ShowDialog() != CommonFileDialogResult.Ok) {
                     throw new InvalidCastException();
-                } 
+                }
+
                 SetOutputDirectory(dialog.FileName);
                 break;
             default:
                 Console.WriteLine("Invalid dialog type");
                 throw new InvalidCastException();
         }
-        
     }
 }
