@@ -22,8 +22,6 @@ public class MainWindowController {
         get => _supportedDataProviders;
         set => _supportedDataProviders = value;
     }
-    
-    
 
     private void SetOutputDirectory(string directory) {
         mDataBaseManager.OutputConfigFilePath = $"{directory}";
@@ -53,7 +51,7 @@ public class MainWindowController {
     }
 
     public void ChangeConsoleText(Label label, string text, Brush color) {
-        label.Content = text;
+        label.Content = $"{label.Content}\n\r {text}";
         label.Foreground = color;
     }
 

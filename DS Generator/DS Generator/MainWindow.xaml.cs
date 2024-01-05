@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using DS_Generator.UI;
 
 namespace DS_Generator
@@ -58,7 +59,7 @@ namespace DS_Generator
                 UpdateDataTables();
             }
             catch (Exception exception) {
-                Console.WriteLine(exception);
+                mMainWindowController.ChangeConsoleText(mConsoleLabel, exception.ToString(), Brushes.Red);
             }
         }
 
