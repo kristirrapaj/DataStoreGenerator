@@ -15,12 +15,9 @@ namespace DS_Generator
         private List<string> mAvailableDatastore;
         private List<string> mAvailableDataProviders;
         private List<string> mAvailableDataTables;
-        private List<string> mTablesSelected;
 
         private const string SelectConfigFileButton = "mSelectConfigFileButton";
         private const string DirectoryButton = "mDirectoryButton";
-        private const string TablesListView = "mTablesListView";
-        private const string RemoveButton = "mRemoveButton";
 
         public MainWindow()
         {
@@ -32,7 +29,6 @@ namespace DS_Generator
         private void InitializeControllerAndLists()
         {
             mMainWindowController = new MainWindowController();
-            mTablesSelected = new List<string>();
             mAvailableDatastore = new List<string>();
             mAvailableDataProviders = new List<string>();
             mAvailableDataTables = new List<string>();
