@@ -40,14 +40,14 @@ namespace DS_Generator
 
         private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string selectedItem = GetSelectedItem(mTablesListView);
+            var selectedItem = GetSelectedItem(mTablesListView);
             UpdateSelectedTables(selectedItem, "ADD");
             AddToListBoxIfNotPresent(mSelectedTablesListBox, selectedItem);
         }
 
         private void OnRemoveButtonClick(object sender, RoutedEventArgs e)
         {
-            string selectedItem = GetSelectedItem(mSelectedTablesListBox);
+            var selectedItem = GetSelectedItem(mSelectedTablesListBox);
             if (selectedItem == null) return;
             UpdateSelectedTables(selectedItem, "REMOVE");
             mSelectedTablesListBox.Items.Remove(selectedItem);
@@ -71,7 +71,7 @@ namespace DS_Generator
 
         private void OnOpenDialogButtonClick(object sender, RoutedEventArgs e)
         {
-            string buttonName = (sender as Button)?.Name;
+            var buttonName = (sender as Button)?.Name;
             HandleDialogButtonClick(buttonName);
         }
 
@@ -80,7 +80,7 @@ namespace DS_Generator
             mSelectedTablesListBox.Items.Clear();
         }
 
-        private string GetSelectedItem(ListBox listBox)
+        private static string GetSelectedItem(ListBox listBox)
         {
             return listBox.SelectedItem?.ToString();
         }
@@ -90,7 +90,7 @@ namespace DS_Generator
             mMainWindowController.ModifySelectedTables(item, action);
         }
 
-        private void AddToListBoxIfNotPresent(ListBox listBox, string item)
+        private static void AddToListBoxIfNotPresent(ListBox listBox, string item)
         {
             if (!listBox.Items.Contains(item))
             {
