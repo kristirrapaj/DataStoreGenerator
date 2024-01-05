@@ -59,7 +59,7 @@ public class MainWindowController {
         }
     }
 
-    public static void ChangeConsoleText(Label label, string text, Brush color) {
+    public void ChangeConsoleText(Label label, string text, Brush color) {
         label.Content = text;
         label.Foreground = color;
     }

@@ -57,22 +57,18 @@ namespace DS_Generator
 
         private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            mMainWindowController.SetDatabase(mCbDataProviderType.SelectedItem?.ToString());
             if (CheckSupportedDataProviders())
             {
                 UpdateDataTables();
             }
-            
-        }
-
-        private void OnDatastoreSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateDataProviders();
         }
 
         private void OnOpenDialogButtonClick(object sender, RoutedEventArgs e)
         {
             var buttonName = (sender as Button)?.Name;
             HandleDialogButtonClick(buttonName);
+            UpdateDataProviders();
         }
 
         private void OnClearButtonClick(object sender, RoutedEventArgs e)
@@ -100,7 +96,7 @@ namespace DS_Generator
 
         private void UpdateDataTables()
         {
-            mAvailableDataTables = mMainWindowController.SetDataProvider(mCbDataProviderType.SelectedItem?.ToString());
+            mAvailableDataTables = mMainWindowController.GetTablesList;
             mTablesListView.ItemsSource = mAvailableDataTables;
         }
         
@@ -120,7 +116,7 @@ namespace DS_Generator
 
         private void UpdateDataProviders()
         {
-            mAvailableDataProviders = mMainWindowController.SetDataStoreType(mCbDatastoreType.SelectedItem?.ToString());
+            mAvailableDataProviders = mMainWindowController.GetAvaliableDatastores;
             mCbDataProviderType.ItemsSource = mAvailableDataProviders;
         }
 
@@ -133,15 +129,10 @@ namespace DS_Generator
                     break;
                 case DirectoryButton:
                     mMainWindowController.DialogCreator("DIRECTORY");
-                    UpdateDatastoreTypeSource();
+                    UpdateDataProviders();
                     break;
             }
         }
-
-        private void UpdateDatastoreTypeSource()
-        {
-            mAvailableDatastore = mMainWindowController.GetAvaliableDatastores;
-            mCbDatastoreType.ItemsSource = mAvailableDatastore;
-        }
+        
     }
 }

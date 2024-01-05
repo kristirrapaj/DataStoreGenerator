@@ -35,22 +35,14 @@
                     </StackPanel>
                 </Expander>
 
-                <!-- Database Type Section -->
-                <Expander Header="Data Store Type" IsExpanded="True">
-                    <StackPanel x:Name="mDatastorePanel">
-                        <Label x:Name="mDatastoreLabel" Content="Select Database Type: " Style="{StaticResource LabelStyle}" />
-                        <ComboBox x:Name="mCbDatastoreType"
-                                  ItemsSource="{Binding mAvailableDatastore}"
-                                  SelectionChanged="OnDatastoreSelectionChanged" Style="{StaticResource ComboBoxStyle}" />
-                    </StackPanel>
-                </Expander>
+                
 
                 <!-- DataProvider Type Section -->
-                <Expander Header="DataProvider Type" IsExpanded="True">
+                <Expander Header="Data Provider" IsExpanded="True">
                     <StackPanel x:Name="mProviderPanel">
-                        <Label x:Name="mProviderLabel" Content="Select DataProvider Type: " Style="{StaticResource LabelStyle}" />
+                        <Label x:Name="mProviderLabel" Content="Select Data Provider Type: " Style="{StaticResource LabelStyle}" />
                         <ComboBox x:Name="mCbDataProviderType"
-                                  ItemsSource="{Binding mAvailableDataProviders}"
+                                  ItemsSource="{Binding }"
                                   SelectionChanged="OnDataProviderSelectionChanged" Style="{StaticResource ComboBoxStyle}" />
                     </StackPanel>
                 </Expander>
@@ -67,7 +59,7 @@
                             <Label x:Name="mTablesLabel" Content="Select Table: " Style="{StaticResource LabelStyle}" />
                             <ListView x:Name="mTablesListView"
                                       Style="{StaticResource ListViewStyle}"
-                                      ItemsSource="{Binding mAvailableDataTables}"
+                                      ItemsSource="{Binding }"
                                       SelectionChanged="OnDataTableSelectionChanged" />
                         </StackPanel>
 
