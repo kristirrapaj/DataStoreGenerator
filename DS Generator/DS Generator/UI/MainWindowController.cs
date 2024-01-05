@@ -16,6 +16,16 @@ public class MainWindowController {
     
     //public string ConfigFilePath { set => mConfigFilePath = value; }
 
+    public List<string> SupportedDataProviders
+    {
+        set => SetSupportedDataProviders(value);
+    }
+
+    private void SetSupportedDataProviders(List<string> value)
+    {
+        value.Add("SQL_SERVER ");
+    }
+
 
     public void SetTables() {
         DataBaseManager.Tables = SelectedTables.ToArray();

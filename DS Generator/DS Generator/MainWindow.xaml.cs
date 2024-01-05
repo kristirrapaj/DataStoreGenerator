@@ -12,7 +12,7 @@ namespace DS_Generator
     public partial class MainWindow : Window
     {
         private MainWindowController mMainWindowController;
-        private List<string> mAvailableDatastore;
+        //private List<string> mAvailableDatastore;
         private List<string> mAvailableDataProviders;
         private List<string> mAvailableDataTables;
 
@@ -29,7 +29,7 @@ namespace DS_Generator
         private void InitializeControllerAndLists()
         {
             mMainWindowController = new MainWindowController();
-            mAvailableDatastore = new List<string>();
+            //mAvailableDatastore = new List<string>();
             mAvailableDataProviders = new List<string>();
             mAvailableDataTables = new List<string>();
         }
