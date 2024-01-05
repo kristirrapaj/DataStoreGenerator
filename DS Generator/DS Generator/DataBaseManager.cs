@@ -52,7 +52,8 @@ public class DataBaseManager
 
     public string Database {
         set {
-            mCurrentId = value;
+            mCurrentId = value.Split(" - ")[0].Split(": ")[1];
+            Console.WriteLine(mCurrentId);
             SetAvailableTables();
         }
     }
@@ -106,7 +107,13 @@ public class DataBaseManager
             select TagPickerXml(dataProvider, "SCHEMA")
         ).ToList();
 
-        Console.WriteLine(mCurrentDataStoreType, cnnStr[0], schema[0]);
+        mCurrentDataStoreType = (
+            from DataRow dataProvider in mConfigDataSet.Tables[0].Rows
+            where TagPickerXml(dataProvider, "ID") == mCurrentId
+            select TagPickerXml(dataProvider, "DATA_STORE_TYPE")
+        ).ToList()[0];
+        
+        Console.WriteLine(mCurrentDataStoreType);
         
         // Pass the connection string and schema to the data store factory to get the available tables and views from the DataStore
         mDataStore = DataStoreFactory.GetDataStore(mCurrentDataStoreType, connStr: cnnStr[0], schema: schema[0]);
