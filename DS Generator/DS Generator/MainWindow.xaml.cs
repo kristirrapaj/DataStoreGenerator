@@ -24,6 +24,7 @@ namespace DS_Generator
 
         public MainWindow()
         {
+            DataContext = this;
             InitializeComponent();
             InitializeControllerAndLists();
         }
