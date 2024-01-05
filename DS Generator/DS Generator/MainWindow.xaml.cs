@@ -1,8 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using DS_Generator.UI;
-using Microsoft.WindowsAPICodePack.Dialogs;
-using System.Collections.Generic;
 
 namespace DS_Generator
 {
@@ -12,7 +10,6 @@ namespace DS_Generator
     public partial class MainWindow : Window
     {
         private MainWindowController mMainWindowController;
-        private List<string> mAvailableDatastore;
         private List<string> mAvailableDataProviders;
         private List<string> mAvailableDataTables;
 
@@ -29,7 +26,6 @@ namespace DS_Generator
         private void InitializeControllerAndLists()
         {
             mMainWindowController = new MainWindowController();
-            mAvailableDatastore = new List<string>();
             mAvailableDataProviders = new List<string>();
             mAvailableDataTables = new List<string>();
         }
