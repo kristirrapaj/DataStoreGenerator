@@ -16,14 +16,24 @@ public class MainWindowController {
     
     //public string ConfigFilePath { set => mConfigFilePath = value; }
 
+    private List<string> _supportedDataProviders = new List<string>();
+
     public List<string> SupportedDataProviders
     {
-        set => SetSupportedDataProviders(value);
+        get => _supportedDataProviders;
+        set
+        {
+            _supportedDataProviders = value ?? new List<string>();
+            AddDefaultDataProvider();
+        }
     }
 
-    private void SetSupportedDataProviders(List<string> value)
+    private void AddDefaultDataProvider()
     {
-        value.Add("SQL_SERVER ");
+        if (!_supportedDataProviders.Contains("SQL_SERVER"))
+        {
+            _supportedDataProviders.Add("SQL_SERVER");
+        }
     }
 
 
@@ -47,8 +57,9 @@ public class MainWindowController {
         }
     }
 
-    private static void ChangeConsoleText(string text, Brush color) {
-        throw new NotImplementedException();
+    public void ChangeConsoleText(Label label,string text, Brush color) {
+        label.Content = text;
+        label.Foreground = color;
     }
 
     public List<string> SetDataProvider(string dataProvider) {
@@ -112,7 +123,7 @@ public class MainWindowController {
                 SetOutputDirectory(dialog.FileName);
                 break;
             default:
-                ChangeConsoleText("Invalid dialog type", Brushes.Red);
+                Console.WriteLine("Invalid dialog type");
                 throw new InvalidCastException();
         }
         

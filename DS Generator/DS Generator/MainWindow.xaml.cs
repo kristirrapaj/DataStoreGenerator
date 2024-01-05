@@ -12,7 +12,7 @@ namespace DS_Generator
     public partial class MainWindow : Window
     {
         private MainWindowController mMainWindowController;
-        //private List<string> mAvailableDatastore;
+        private List<string> mAvailableDatastore;
         private List<string> mAvailableDataProviders;
         private List<string> mAvailableDataTables;
 
@@ -29,7 +29,7 @@ namespace DS_Generator
         private void InitializeControllerAndLists()
         {
             mMainWindowController = new MainWindowController();
-            //mAvailableDatastore = new List<string>();
+            mAvailableDatastore = new List<string>();
             mAvailableDataProviders = new List<string>();
             mAvailableDataTables = new List<string>();
         }
@@ -57,7 +57,11 @@ namespace DS_Generator
 
         private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UpdateDataTables();
+            if (CheckSupportedDataProviders())
+            {
+                UpdateDataTables();
+            }
+            
         }
 
         private void OnDatastoreSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -98,6 +102,20 @@ namespace DS_Generator
         {
             mAvailableDataTables = mMainWindowController.SetDataProvider(mCbDataProviderType.SelectedItem?.ToString());
             mTablesListView.ItemsSource = mAvailableDataTables;
+        }
+        
+        private bool CheckSupportedDataProviders()
+        {
+            var selectedDataProvider = mCbDataProviderType.SelectedItem?.ToString();
+
+            foreach (var provider in mMainWindowController.SupportedDataProviders)
+            {
+                if (selectedDataProvider.Contains(provider)) return true;
+                break;
+            }
+
+            mMainWindowController.ChangeConsoleText(mConsoleLabel, "Unsupported Data Provider", System.Windows.Media.Brushes.Red);
+            return false;
         }
 
         private void UpdateDataProviders()
