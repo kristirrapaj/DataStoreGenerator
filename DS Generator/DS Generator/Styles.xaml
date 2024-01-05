@@ -38,6 +38,17 @@
     <Style x:Key="GridStyle" TargetType="Grid">
         <Setter Property="Margin" Value="5"/>
     </Style>
-
+    
+    <!-- RichTextBox -->
+    <Style x:Key="RichTextBoxStyle" TargetType="RichTextBox">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"></Setter>
+    </Style>
+    
 
 </ResourceDictionary>

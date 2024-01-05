@@ -23,6 +23,7 @@
                 <Expander Header="Configuration File" IsExpanded="True">
                     <StackPanel x:Name="mConfigFilePanel">
                         <Label x:Name="mSelectConfigFileLabel" Content="Select configuration file path:" Style="{StaticResource LabelStyle}" />
+                        <TextBox x:Name="mSelectedConfigFilePathTextBox" IsReadOnly="True" Margin="4" />
                         <Button x:Name="mSelectConfigFileButton" Content="Browse" Click="OnOpenDialogButtonClick" Style="{StaticResource ButtonStyle}" />
                     </StackPanel>
                 </Expander>
@@ -31,6 +32,7 @@
                 <Expander Header="Directory Path" IsExpanded="True">
                     <StackPanel x:Name="mDirectoryPanel">
                         <Label x:Name="mDirectoryLabel" Content="Select final write path:" Style="{StaticResource LabelStyle}" />
+                        <TextBox x:Name="mSelectedDirectoryPathTextBox" IsReadOnly="True" />
                         <Button x:Name="mDirectoryButton" Content="Browse" Click="OnOpenDialogButtonClick" Style="{StaticResource ButtonStyle}" />
                     </StackPanel>
                 </Expander>
@@ -88,7 +90,7 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
-        <Label x:Name="mConsoleLabel" HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource LabelStyle}" />
+        <RichTextBox x:Name="mConsoleTextBox" Style="{StaticResource RichTextBoxStyle}" />
     </Grid>
 </Window>
 

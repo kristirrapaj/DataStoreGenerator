@@ -1,4 +1,5 @@
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -50,10 +51,14 @@ public class MainWindowController {
         }
     }
 
-    public void ChangeConsoleText(Label label, string text, Brush color) {
-        label.Content = $"{label.Content}\n\r {text}";
-        label.Foreground = color;
+    public void ChangeConsoleText(RichTextBox richTextBox, string text, Brush color) {
+        Paragraph paragraph = new Paragraph();
+        paragraph.Inlines.Add(new Run(text));
+        
+        paragraph.Foreground = color;
+        richTextBox.Document.Blocks.Add(paragraph);
     }
+
 
     private void SetConfigFilePath(string path) {
         mDataBaseManager.ConfigFilePath = path;
@@ -78,8 +83,9 @@ public class MainWindowController {
                     ShowPlacesList = true,
                     DefaultExtension = "xml"
                 };
-                if (dialog.ShowDialog() != CommonFileDialogResult.Ok) {
-                    throw new InvalidCastException();
+                if (dialog.ShowDialog() != CommonFileDialogResult.Ok)
+                {
+                    throw new Exception();
                 }
 
                 SetConfigFilePath(dialog.FileName);
@@ -99,15 +105,15 @@ public class MainWindowController {
                     Multiselect = false,
                     ShowPlacesList = true,
                 };
-                if (dialog.ShowDialog() != CommonFileDialogResult.Ok) {
-                    throw new InvalidCastException();
+                if (dialog.ShowDialog() != CommonFileDialogResult.Ok)
+                {
+                    throw new Exception();
                 }
 
                 SetOutputDirectory(dialog.FileName);
                 break;
             default:
-                Console.WriteLine("Invalid dialog type");
-                throw new InvalidCastException();
+                throw new Exception();
         }
     }
 }

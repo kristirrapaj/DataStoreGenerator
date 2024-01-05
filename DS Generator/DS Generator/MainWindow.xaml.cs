@@ -49,7 +49,7 @@ namespace DS_Generator
         private void OnGenerateButtonSelected(object sender, RoutedEventArgs e)
         {
             mMainWindowController.SetTables();
-            mConsoleLabel.Content = "Generated files successfully";
+            mMainWindowController.ChangeConsoleText(mConsoleTextBox, "Successfully gerenated tables.", Brushes.Green);
         }
 
         private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,7 +59,7 @@ namespace DS_Generator
                 UpdateDataTables();
             }
             catch (Exception exception) {
-                mMainWindowController.ChangeConsoleText(mConsoleLabel, exception.ToString(), Brushes.Red);
+                mMainWindowController.ChangeConsoleText(mConsoleTextBox, exception.ToString(), Brushes.Red);
             }
         }
 
@@ -68,11 +68,13 @@ namespace DS_Generator
             var buttonName = (sender as Button)?.Name;
             HandleDialogButtonClick(buttonName);
             UpdateDataProviders();
+            mMainWindowController.ChangeConsoleText(mConsoleTextBox, "Successfully fetched.", Brushes.Green);
         }
 
         private void OnClearButtonClick(object sender, RoutedEventArgs e)
         {
             mSelectedTablesListBox.Items.Clear();
+            mMainWindowController.ChangeConsoleText(mConsoleTextBox, "Cleared selected tables.", Brushes.Green);
         }
 
         private static string GetSelectedItem(ListBox listBox)
@@ -83,6 +85,7 @@ namespace DS_Generator
         private void UpdateSelectedTables(string item, string action)
         {
             mMainWindowController.ModifySelectedTables(item, action);
+            mMainWindowController.ChangeConsoleText(mConsoleTextBox, "Tables modified.", Brushes.Green);
         }
 
         private static void AddToListBoxIfNotPresent(ListBox listBox, string item)
