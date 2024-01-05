@@ -20,17 +20,10 @@ public class MainWindowController {
 
     public List<string> SupportedDataProviders {
         get => _supportedDataProviders;
-        set {
-            _supportedDataProviders = value ?? new List<string>();
-            AddDefaultDataProvider();
-        }
+        set => _supportedDataProviders = value;
     }
-
-    private void AddDefaultDataProvider() {
-        if (!_supportedDataProviders.Contains("SQL_SERVER")) {
-            _supportedDataProviders.Add("SQL_SERVER");
-        }
-    }
+    
+    
 
     private void SetOutputDirectory(string directory) {
         mDataBaseManager.OutputConfigFilePath = $"{directory}";

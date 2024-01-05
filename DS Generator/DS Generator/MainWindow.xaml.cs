@@ -53,10 +53,12 @@ namespace DS_Generator
 
         private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            mMainWindowController.SetDatabase(mCbDataProviderType.SelectedItem?.ToString());
-            if (CheckSupportedDataProviders())
-            {
+            try {
+                mMainWindowController.SetDatabase(mCbDataProviderType.SelectedItem?.ToString());
                 UpdateDataTables();
+            }
+            catch (Exception exception) {
+                Console.WriteLine(exception);
             }
         }
 
@@ -94,20 +96,6 @@ namespace DS_Generator
         {
             mAvailableDataTables = mMainWindowController.GetTablesList;
             mTablesListView.ItemsSource = mAvailableDataTables;
-        }
-        
-        private bool CheckSupportedDataProviders()
-        {
-            var selectedDataProvider = mCbDataProviderType.SelectedItem?.ToString();
-
-            foreach (var provider in mMainWindowController.SupportedDataProviders)
-            {
-                if (selectedDataProvider.Contains(provider)) return true;
-                break;
-            }
-
-            mMainWindowController.ChangeConsoleText(mConsoleLabel, "Unsupported Data Provider", System.Windows.Media.Brushes.Red);
-            return false;
         }
 
         private void UpdateDataProviders()
