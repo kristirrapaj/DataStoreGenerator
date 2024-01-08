@@ -1,10 +1,9 @@
-using System.ComponentModel.Composition.Registration;
 using System.Data;
-using System.Windows.Documents;
 using DataStore.Factory;
 using DataStore.Interface;
+using DS_Generator.Generators;
 
-namespace DS_Generator;
+namespace DS_Generator.Database;
 
 /// <summary>
 /// TODO: Creare controlli per la selezione, cosi da non avere la stessa scelta muultiple volte

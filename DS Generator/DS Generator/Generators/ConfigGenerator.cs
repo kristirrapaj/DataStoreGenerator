@@ -1,6 +1,6 @@
 ﻿using DataStore.Interface;
 
-namespace DS_Generator;
+namespace DS_Generator.Generators;
 
 internal class ConfigGenerator
 {

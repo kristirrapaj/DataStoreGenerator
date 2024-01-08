@@ -1,9 +1,7 @@
-using System.Data;
 using System.IO;
-using System.Windows.Documents;
 using Microsoft.VisualBasic.FileIO;
 
-namespace DS_Generator;
+namespace DS_Generator.Generators;
 
 public class Generator {
     public int Position { get; set; } // 10 - 13 - 15 - NM con offset di 2, da 10 in su

@@ -1,6 +1,7 @@
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
+using DS_Generator.Database;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace DS_Generator.UI;

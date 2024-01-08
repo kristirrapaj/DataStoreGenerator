@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Windows.Controls.Primitives;
 using DataStore.Interface;
 using GridConfig.Interface;
 
-namespace DS_Generator;
+namespace DS_Generator.Generators;
 
 public class SqlGenerator
 {
