@@ -6,44 +6,32 @@ using DataStore.Interface;
 
 namespace DS_Generator;
 
+/// <summary>
+/// TODO: Creare controlli per la selezione, cosi da non avere la stessa scelta muultiple volte
+/// TODO: Transformare tutti gli errori in eccezioni e finestrelle di errore
+/// TODO: Creare un file di configurazione per il programma
+/// TODO: Rimuovere datastore type (?)
+/// </summary>
+
 public class DataBaseManager
 {
     private string mCurrentDataStoreType;
     private string mCurrentId;
     private DataSet mConfigDataSet;
-    private string mConfigFilePath;
     private string mOutputConfigFilePath;
     private IDataStore? mDataStore;
-
-    public List<string>? AvailableDataProvider { get; private set; }
-
-    public List<string>? AvailableDatabases { get; private set; }
+    private string mConfigFilePath;
+    public List<string>? AvailableDatastores { get; private set; }
 
     public List<string>? AvailableTables { get; private set; }
+    
+    public string ConfigFilePath { set => mConfigFilePath = value;}
 
     public string OutputConfigFilePath
     {
         set => mOutputConfigFilePath = value;
     }
-
-    public string DataStoreType
-    {
-        set
-        {
-            mCurrentDataStoreType = value;
-            SetAvailableDatabase();
-        }
-    }
-
-    public string Database
-    {
-        set
-        {
-            mCurrentId = value.Split(":")[0];
-            SetAvailableTables();
-        }
-    }
-
+    
     public string[] Tables
     {
         set
@@ -54,7 +42,6 @@ public class DataBaseManager
                 if (mDataStore == null) throw new Exception("DataStore is null");
                 var sqlGen = new SqlGenerator(mDataStore);
                 sqlGen.Generate(mOutputConfigFilePath, value);
-                
             }
             catch (Exception e)
             {
@@ -63,18 +50,28 @@ public class DataBaseManager
         }
     }
 
+    public string Database {
+        set {
+            mCurrentId = value.Split(" - ")[0].Split(": ")[1];
+            Console.WriteLine(mCurrentId);
+            SetAvailableTables();
+        }
+    }
+
     /// <summary>
     ///  Read the config file and set the dataset.
     ///  Set the available database types in DatabaseManager.AvailableDataProvider.
     /// </summary>
-    public DataBaseManager(string configFilePath)
+    public DataBaseManager()
     {
         mCurrentDataStoreType = "";
         mCurrentId = "";
         mConfigDataSet = new DataSet();
-        mConfigFilePath = configFilePath;
+        mConfigFilePath = "";
         mOutputConfigFilePath = "";
-        IDataStore mDataStore = null!;
+        mDataStore = null;
+    }
+    public void FetchDatabasesFromConfigurationFile() {
         try
         {
             var dataset = new DataSet();
@@ -86,11 +83,11 @@ public class DataBaseManager
             Console.WriteLine(e);
         }
 
-        // Get the available data store types from the config file
-        AvailableDataProvider = (
-            from DataRow dataProvider in mConfigDataSet.Tables[0].Rows
-            select TagPickerXml(dataProvider, "DATA_STORE_TYPE")
-        ).ToList();
+        AvailableDatastores = new List<string>();
+        
+        foreach (DataRow row in mConfigDataSet.Tables[0].Rows) {
+            AvailableDatastores.Add($"{row["DATA_STORE_TYPE"]}: {row["ID"]} - {row["SCHEMA"]}");
+        }
     }
 
     /// <summary>
@@ -110,7 +107,13 @@ public class DataBaseManager
             select TagPickerXml(dataProvider, "SCHEMA")
         ).ToList();
 
-        Console.WriteLine(mCurrentDataStoreType, cnnStr[0], schema[0]);
+        mCurrentDataStoreType = (
+            from DataRow dataProvider in mConfigDataSet.Tables[0].Rows
+            where TagPickerXml(dataProvider, "ID") == mCurrentId
+            select TagPickerXml(dataProvider, "DATA_STORE_TYPE")
+        ).ToList()[0];
+        
+        Console.WriteLine(mCurrentDataStoreType);
         
         // Pass the connection string and schema to the data store factory to get the available tables and views from the DataStore
         mDataStore = DataStoreFactory.GetDataStore(mCurrentDataStoreType, connStr: cnnStr[0], schema: schema[0]);
@@ -118,44 +121,12 @@ public class DataBaseManager
         AvailableTables = mDataStore.GetExistingTables(owner: schema[0]).ToList();
         foreach (var view in mDataStore.GetExistingViews())
         {
-            AvailableDatabases.Add(view);
+            AvailableTables.Add(view);
         }
 
         AvailableTables.Sort();
     }
-
-    /// <summary>
-    ///  Set the available database types in DataBaseManager.AvailableDatabases.
-    /// </summary>
-    /// <exception cref="Exception">Count Mismatch for ID and SCHEMA in configuration file.</exception>
-    private void SetAvailableDatabase()
-    {
-        // Get the ID and SCHEMA from the config file
-        var schemeId = (
-            // Get the ID from the config file
-            from DataRow dataProvider in mConfigDataSet.Tables[0].Rows
-            where TagPickerXml(dataProvider, "DATA_STORE_TYPE") == mCurrentDataStoreType
-            select TagPickerXml(dataProvider, "ID"),
-            // Get the SCHEMA from the config file
-            from DataRow dataProvider in mConfigDataSet.Tables[0].Rows
-            where TagPickerXml(dataProvider, "DATA_STORE_TYPE") == mCurrentDataStoreType
-            select TagPickerXml(dataProvider, "SCHEMA")
-        );
-
-        // Check if the count of ID and SCHEMA are equal, if not, the config file is malformed -> throw exception
-        if (schemeId.Item1.Count() != schemeId.Item2.Count()) throw new Exception("ID and SCHEMA count mismatch");
-
-        // Zip the ID and SCHEMA together and add them to the available database list in the format "ID: SCHEMA"
-        var availableDb = (
-            from valueTuple in schemeId.Item1.Zip(schemeId.Item2, (id, schema) => (id, schema))
-            let id = valueTuple.Item1
-            let schema = valueTuple.Item2
-            select id + ": " + schema
-        ).ToList();
-
-        AvailableDatabases = availableDb;
-    }
-
+    
     /// <summary>
     ///  Static method to pick a single value of a given tag from a given DataRow.
     /// </summary>

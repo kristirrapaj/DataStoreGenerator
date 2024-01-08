@@ -2,106 +2,130 @@
 using System.Windows.Controls;
 using System.Windows.Media;
 using DS_Generator.UI;
-using Microsoft.WindowsAPICodePack.Dialogs;
 
-namespace DS_Generator;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace DS_Generator
 {
-    private Controller mController;
-    
-    public MainWindow()
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        DataContext = this;
-        InitializeComponent();
-        mController = new Controller();
-    }
-    
-    private void OnWindowSizeChanged(object sender, SizeChangedEventArgs e)
-    {
-        throw new NotImplementedException();
-    }
-    
-    private void PopulateDatabaseComboBox()
-    {
-        CbDatabaseType.ItemsSource = mController.GetAvaliableDatabases();
-    }
+        private MainWindowController mMainWindowController;
+        private List<string> mAvailableDataProviders;
+        private List<string> mAvailableDataTables;
 
-    private void PopulateDataProviderComboBox()
-    {
-        CbDataProviderType.ItemsSource = mController.GetAvaliableDataProviders();
-    }
+        private const string SelectConfigFileButton = "mSelectConfigFileButton";
+        private const string DirectoryButton = "mDirectoryButton";
 
-    private void PopulateDataTableComboBox()
-    {
-        CbDataTableType.ItemsSource = mController.GetAvaliableDataTables();
-    }
-
-    private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        mController.SetDataStoreType(CbDataProviderType.SelectedItem.ToString());
-        
-        PopulateDatabaseComboBox();
-    }
-
-    private void OnDatabaseSelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        mController.SetDatabase(CbDatabaseType.SelectedItem.ToString());
-        PopulateDataTableComboBox();
-    }
-
-    private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        var selectedItem = CbDataTableType.SelectedItem.ToString();
-        mController.AddToSelectedTables(selectedItem);
-        
-        PopulateTablesComboBox(selectedItem);
-    }
-
-    private void PopulateTablesComboBox(string selectedItem)
-    {
-        MyListBox.Items.Add(selectedItem);
-    }
-
-    private void OnTableRemoveButtonSelect(object sender, RoutedEventArgs e)
-    {
-        if (MyListBox.SelectedItem == null) return;
-        mController.RemoveFromSelectedTables(MyListBox.SelectedItem.ToString());
-        MyListBox.Items.Remove(MyListBox.SelectedItem);
-    }
-
-    private void OnBrowseButtonClick(object sender, RoutedEventArgs e)
-    {
-        var dialog = mController.DialogCreator("xml");
-
-        if (dialog.ShowDialog() != CommonFileDialogResult.Ok) return;
-        var selectedPath = dialog.FileName;
-
-        if (selectedPath == null)
+        public MainWindow()
         {
-            return;
+            DataContext = this;
+            InitializeComponent();
+            InitializeControllerAndLists();
+        }
+
+        private void InitializeControllerAndLists()
+        {
+            mMainWindowController = new MainWindowController();
+            mAvailableDataProviders = new List<string>();
+            mAvailableDataTables = new List<string>();
+        }
+
+        private void OnDataTableSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = GetSelectedItem(mTablesListView);
+            UpdateSelectedTables(selectedItem, "ADD");
+            AddToListBoxIfNotPresent(mSelectedTablesListBox, selectedItem);
+        }
+
+        private void OnRemoveButtonClick(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = GetSelectedItem(mSelectedTablesListBox);
+            if (selectedItem == null) return;
+            UpdateSelectedTables(selectedItem, "REMOVE");
+            mSelectedTablesListBox.Items.Remove(selectedItem);
+        }
+
+        private void OnGenerateButtonSelected(object sender, RoutedEventArgs e)
+        {
+            mMainWindowController.SetTables();
+            mMainWindowController.ChangeConsoleText(mConsoleTextBox, "Successfully gerenated tables.", Brushes.Green);
+        }
+
+        private void OnDataProviderSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try {
+                mMainWindowController.SetDatabase(mCbDataProviderType.SelectedItem?.ToString());
+                UpdateDataTables();
+            }
+            catch (Exception exception) {
+                mMainWindowController.ChangeConsoleText(mConsoleTextBox, exception.ToString(), Brushes.Red);
+            }
+        }
+
+        private void OnOpenDialogButtonClick(object sender, RoutedEventArgs e)
+        {
+            var buttonName = (sender as Button)?.Name;
+            HandleDialogButtonClick(buttonName);
+            UpdateDataProviders();
+        }
+
+        private void OnClearButtonClick(object sender, RoutedEventArgs e)
+        {
+            mSelectedTablesListBox.Items.Clear();
+            mMainWindowController.ChangeConsoleText(mConsoleTextBox, "Cleared selected tables.", Brushes.Green);
+        }
+
+        private static string GetSelectedItem(ListBox listBox)
+        {
+            return listBox.SelectedItem?.ToString();
+        }
+
+        private void UpdateSelectedTables(string item, string action)
+        {
+            mMainWindowController.ModifySelectedTables(item, action);
+            mMainWindowController.ChangeConsoleText(mConsoleTextBox, "Tables modified.", Brushes.Green);
+        }
+
+        private static void AddToListBoxIfNotPresent(ListBox listBox, string item)
+        {
+            if (!listBox.Items.Contains(item))
+            {
+                listBox.Items.Add(item);
+            }
+        }
+
+        private void UpdateDataTables()
+        {
+            mAvailableDataTables = mMainWindowController.GetTablesList;
+            mTablesListView.ItemsSource = mAvailableDataTables;
+        }
+
+        private void UpdateDataProviders()
+        {
+            mAvailableDataProviders = mMainWindowController.GetAvaliableDatastores;
+            mCbDataProviderType.ItemsSource = mAvailableDataProviders;
+        }
+
+        private void HandleDialogButtonClick(string buttonName)
+        {
+            switch (buttonName)
+            {
+                case SelectConfigFileButton:
+                    var cfg = mMainWindowController.DialogCreator("XML");
+                    cfg = cfg.Split("\\")[^1];
+                    mSelectedConfigFilePathTextBox.Text = $"Successfully selected config file. ({cfg})";
+                    mSelectedConfigFilePathTextBox.Foreground = Brushes.Green;
+                    break;
+                case DirectoryButton:
+                    var dry = mMainWindowController.DialogCreator("DIRECTORY");
+                    dry = dry.Split("\\")[^1];
+                    mSelectedDirectoryPathTextBox.Text = $"Successfully selected directory. ({dry}/)";
+                    mSelectedDirectoryPathTextBox.Foreground = Brushes.Green;
+                    UpdateDataProviders();
+                    break;
+            }
         }
         
-        mController.SetConfigurationFile(selectedPath);
-        PopulateDataProviderComboBox();
     }
-    
-
-    private void OnFinalBrowseButtonClick(object sender, RoutedEventArgs e)
-    {
-        var dialog = mController.DialogCreator("directory");
-        if (dialog.ShowDialog() != CommonFileDialogResult.Ok) return;
-        
-        var selectedPath = dialog.FileName;
-        mController.SetOutputDirectory(selectedPath);
-    }
-
-    private void OnGenerateButtonSelected(object sender, RoutedEventArgs e)
-    {
-        mController.SetTables();
-    }
-    
 }

@@ -2,6 +2,8 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CK_002ERrapaj_005CDataStoreGenerator_005CDS_0020Generator_005CDS_0020Generator_005Clib_005CDataStore_002EFactory_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CK_002ERrapaj_005CDataStoreGenerator_005CDS_0020Generator_005CDS_0020Generator_005Clib_005Clog4net_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CK_002ERrapaj_005CDataStoreGenerator_005CDS_0020Generator_005CDS_0020Generator_005Clib_005CSystem_002EData_002ESqlClient_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/CodeInspection/PencilsConfiguration/ActualSeverity/@EntryValue">INFO</s:String>
 	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
   &lt;Assembly Path="C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\lib\Factory.dll" /&gt;&#xD;
+  &lt;Assembly Path="C:\Users\K.Rrapaj\DataStoreGenerator\DS Generator\DS Generator\lib\DataFactory.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

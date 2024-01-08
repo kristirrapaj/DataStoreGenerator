@@ -1,0 +1,54 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DS_Generator">
+
+    <!-- Buttons -->
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="100"/> 
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Margin" Value="5, 0, 5,  0"/>
+    </Style>
+
+    <!-- Labels -->
+    <Style x:Key="LabelStyle" TargetType="Label">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+    
+    <!-- Listbox -->
+    <Style x:Key="ListBoxStyle" TargetType="ListBox">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Height" Value="100"/>
+    </Style>
+    
+    <!-- ListView -->
+    <Style x:Key="ListViewStyle" TargetType="ListView">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Height" Value="100"/>
+    </Style>
+    
+    <!-- Combobox -->
+    <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+        <!-- non ho voglia di farlo -->
+    </Style>
+    
+    <!-- Grid -->
+    <Style x:Key="GridStyle" TargetType="Grid">
+        <Setter Property="Margin" Value="5"/>
+    </Style>
+    
+    <!-- RichTextBox -->
+    <Style x:Key="RichTextBoxStyle" TargetType="RichTextBox">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"></Setter>
+    </Style>
+    
+
+</ResourceDictionary>
