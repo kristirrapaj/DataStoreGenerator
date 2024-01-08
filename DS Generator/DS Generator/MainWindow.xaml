@@ -16,7 +16,7 @@
     </Window.Resources>
 
     <Grid x:Name="BaseGrid">
-        <!-- ScrollViewer for better resizing and scrolling -->
+        <!-- Better resizing and scrolling -->
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel>
                 <!-- Configuration File Section -->
@@ -56,7 +56,7 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-
+                        <!-- Available Tables Section -->
                         <StackPanel x:Name="mTablesPanel" Grid.Column="0">
                             <Label x:Name="mTablesLabel" Content="Select Table: " Style="{StaticResource LabelStyle}" />
                             <ListView x:Name="mTablesListView"
@@ -64,7 +64,7 @@
                                       ItemsSource="{Binding }"
                                       SelectionChanged="OnDataTableSelectionChanged" />
                         </StackPanel>
-
+                        <!-- Selected Tables Section -->
                         <StackPanel x:Name="mSelectedTablesPanel" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <Label x:Name="mSelectedTablesLabel" Content="Tables selected: " Style="{StaticResource LabelStyle}" />
@@ -90,6 +90,7 @@
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
+        <!-- Console Section -->
         <RichTextBox x:Name="mConsoleTextBox" Style="{StaticResource RichTextBoxStyle}" />
     </Grid>
 </Window>
