@@ -170,14 +170,12 @@ namespace DS_Generator
             {
                 case SelectConfigFileButton:
                     var cfg = mMainWindowController.DialogCreator("XML");
-                    cfg = cfg.Split("\\")[^1];
-                    mSelectedConfigFilePathTextBox.Text = $"Successfully selected config file. ({cfg})";
+                    mSelectedConfigFilePathTextBox.Text = $"{cfg}";
                     mSelectedConfigFilePathTextBox.Foreground = Brushes.Green;
                     break;
                 case DirectoryButton:
                     var dry = mMainWindowController.DialogCreator("DIRECTORY");
-                    dry = dry.Split("\\")[^1];
-                    mSelectedDirectoryPathTextBox.Text = $"Successfully selected directory. ({dry}/)";
+                    mSelectedDirectoryPathTextBox.Text = $"{dry}";
                     mSelectedDirectoryPathTextBox.Foreground = Brushes.Green;
                     UpdateDataProviders();
                     break;

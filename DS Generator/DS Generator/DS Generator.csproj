@@ -46,6 +46,17 @@
         <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.0"/>
         <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1"/>
     </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="search.png" />
+      <Content Include="search.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="delete.png" />
+      <Content Include="delete.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
     
     
 

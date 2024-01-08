@@ -22,18 +22,32 @@
                 <!-- Configuration File Section -->
                 <Expander Header="Configuration File" IsExpanded="True">
                     <StackPanel x:Name="mConfigFilePanel">
-                        <Label x:Name="mSelectConfigFileLabel" Content="Select configuration file path:" Style="{StaticResource LabelStyle}" />
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="mSelectConfigFileLabel" Content="Select configuration file:" Style="{StaticResource LabelStyle}" />
+                            <Button x:Name="mSelectConfigFileButton" Click="OnOpenDialogButtonClick" Style="{StaticResource IconButtonStyle}" >
+                                <Image Source="search.png"
+                                       Width="20" Height="20"
+                                       Stretch="UniformToFill">
+                                </Image>
+                            </Button>
+                        </StackPanel>
                         <TextBox x:Name="mSelectedConfigFilePathTextBox" IsReadOnly="True" Margin="4" />
-                        <Button x:Name="mSelectConfigFileButton" Content="Browse" Click="OnOpenDialogButtonClick" Style="{StaticResource ButtonStyle}" />
                     </StackPanel>
                 </Expander>
 
                 <!-- Directory Path Section -->
                 <Expander Header="Directory Path" IsExpanded="True">
                     <StackPanel x:Name="mDirectoryPanel">
-                        <Label x:Name="mDirectoryLabel" Content="Select final write path:" Style="{StaticResource LabelStyle}" />
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="mDirectoryLabel" Content="Select final write path:" Style="{StaticResource LabelStyle}" />
+                            <Button x:Name="mDirectoryButton" Click="OnOpenDialogButtonClick" Style="{StaticResource IconButtonStyle}" >
+                                <Image Source="search.png"
+                                       Width="20" Height="20"
+                                       Stretch="UniformToFill">
+                                </Image>
+                            </Button>
+                        </StackPanel>
                         <TextBox x:Name="mSelectedDirectoryPathTextBox" IsReadOnly="True" />
-                        <Button x:Name="mDirectoryButton" Content="Browse" Click="OnOpenDialogButtonClick" Style="{StaticResource ButtonStyle}" />
                     </StackPanel>
                 </Expander>
 
@@ -74,8 +88,13 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel x:Name="mSelectedTablesListBoxPanel" Orientation="Horizontal" >
-                                            <TextBlock x:Name="mSelectedTablesTextBlock" Text="{Binding}" HorizontalAlignment="Left" />
-                                            <Button x:Name="mRemoveButton" Content="REMOVE" Click="OnRemoveButtonClick" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"/>
+                                            <Button x:Name="mRemoveButton" Click="OnRemoveButtonClick" Style="{StaticResource IconButtonStyle}" HorizontalAlignment="Left">
+                                                <Image Source="delete.png"
+                                                       Width="20"
+                                                       Height="20">
+                                                </Image>
+                                            </Button>
+                                            <TextBlock x:Name="mSelectedTablesTextBlock" Text="{Binding}" HorizontalAlignment="Right" VerticalAlignment="Center" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
