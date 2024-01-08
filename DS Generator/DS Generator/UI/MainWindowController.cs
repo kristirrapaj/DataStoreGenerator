@@ -17,13 +17,6 @@ public class MainWindowController {
     public List<string> GetAvaliableDatastores => mDataBaseManager.AvailableDatastores;
     public List<string> GetTablesList => mDataBaseManager.AvailableTables;
 
-    private List<string> _supportedDataProviders = new List<string>();
-
-    public List<string> SupportedDataProviders {
-        get => _supportedDataProviders;
-        set => _supportedDataProviders = value;
-    }
-
     private void SetOutputDirectory(string directory) {
         mDataBaseManager.OutputConfigFilePath = $"{directory}";
     }
@@ -65,7 +58,7 @@ public class MainWindowController {
         mDataBaseManager.FetchDatabasesFromConfigurationFile();
     }
 
-    public void DialogCreator(string type) {
+    public string DialogCreator(string type) {
         CommonOpenFileDialog dialog;
         switch (type) {
             case "XML":
@@ -87,8 +80,9 @@ public class MainWindowController {
                 {
                     throw new Exception();
                 }
-
+                
                 SetConfigFilePath(dialog.FileName);
+                return dialog.FileName;
                 break;
             case "DIRECTORY":
                 dialog = new CommonOpenFileDialog {
@@ -111,6 +105,7 @@ public class MainWindowController {
                 }
 
                 SetOutputDirectory(dialog.FileName);
+                return dialog.FileName;
                 break;
             default:
                 throw new Exception();

@@ -68,7 +68,7 @@
                         <StackPanel x:Name="mSelectedTablesPanel" Grid.Column="1">
                             <StackPanel Orientation="Horizontal">
                                 <Label x:Name="mSelectedTablesLabel" Content="Tables selected: " Style="{StaticResource LabelStyle}" />
-                                <Button x:Name="mClearButton" Content="CLEAR" Click="OnClearButtonClick" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Right"/>
+                                <Button x:Name="mClearButton" Content="CLEAR" Click="OnClearButtonClick" Height="20" Width="100" HorizontalAlignment="Right"/>
                             </StackPanel>
                             <ListBox Name="mSelectedTablesListBox" Style="{StaticResource ListBoxStyle}">
                                 <ListBox.ItemTemplate>

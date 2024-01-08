@@ -68,7 +68,6 @@ namespace DS_Generator
             var buttonName = (sender as Button)?.Name;
             HandleDialogButtonClick(buttonName);
             UpdateDataProviders();
-            mMainWindowController.ChangeConsoleText(mConsoleTextBox, "Successfully fetched.", Brushes.Green);
         }
 
         private void OnClearButtonClick(object sender, RoutedEventArgs e)
@@ -113,10 +112,16 @@ namespace DS_Generator
             switch (buttonName)
             {
                 case SelectConfigFileButton:
-                    mMainWindowController.DialogCreator("XML");
+                    var cfg = mMainWindowController.DialogCreator("XML");
+                    cfg = cfg.Split("\\")[^1];
+                    mSelectedConfigFilePathTextBox.Text = $"Successfully selected config file. ({cfg})";
+                    mSelectedConfigFilePathTextBox.Foreground = Brushes.Green;
                     break;
                 case DirectoryButton:
-                    mMainWindowController.DialogCreator("DIRECTORY");
+                    var dry = mMainWindowController.DialogCreator("DIRECTORY");
+                    dry = dry.Split("\\")[^1];
+                    mSelectedDirectoryPathTextBox.Text = $"Successfully selected directory. ({dry}/)";
+                    mSelectedDirectoryPathTextBox.Foreground = Brushes.Green;
                     UpdateDataProviders();
                     break;
             }
