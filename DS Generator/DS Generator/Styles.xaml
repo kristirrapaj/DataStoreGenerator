@@ -57,5 +57,12 @@
         <Setter Property="Padding" Value="0"></Setter>
         <Setter Property="Margin" Value="0"></Setter>
     </Style>
+    
+    <Style x:Key="ImageStyle" TargetType="Image">
+        <Setter Property="Width" Value="20"></Setter>
+        <Setter Property="Height" Value="20"></Setter>
+        <Setter Property="Stretch" Value="UniformToFill"></Setter>
+        <Setter Property="Margin" Value="0, 0, 2, 0"></Setter>
+    </Style>
 
 </ResourceDictionary>

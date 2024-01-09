@@ -41,10 +41,7 @@
                         <StackPanel Orientation="Horizontal">
                             <Label x:Name="mDirectoryLabel" Content="Select final write path:" Style="{StaticResource LabelStyle}" />
                             <Button x:Name="mDirectoryButton" Click="OnOpenDialogButtonClick" Style="{StaticResource IconButtonStyle}" >
-                                <Image Source="search.png"
-                                       Width="20" Height="20"
-                                       Stretch="UniformToFill">
-                                </Image>
+                                <Image Source="search.png" Style="{StaticResource ImageStyle}"/>
                             </Button>
                         </StackPanel>
                         <TextBox x:Name="mSelectedDirectoryPathTextBox" IsReadOnly="True" />
@@ -89,10 +86,7 @@
                                     <DataTemplate>
                                         <StackPanel x:Name="mSelectedTablesListBoxPanel" Orientation="Horizontal" >
                                             <Button x:Name="mRemoveButton" Click="OnRemoveButtonClick" Style="{StaticResource IconButtonStyle}" HorizontalAlignment="Left">
-                                                <Image Source="delete.png"
-                                                       Width="20"
-                                                       Height="20">
-                                                </Image>
+                                                <Image Source="delete2.jpg" Style="{StaticResource ImageStyle}"/>
                                             </Button>
                                             <TextBlock x:Name="mSelectedTablesTextBlock" Text="{Binding}" HorizontalAlignment="Right" VerticalAlignment="Center" />
                                         </StackPanel>
